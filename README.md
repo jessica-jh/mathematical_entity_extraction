@@ -65,7 +65,7 @@ Sanity check: for any annotation row, `content[fileid][start:end]` should equal 
     ├── test_raw_predictions.jsonl              # Part 2 test raw (from 3_test_inference)
     ├── test_predictions.csv                    # Part 2 trained model test set (Kaggle/submission)
     ├── unannotated_raw_predictions.jsonl       # Part 3 unannotated raw (from 4_unannotated_inference)
-    ├── unannotated_predictions.json            # Part 3 unannotated FINAL (required submission format)
+    ├── unannotated_predictions.json            # Part 3 unannotated prediction (required submission format)
     └── unannotated_manual_review.txt           # manual review notes for Part 3 (from 4_unannotated_review)
 ```
 
@@ -77,7 +77,25 @@ Sanity check: for any annotation row, `content[fileid][start:end]` should equal 
 
 All commands are run from the **project root** (directory containing `data/` and `src/`).
 
-### (a) Training (Part 2 — best model)
+### (a) Part 1 — Baseline (few-shot, no fine-tuning)
+
+**BIO (token-level tagging):**
+```bash
+python src/1_baseline_inference_bio.py   # → submissions/baseline_bio_raw_predictions.jsonl
+python src/1_baseline_postprocess_bio.py # → submissions/baseline_val_predictions_bio.csv
+python src/1_baseline_evaluate_bio.py    # baseline token-level F1 on validation
+```
+
+**Span (JSON span extraction):**
+```bash
+python src/1_baseline_inference_span.py   # → submissions/baseline_raw_predictions.jsonl
+python src/1_baseline_postprocess_span.py # → submissions/baseline_val_predictions.csv
+python src/1_baseline_evaluate_span.py    # baseline evaluation (span)
+```
+
+**Evaluation (Part 1):** Report the baseline validation token-level F1 in the report.
+
+### (b) Part 2 — Training and trained model
 
 1. **Preprocess** training data:
    ```bash
@@ -93,8 +111,6 @@ All commands are run from the **project root** (directory containing `data/` and
 
 **Model loading:** Inference scripts (e.g. `2_val_inference.py`, `3_test_inference.py`, `4_unannotated_inference.py`) load the LoRA adapters from the checkpoint path configured inside each script (typically the `final_lora_model` directory above). If you move checkpoints, update the path constants at the top of those scripts.
 
-### (b) Inference and saving output
-
 **Validation (for evaluation):**
 ```bash
 python src/2_val_inference.py    # → submissions/val_raw_predictions.jsonl
@@ -102,28 +118,33 @@ python src/2_val_postprocess.py  # → submissions/val_predictions.csv
 python src/2_val_evaluate.py     # token-level F1 on validation
 ```
 
-**Test set (submission / Kaggle):**
+**Test set (Kaggle/submission):**
 ```bash
 python src/3_test_inference.py    # → submissions/test_raw_predictions.jsonl
 python src/3_test_postprocess.py  # → submissions/test_predictions.csv
 ```
 
+**Evaluation (Part 2):** Report the trained model validation token-level F1 in the report.
+
+### (c) Part 3 — Unannotated MMDs and error analysis
+
 **Single-file inference (quickest):**  
 Use the same pipeline as validation/test: ensure that file’s `fileid` and text are available (e.g. in `data/file_contents.json` or by adding the file to the data loader). Put the MMD file into `data/unannotated_mmds/` and run `python src/4_unannotated_inference.py`; it will be included in the unannotated inference output.
 
-**Unannotated MMDs (Part 3):**  
+**Unannotated MMDs — run inference on all documents in `data/unannotated_mmds/`:**  
 Run inference on all documents in `data/unannotated_mmds/`:
 ```bash
 python src/4_unannotated_inference.py   # → submissions/unannotated_raw_predictions.jsonl
 ```
 
-**Unannotated submission file (required):**  
-Final file: `submissions/unannotated_predictions.json`.  
-Format: JSON list of records, each `{ "fileid": "...", "start": 0, "end": 10, "tag": "definition" }` where `tag` ∈ {definition, theorem, proof, example, name, reference}.  
-If using pandas, save with `orient="records"`:
-```python
-df.to_json("submissions/unannotated_predictions.json", orient="records")
+**Error analysis (manual review):** After inference, run:
+```bash
+python src/4_unannotated_review.py   # → submissions/unannotated_manual_review.txt
 ```
+Use that report when writing the error analysis section of the report.
+
+**Unannotated submission file (required):**  
+Final file: `submissions/unannotated_predictions.json` — JSON list of `{ "fileid", "start", "end", "tag" }`. Example: `df.to_json("submissions/unannotated_predictions.json", orient="records")`.
 
 ---
 
@@ -145,13 +166,41 @@ python src/1_baseline_postprocess_span.py # → submissions/baseline_val_predict
 python src/1_baseline_evaluate_span.py    # baseline evaluation (span)
 ```
 
+**Evaluation (Part 1):** Token-level F1 on validation. Run `1_baseline_evaluate_bio.py` or `1_baseline_evaluate_span.py` after the corresponding postprocess step. Report the baseline validation F1 in the report.
+
+---
+
+## Training & Trained Model (Part 2)
+
+Fine-tune an LLM (LoRA on Qwen2.5-Math-7B-Instruct), then run validation and test inference.
+
+**Preprocess & train:**
+```bash
+python src/preprocess.py      # → data/train.jsonl (and optionally data/val.jsonl)
+python src/2_train_lora.py    # best checkpoint: outputs/checkpoints/math_lora_model/final_lora_model
+```
+
+**Validation (evaluation):**
+```bash
+python src/2_val_inference.py    # → submissions/val_raw_predictions.jsonl
+python src/2_val_postprocess.py  # → submissions/val_predictions.csv
+python src/2_val_evaluate.py     # token-level F1 on validation
+```
+
+**Test set (Kaggle/submission):**
+```bash
+python src/3_test_inference.py    # → submissions/test_raw_predictions.jsonl
+python src/3_test_postprocess.py  # → submissions/test_predictions.csv
+```
+
+**Evaluation (Part 2):** Token-level F1 on validation. Run `2_val_evaluate.py` after `2_val_postprocess.py`. Report the trained model validation F1 in the report.
+
 ---
 
 ## Evaluation
 
 - **Metric:** Token-level F1 on the validation set (as required by the assignment).
-- **Scripts:** `1_baseline_evaluate_bio.py` (baseline BIO), `1_baseline_evaluate_span.py` (baseline span), `2_val_evaluate.py` (trained model). Run after the corresponding postprocess step.
-- Report your **validation token-level F1** for the baseline and for your best experimental model.
+- **Report** your validation token-level F1 for the baseline (Part 1) and for your best experimental model (Part 2).
 
 ---
 

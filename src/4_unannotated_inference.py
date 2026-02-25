@@ -7,7 +7,7 @@ from unsloth import FastLanguageModel
 
 MODEL_PATH = "/home/jkim829/hw2/outputs/checkpoints/math_lora_model/final_lora_model" 
 UNANNOTATED_DIR = "/home/jkim829/hw2/data/unannotated_mmds"
-OUTPUT_PATH = "/home/jkim829/hw2/submissions/unannotated_analysis_predictions_re.jsonl"
+OUTPUT_PATH = "/home/jkim829/hw2/submissions/unannotated_analysis_predictions.jsonl"
 
 alpaca_prompt = """### Instruction:
 Extract all mathematical entities (definition, theorem, proof, example, name, reference) from the input. 
