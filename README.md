@@ -50,11 +50,12 @@ Sanity check: for any annotation row, `content[fileid][start:end]` should equal 
 │   ├── 2_val_evaluate.py              # Part 2:token-level F1 on validation (trained model)
 │   ├── 3_test_inference.py            # [Kaggle] inference on test file IDs → test_raw_predictions.jsonl
 │   ├── 3_test_postprocess.py          # [Kaggle] test_raw_predictions.jsonl → test_predictions.csv
-│   ├── 4_unannotated_inference.py     # Part 3: inference on data/unannotated_mmds/ → unannotated_raw_predictions.jsonl
-│   ├── 4_unannotated_review.py        # Part 3: generates unannotated_manual_review.txt for Part 3
+│   ├── 4_unannotated_inference.py     # Part 3: inference on data/unannotated_mmds/ → unannotated_analysis_predictions.jsonl
+│   ├── 4_unannotated_postprocess.py   # Part 3: raw jsonl → unannotated_predictions.json, unannotated_predictions.csv
+│   ├── 4_unannotated_review.py        # Part 3: generates unannotated_manual_review.txt for error analysis
 │   ├── error_analysis.py              # optional: validation FP/FN examples
-│   ├── kaggle_transformation.py       # optional: Kaggle submission format 
-│   └── machine_hunter.py              # optional: utility 
+│   ├── kaggle_transformation.py       # optional: Kaggle submission format
+│   └── machine_hunter.py              # optional: utility
 └── submissions/
     ├── baseline_bio_raw_predictions.jsonl      # Part 1 BIO raw output
     ├── baseline_val_predictions_bio.csv        # Part 1 BIO baseline predictions
@@ -64,8 +65,9 @@ Sanity check: for any annotation row, `content[fileid][start:end]` should equal 
     ├── val_predictions.csv                     # Part 2 trained model validation predictions
     ├── test_raw_predictions.jsonl              # Part 2 test raw (from 3_test_inference)
     ├── test_predictions.csv                    # Part 2 trained model test set (Kaggle/submission)
-    ├── unannotated_raw_predictions.jsonl       # Part 3 unannotated raw (from 4_unannotated_inference)
-    ├── unannotated_predictions.json            # Part 3 unannotated prediction (required submission format)
+    ├── unannotated_analysis_predictions.jsonl  # Part 3 unannotated raw (from 4_unannotated_inference)
+    ├── unannotated_predictions.json            # Part 3 final (from 4_unannotated_postprocess; required submission)
+    ├── unannotated_predictions.csv             # Part 3 same as .json in CSV form (from 4_unannotated_postprocess)
     └── unannotated_manual_review.txt           # manual review notes for Part 3 (from 4_unannotated_review)
 ```
 
@@ -134,17 +136,17 @@ Use the same pipeline as validation/test: ensure that file’s `fileid` and text
 **Unannotated MMDs — run inference on all documents in `data/unannotated_mmds/`:**  
 Run inference on all documents in `data/unannotated_mmds/`:
 ```bash
-python src/4_unannotated_inference.py   # → submissions/unannotated_raw_predictions.jsonl
+python src/4_unannotated_inference.py    # → submissions/unannotated_analysis_predictions.jsonl
+python src/4_unannotated_postprocess.py  # → submissions/unannotated_predictions.json, unannotated_predictions.csv
 ```
 
-**Error analysis (manual review):** After inference, run:
+**Error analysis (manual review):** After inference (and optionally after postprocess), run:
 ```bash
 python src/4_unannotated_review.py   # → submissions/unannotated_manual_review.txt
 ```
 Use that report when writing the error analysis section of the report.
 
-**Unannotated submission file (required):**  
-Final file: `submissions/unannotated_predictions.json` — JSON list of `{ "fileid", "start", "end", "tag" }`. Example: `df.to_json("submissions/unannotated_predictions.json", orient="records")`.
+**Unannotated submission file (required):** Produced by `4_unannotated_postprocess.py`: `submissions/unannotated_predictions.json` (and `unannotated_predictions.csv`). Format: JSON list of `{ "fileid", "start", "end", "tag" }`.
 
 ---
 
@@ -206,13 +208,13 @@ python src/3_test_postprocess.py  # → submissions/test_predictions.csv
 
 ## Error Analysis (Part 3)
 
-Error analysis on the **unannotated** MMD documents is done via `4_unannotated_review.py`. After running inference (`4_unannotated_inference.py`), run:
+Error analysis on the **unannotated** MMD documents is done via `4_unannotated_review.py`. After running inference (`4_unannotated_inference.py`; optionally run `4_unannotated_postprocess.py` for final JSON/CSV), run:
 
 ```bash
 python src/4_unannotated_review.py   # → submissions/unannotated_manual_review.txt
 ```
 
-This script reads the unannotated predictions (e.g. `unannotated_analysis_predictions.jsonl` or `unannotated_analysis_predictions_re.jsonl`—ensure the path in the script matches your inference output), pairs each predicted span with surrounding context from the source MMD, and writes a review report to `submissions/unannotated_manual_review.txt`. Use **that report** (`unannotated_manual_review.txt`) while writing the report: (1) what mistakes the model makes, (2) why, (3) how you would improve it, (4) whether your solution introduces new problems.
+This script reads the unannotated predictions (`submissions/unannotated_analysis_predictions.jsonl` from `4_unannotated_inference.py`), pairs each predicted span with surrounding context from the source MMD, and writes a review report to `submissions/unannotated_manual_review.txt`. Use **that report** (`unannotated_manual_review.txt`) while writing the report: (1) what mistakes the model makes, (2) why, (3) how you would improve it, (4) whether your solution introduces new problems.
 
 Optionally, for validation-set FP/FN examples:
 
@@ -231,7 +233,7 @@ This section maps each of the **4 required submission items** to where they are 
 - **Source code:** All scripts are under `src/` (see **Project Structure** above).
 - **Instructions:** This README is the runbook. In particular:
   - **(a) Training:** See **How to Run → (a) Training**. Run `python src/preprocess.py` then `python src/2_train_lora.py`. Best model/hyperparameters are those used in `2_train_lora.py` (LoRA on Qwen2.5-Math-7B-Instruct; details in the report).
-  - **(b) Inference on a specific MMD file:** See **How to Run → (b) Inference**. For a single file: use the same pipeline as validation/test—put the file’s text in a structure keyed by `fileid` (e.g. in `file_contents.json` or a small loader), then run `2_val_inference.py`-style inference and the corresponding postprocess script to get a CSV with `(fileid, start, end, tag)`. For **unannotated** MMDs in `data/unannotated_mmds/`, run `python src/4_unannotated_inference.py`; output is in `submissions/unannotated_analysis_predictions_re.jsonl`.
+  - **(b) Inference on a specific MMD file:** See **How to Run → (b) Inference**. For a single file: use the same pipeline as validation/test—put the file’s text in a structure keyed by `fileid` (e.g. in `file_contents.json` or a small loader), then run `2_val_inference.py`-style inference and the corresponding postprocess script to get a CSV with `(fileid, start, end, tag)`. For **unannotated** MMDs in `data/unannotated_mmds/`, run `python src/4_unannotated_inference.py` then `python src/4_unannotated_postprocess.py`; raw output is in `submissions/unannotated_analysis_predictions.jsonl`, final in `submissions/unannotated_predictions.json` and `unannotated_predictions.csv`.
 
 ### 2. Validation / Test set predictions
 
@@ -241,8 +243,8 @@ This section maps each of the **4 required submission items** to where they are 
 
 ### 3. Unannotated MMD inference results
 
-- **File:** `submissions/unannotated_analysis_predictions_re.jsonl` (and any CSV/JSON derived from it if required).
-- **How produced:** Run `python src/4_unannotated_inference.py`. The script reads all documents in `data/unannotated_mmds/`, runs the trained model, and writes one JSON object per predicted span to the above file. These results are the ones used for **Part 3 error analysis** and for submission.
+- **File:** `submissions/unannotated_predictions.json` (required submission format); optionally `unannotated_predictions.csv`. Raw output: `submissions/unannotated_analysis_predictions.jsonl`.
+- **How produced:** Run `python src/4_unannotated_inference.py` (→ `unannotated_analysis_predictions.jsonl`), then `python src/4_unannotated_postprocess.py` (→ `unannotated_predictions.json`, `unannotated_predictions.csv`). The raw jsonl is used for **Part 3 error analysis** (`4_unannotated_review.py`); the postprocess output is the final submission.
 
 ### 4. Report
 
