@@ -1,0 +1,1052 @@
+### Change of base for homotopy limits and colimits
+
+In the proof of Lemma 7.5.1 in the last chapter, we used the known constructions of the ordinary and conical limit of a \(\mathcal{V}\)-valued diagram, the former as an equalizer and the latter as an enriched end, to show that the same object satisfied the two distinct defining universal properties. In this section, we repeat this trick with particular weighted colimits of a diagram \(F\colon\mathcal{D}\to\mathbf{Top}\) to show, among other things, that two reasonable definitions of homotopy colimits produce the same object, even though the defining universal properties are a priori distinct. Here we focus on the convenient category of spaces for concreteness, but our proofs are quite general. At the conclusion of this section, we state a general form of this "change of base" result, whose proof is the same.
+
+To illustrate the need for a result of this form, let us dualize the discussion of totalization from Example 7.7.3. Combining Definition 4.1.6 and Theorem 7.6.3, the geometric realization of a simplicial object \(X\colon\,\mathbb{A}^{\mathrm{op}}\to\mathbf{Top}\) is the colimit weighted by the Yoneda embedding \(\Delta^{\bullet}\colon\,\mathbb{A}\to\mathbf{sSet}\). Because our weight is valued in simplicial sets, here again we are implicitly using the simplicial structure on \(\mathbf{Top}\) defined in 3.7.15. The defining universal property of this weighted colimit is therefore an isomorphism of simplicial sets
+
+\[S\,\underline{\mathbf{Top}}(|X|,Z)\cong\underline{\mathbf{sSet}}^{\mathbb{A}}( \Delta^{\bullet},S\,\underline{\mathbf{Top}}(X_{\bullet},Z))\cong S\, \underline{\mathbf{Top}}^{\mathbb{A}}(|\Delta^{\bullet}|,\underline{\mathbf{Top }}(X_{\bullet},Z))\]
+
+for any \(Z\in\overline{\mathbf{Top}}\). Here we write \(\underline{\mathbf{Top}}\) for its internal hom as a closed monoidal category, which means that \(S\,\underline{\mathbf{Top}}\) is the hom-object in its simplicial enrichment. The second isomorphism uses the fact that the adjunction \(|-|\dashv S\) is simplicially enriched by Corollary 3.7.12 and Lemma 6.1.6.
+
+But by construction
+
+\[|X|:=\int^{n\in\mathbb{A}^{\mathrm{op}}}\Delta^{n}\otimes X_{n}:=\int^{n\in \mathbb{A}^{\mathrm{op}}}|\Delta^{n}|\times X_{n},\]
+
+which, by Theorem 7.6.3, is the \(\mathbf{Top}\)-enriched colimit of \(X\) weighted by the composite functor \(\mathbb{A}\stackrel{{\Delta^{\bullet}}}{{\to}}\mathbf{sSet} \stackrel{{|\dashv}}{{\to}}\mathbf{Top}\). (The hypotheses of Theorem 7.6.3 apply because \(\mathbf{Top}\), as a closed monoidal category, is tensored and cotensored.) Thus, \(|X|\) also is characterized by the isomorphism of spaces
+
+\[\underline{\mathbf{Top}}(|X|,Z)\cong\underline{\mathbf{Top}}^{\mathbb{A}}(| \Delta^{\bullet}|,\underline{\mathbf{Top}}(X_{\bullet},Z)),\]
+
+which feels much more natural.
+
+The same argument proves the following theorem.
+
+**Theorem 8.2.1**.: _Let \(F\colon\,\mathcal{D}\to\mathbf{Top}\). Then the homotopy colimit of \(F\) is computed by both the \(\mathbf{sSet}\)-enriched colimit weighted by \(N(-/\mathcal{D})\) or the \(\mathbf{Top}\)-enriched colimit weighted by \(|N(-/\mathcal{D})|\). Dually, the homotopy limit of \(F\) is both the \(\mathbf{sSet}\)-enriched limit weighted by \(N(\mathcal{D}/-)\) and the \(\mathbf{Top}\)-enriched limit weighted by \(|N(\mathcal{D}/-)|\)._
+
+Proof.: By Theorem 7.6.3 the formulae for the pair of weighted colimits or the pair of weighted limits are identical even though the defining universal properties differ. 
+
+The argument here is categorical, not homotopical. What we mean to assert is that our preferred homotopy colimit functors are isomorphic, not merely weakly equivalent. The argument just given also proves the following general "change of base" result.
+
+**Theorem 8.2.2**.: _Suppose we have an adjunction \(F\colon\,\mathcal{V}\rightleftarrows\mathcal{U}\colon\,G\) between closed symmetric monoidal categories such that the left adjoint \(F\) is strong monoidal, and let \(\mathcal{D}\) be any small unenriched category. Consider a diagram \(H\colon\,\mathcal{D}\to\mathcal{U}\) and a \(\mathcal{V}\)-valued weight \(W\), either covariant or contravariant in \(\mathcal{D}\) as appropriate to the setting. Writing subscripts to indicate whether the following are meant to be interpreted with respect to the canonical \(\mathcal{U}\)-enrichments or \(\mathcal{V}\)-enrichments, we have_
+
+\[\lim_{\mathcal{V}}^{W}H\cong\lim_{\mathcal{U}}^{FW}H\qquad\text{and}\qquad \operatorname{colim}_{\mathcal{V}}^{W}H\cong\operatorname{colim}_{\mathcal{U }}^{FW}H.\]
+
+Proof.: The hypotheses of Theorem 7.6.3 apply to both the canonical \(\mathcal{U}\)-enrichment and to the \(\mathcal{V}\)-enrichment of \(\mathcal{U}\) defined by Theorem 3.7.11. Using these formulae, the weighted limits and colimits in the two enriched contexts are defined by exactly the same functor cotensor or tensor products. 
+
+Under additional hypotheses designed to guarantee that certain weighted limits and colimits are homotopically meaningful, Theorem 8.2.2 gives a "change of base" result for computing homotopy limits and colimits. If \(\mathcal{V}\) is cocomplete, a cosimplicial object \(\Delta^{\bullet}\colon\,\mathbb{A}\to\mathcal{V}\) produces an adjunction \(\mathbf{sSet}\rightleftarrows\mathcal{V}\) as described in 1.5.1. If this left adjoint is strong monoidal, then Theorem 3.7.11 implies that \(\mathcal{U}\)-enrichments, tensors, and cotensors can be pulled back first to \(\mathcal{V}\) and then to simplicial sets. If \(\mathcal{V}\) is assumed to be a \(\mathcal{V}\)-model category and \(\mathcal{U}\) to be a \(\mathcal{U}\)-model category and if both adjunctions are Quillen, then as remarked at the end of Chapter 3, these structures guarantee that any \(\mathcal{U}\)-model category or \(\mathcal{V}\)-model category becomes a simplicial model category in a canonical way. We leave it to the reader to observe that the natural definitions of homotopy limits and colimits in any of these enriched contexts are tautologically equivalent.
+
+### Final functors in unenriched category theory
+
+In some cases, it is possible to reduce a colimit over a particular diagram to a colimit over a simpler diagram. For instance:
+
+**Lemma 8.3.1**.: _If \(\mathcal{D}\) has a terminal object \(t\) and \(F\colon\mathcal{D}\to\mathcal{M}\), then \(\operatorname{colim}_{\mathcal{D}}F\cong Ft\)._
+
+Proof.: Guess and check: it is straightforward to show that the obvious cone to \(Ft\) has the desired universal property. 
+
+Proof.: The parallel pair
+
+extends to a split coequalizer diagram
+
+where the \(\iota\)'s denote coproduct inclusions. Hence \(t\) is the colimit of the parallel pair and furthermore this colimit is preserved by any functor.1
+
+Footnote 1: Such colimits are called **absolute**.
+
+Proof.: The functor \(t\colon\mathbb{1}\to\mathcal{D}\) is a **final functor**, as defined below. 
+
+**Definition 8.3.2**.: A functor \(K\colon\mathcal{C}\to\mathcal{D}\) is **final** if for any functor \(F\colon\mathcal{D}\to\mathcal{M}\), the canonical map
+
+\[\operatorname{colim}_{\mathcal{C}}FK\xrightarrow{\cong}\operatorname{colim}_{ \mathcal{D}}F\]
+
+is an isomorphism, both sides existing if either does. Dually, \(K\) is **initial** if for any \(F\colon\mathcal{D}\to\mathcal{M}\), the canonical map
+
+\[\lim_{\mathcal{D}}F\xrightarrow{\cong}\lim_{\mathcal{C}}FK\]
+
+is an isomorphism.
+
+_Remark 8.3.3_.: Final functors were originally called "cofinal," motivated by the notion of a cofinal subsequence (see Example 8.5.2). The terminology used here is the modern categorical consensus, adopted because the directionality of "cofinal" is confusing and the correct dual terminology is even more so.
+
+As it stands, the third proof of Lemma 8.3.1 just rephrases the original claim. The substance is on account of the following simple characterization of final functors.
+
+**Lemma 8.3.4**.: _A functor \(K\colon\mathcal{C}\to\mathcal{D}\) is final if and only if for each \(d\in\mathcal{D}\), the slice category \(d/K\) is non-empty and connected._
+
+**Remark 8.3.5**.: A category is **connected** just when any pair of objects can be joined by a finite zig-zag of arrows. Let \(\pi_{0}\colon\mathbf{Cat}\to\mathbf{Set}\) be the "path components" functor that sends a category to its collection of objects up to such zig-zags. This functor is left adjoint to the inclusion \(\mathbf{Set}\to\mathbf{Cat}\), whose right adjoint is the functor that takes a category to its underlying set of objects. A category \(\mathcal{C}\) is non-empty and connected if and only if \(\pi_{0}\mathcal{C}\) is the singleton set.
+
+Proof of Lemma 8.3.4.: Given \(F\colon\mathcal{D}\to\mathcal{M}\), a cone under \(F\) immediately gives rise to a cone under \(FK\). Conversely a cone under \(FK\) induces a unique cone under \(F\) in the case where each \(d/K\) is non-empty and connected. Given a cone \(\lambda_{c}\colon FKc\to m\), define the leg of the cone indexed by \(d\) by choosing any arrow \(d\to Kc\), which is possible since \(d/K\) is non-empty, and composing its image under \(F\) with \(\lambda_{c}\). Connectedness of \(d/K\) shows that any two choices can be connected by a zig-zag of commutative triangles, the bases of which commute with the maps to \(m\) because \(\lambda\) is a cone over \(FK\). Because the sets of cones under \(FK\) and \(F\) are isomorphic, so are the colimits.
+
+For the converse, first note that for any \(X\colon\mathcal{C}\to\mathbf{Set}\), there is an isomorphism \(\pi_{0}(\mathbf{el}X)\cong\operatorname{colim}_{\mathcal{C}}X\) because each arrow connecting two objects in \(\mathbf{el}X\) corresponds to a condition demanding that these elements are identified in any cone under \(X\). Recall from Example 7.1.11 that \(\mathbf{el}\mathcal{D}(d,K-)\cong d/K\). Now suppose \(K\) is final. Then \(\pi_{0}(d/K)\cong\operatorname{colim}_{\mathcal{C}}\mathcal{D}(d,K-)\cong \operatorname{colim}_{\mathcal{D}}\mathcal{D}(d,-)\cong*\), by inspection or the coYoneda lemma. Hence, \(d/K\) is non-empty and connected. 
+
+Proof 3, revised.: When \(t\colon\mathbb{1}\to\mathcal{D}\) is a terminal object, each \(d/t\) is the category \(\mathbb{1}\). 
+
+Final functors can reduce large colimits to small colimits or, in special cases, to small limits:
+
+**Corollary 8.3.6**.: _For any category \(\mathcal{D}\), the colimit of the identity functor \(1_{\mathcal{D}}\colon\mathcal{D}\to\mathcal{D}\), if it exists, is a terminal object of \(\mathcal{D}\), and conversely any terminal object defines a colimit of \(1_{\mathcal{D}}\colon\mathcal{D}\to\mathcal{D}\)._
+
+Proof.: If \(\mathcal{D}\) has a terminal object \(t\), then \(t\colon\mathbb{1}\to\mathcal{D}\) is final and hence \(\operatorname{colim}1_{\mathcal{D}}\cong\operatorname{colim}t\cong t\). Conversely, if \(t\) is a colimit of the identity functor, the component of the colimit cone at \(t\) is easily seen to be an idempotent \(e\). But then \(e\) and \(1_{t}\) define the same cone under the identity diagram, hence \(e=1_{t}\), and it follows easily that \(t\) is terminal. 
+
+**Example 8.3.7**.: If \(\mathcal{D}\) is a disjoint union of categories \(\mathcal{D}_{\alpha}\), each containing a terminal object, then the natural inclusion of the discrete category on these objects is final. In particular, the colimit of a diagram of shape \(\mathcal{D}\) is isomorphic to the coproduct of the images of the terminal objects in each component. We made use of this observation in our explorations of the simplicial bar construction in section 4.4.
+
+**Example 8.3.8**.: Write \(2_{2}\) for the category \(\bullet\rightrightarrows\bullet\) of a parallel pair of arrows. The functor \(2_{2}\to\mathbb{A}^{\operatorname{op}}\) with image \([1]\rightrightarrows[0]\) is final. Hence, the colimit of a simplicial object \(X\) is just the coequalizer of the face maps \(X_{1}\rightrightarrows X_{0}\), which produces the set of path components of the geometric realization of \(X\).
+
+**Example 8.3.9**.: The twisted arrow category introduced in Example 7.2.9 admits a final functor \(K\colon\mathcal{C}^{\$}\to\operatorname{tw}\!C\), where \(\mathcal{C}^{\$}\) has an object for each object or morphism of \(\mathcal{C}\) and arrows so that \(\mathcal{C}^{\$}\) has the shape of the wedges displayed in (1.2.3). The functor \(K\) is surjective on objects but its image contains very few morphisms. Nonetheless, it is final, and hence coends can be computed as (ordinary) colimits over the twisted arrow category or as colimits over \(\mathcal{C}^{\$}\), as described in [11, SSIX.5].
+
+### Final functors in enriched category theory
+
+The notions of initial and final functors can be generalized to enriched category theory. To simplify the discussion, we consider only _cartesian_ closed symmetric monoidal categories \(\mathcal{V}\). For such \(\mathcal{V}\), the monoidal unit is terminal and hence there exists a constant \(\mathcal{V}\)-functor \(*\colon\underline{\mathcal{D}}\to\underline{\mathcal{V}}\) for any small \(\mathcal{V}\)-category \(\underline{\mathcal{D}}\).
+
+For sake of contrast, let us dualize. We say a \(\mathcal{V}\)-functor \(K\colon\underline{\mathcal{C}}\to\underline{\mathcal{D}}\) is **initial** if it satisfies the equivalent conditions of the following theorem.
+
+**Theorem 8.4.1** ((Kel82, 4.67)).: _Suppose \(\mathcal{V}\) is cartesian closed and \(K\colon\underline{\mathcal{C}}\to\underline{\mathcal{D}}\) is a \(\mathcal{V}\)-functor. The following are equivalent:_
+
+1. _For any_ \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\)_, the conical limits_ \(\lim^{*}F\cong\lim^{*}FK\) _are isomorphic, either side existing if the other does._
+2. _For each_ \(d\in\underline{\mathcal{D}}\)_,_ \(\operatorname{colim}^{*}\underline{\mathcal{D}}(K-,d)=*\)_._
+3. _The constant map_ \(*\colon\underline{\mathcal{D}}\to\underline{\mathcal{V}}\) _is the left Kan extension of the constant map_ \(*\colon\underline{\mathcal{C}}\to\underline{\mathcal{V}}\) _along_ \(K\)_._
+
+Proof.: The conical colimit of \(\underline{\mathcal{D}}(K-,d)\) is the functor tensor product
+
+\[*\otimes_{\mathbb{C}^{\mathbb{P}}}\underline{\mathcal{D}}(K-,d)\cong\underline {\mathcal{D}}(K-,d)\otimes_{\underline{\mathcal{C}}}*\]
+
+which also computes the left Kan extension of the constant functor \(*\colon\underline{\mathcal{C}}\to\underline{\mathcal{V}}\) along \(K\). Hence, the second and third conditions are equivalent. The third condition implies the first by one of the duals of Lemma 8.1.4.
+
+To prove the second condition given the first, we use the defining universal property of the conical colimit and the fact that \(\operatorname{colim}^{*}\underline{\mathcal{D}}(-,d)=*\), as a consequence of the coYoneda lemma. Then
+
+\[\underline{\mathcal{V}}(\operatorname{colim}^{*}\underline{ \mathcal{D}}(K-,d),v)\cong\lim^{*}\underline{\mathcal{V}}(\underline{\mathcal{ D}}(K-,d),v)\cong\lim^{*}\underline{\mathcal{V}}(\underline{\mathcal{D}}(-,d),v)\] \[\cong\underline{\mathcal{V}}(\operatorname{colim}^{*}\underline {\mathcal{D}}(-,d),v)\cong\underline{\mathcal{V}}(*,v)\]
+
+whence, by Lemma 3.5.12, the result. 
+
+**Example 8.4.2**.: If \(K\colon\underline{\mathcal{C}}\to\underline{\mathcal{D}}\) has a right \(\mathcal{V}\)-adjoint \(R\), then precomposition with \(K\) is _right_\(\mathcal{V}\)-adjoint to precomposition with \(R\). The following sequence of isomorphisms and Lemma 3.5.12 prove that \(K\) is initial:
+
+\[\underline{\mathcal{M}}(m,\lim^{*}FK)\cong\lim^{*}\underline{\mathcal{M}}(m, FK)\cong\lim^{*}\underline{\mathcal{M}}(mR,F)\cong\lim^{*}\underline{\mathcal{M}}(m,F) \cong\underline{\mathcal{M}}(m,\lim^{*}F).\]
+
+### Homotopy final functors
+
+Motivated by the definitions in sections 8.3 and 8.4, we introduce the homotopical version of initial and final functors. For this we need a homotopical notion: a simplicial set is **contractible** if the unique map to the terminal object is a weak homotopy equivalence.
+
+**Definition 8.5.1**.: A functor \(K\colon\mathcal{C}\to\mathcal{D}\) is **homotopy final** if the simplicial set \(N(d/K)\) is contractible for all \(d\in\mathcal{D}\) and **homotopy initial** if each \(N(K/d)\) is contractible.
+
+A cofinal sequence defines a homotopy final subcategory of the associated ordinal category.
+
+**Example 8.5.2**.: Let \(\omega\) be the ordinal category \(0\to 1\to 2\to\cdots\) and let \(K\colon\omega\to\omega\) be any final functor, equivalently, any functor whose object function is cofinal in the classical sense. We claim \(\omega\) is homotopy final. For each \(n\in\omega\), there is some \(m\) such that \(n<K(m)\), and hence the slice category \(n/K\) is non-empty. For each such \(m\), either \(K(m)=K(m+1)\), in which case \(m\) and \(m+1\) index isomorphic objects of \(n/K\), or \(K(m)<K(m+1)\), in whichcase there is a unique arrow from the former object to the latter in \(n/K\). The category \(n/K\) is equivalent to its skeleton, which is isomorphic to \(\omega\) by the observation just made. The nerve functor \(N\colon\mathbf{Cat}\to\mathbf{sSet}\) takes equivalences of categories to homotopy equivalences of simplicial sets because it takes natural transformations to homotopies (see the proof of Lemma 8.5.3). Hence \(N(n/K)\simeq N(\omega)\). But _omega_ has an initial object, so there is a homotopy from the constant endofunctor at the initial object to the identity endofunctor, implying that \(N(\omega)\) and \(N(\mathbb{1})\) are homotopy equivalent, and hence that \(N(n/K)\simeq N(\omega)\simeq N(\mathbb{1})=\Delta^{0}\). Thus a cofinal sequence in \(\omega\) gives rise to a homotopy final functor.
+
+The following lemma records one component of the argument we have just used.
+
+**Lemma 8.5.3**.: _If \(\mathcal{D}\) is a category with an initial object, then \(N\mathcal{D}\) is contractible._
+
+Proof.: If \(\mathcal{D}\) has an initial object \(i\), there is a natural transformation from the constant functor at the initial object to the identity functor. A natural transformation \(\alpha\colon F\Rightarrow G\) between functors \(F,G\colon\mathcal{C}\rightrightarrows\mathcal{D}\) can be encoded by a functor \(\mathcal{C}\times 2\to\mathcal{D}\) restricting to \(F\) and \(G\) on the subcategories corresponding to the two objects of the walking arrow category \(2\). Right adjoints of course preserve products; hence, taking nerves, natural transformations become homotopies. In particular, the natural transformation from the constant functor to the identity defines a simplicial homotopy equivalence between the geometric realizations of the maps \(i\colon\mathbb{1}\to\mathcal{D}\) and \(\mathbb{1}\colon\mathcal{D}\to\mathbb{1}\). 
+
+**Example 8.5.4**.: Lemma 8.5.3 gives another proof that the space \(EG\) defined in Example 4.5.5 is contractible. \(EG\) is the geometric realization of the nerve of the **translation groupoid** of the discrete group \(G\). The translation groupoid is the category with elements of \(G\) as objects and a unique morphism in each hom-set; the intuition is the map \(g^{\prime}\to g^{\prime\prime}\) represents the unique \(g\in G\) so that \(gg^{\prime}=g^{\prime\prime}\). This category is equivalent to the terminal category and in particular has a initial object.
+
+A category \(\mathcal{C}\) is **filtered** if any finite diagram in \(\mathcal{C}\) has a cone under it. Equivalently, \(\mathcal{C}\) is filtered if
+
+1. for each pair of objects \(c,c^{\prime}\) there is some \(c^{\prime\prime}\) together with maps \(c\to c^{\prime\prime}\) and \(c^{\prime}\to c^{\prime\prime}\), and if
+2. for each pair of morphisms \(c\rightrightarrows c^{\prime}\) there is some \(c^{\prime}\to c^{\prime\prime}\) such that the two composites coincide.
+
+**Lemma 8.5.5**.: _If \(K\colon\mathcal{C}\to\mathcal{D}\) is homotopy final, then \(K\) is final. Conversely, if \(\mathcal{C}\) is filtered and \(K\colon\mathcal{C}\to\mathcal{D}\) is a final functor, then \(K\) is homotopy final._
+
+Proof.: For any category \(\mathcal{C}\), \(\pi_{0}\mathcal{C}\cong\pi_{0}NC\). If \(K\) is homotopy final then each \(N(d/K)\) is contractible and \(\pi_{0}(d/K)\cong\pi_{0}N(d/K)=*\) implies that \(d/K\) is non-empty and connected. Now suppose \(\mathcal{C}\to\mathcal{D}\) is final and that \(\mathcal{C}\) is filtered. Combining these facts, it is easy to show that \(d/K\) is also filtered: condition (ii) is immediate and condition (i) follows because a zig-zag connecting a pair of objects \(d\to Kc\) and \(d\to Kc^{\prime}\) defines a finite diagram in \(\mathcal{C}\). The claim now follows from the classical result that nerves of filtered categories are contractible: the main idea of the proof is that a class in the \(n\)-th homotopy group of a simplicial set \(X\) can be represented by a map \(S\to X\) where the geometric realization of \(S\) is homotopy equivalent to \(S^{n}\) and has only finitely many non-degenerate simplices. 
+
+These definitions are justified by the following theorem:
+
+**Theorem 8.5.6** (homotopy finality).: _Let \(F\colon\mathcal{D}\to\mathcal{M}\) be any diagram in a simplicial model category. If \(K\colon\mathcal{C}\to\mathcal{D}\) is homotopy final, then \(\operatorname{hocolim}_{\mathcal{C}}FK\to\operatorname{hocolim}_{\mathcal{D}}F\) is a weak equivalence._Proof.: We use the homotopical aspects of the bar construction detailed in 5.2.5. When \(K\) is homotopy final, the natural map \(N(d/K)\to N(d/\mathcal{D})\) is a weak equivalence because both spaces are contractible. Using the isomorphisms \(N(-/K)\cong B(*,\mathcal{C},\mathcal{D}(-,K-))\) and \(N(-/\mathcal{D})\cong B(*,\mathcal{D},\mathcal{D})\) of 4.2.6 and the fact that \(B(-,\mathcal{D},QF)\) preserves weak equivalences, the top map in the following diagram is a weak equivalence.
+
+The associativity of the bar construction gives the vertical isomorphisms and hence the middle weak equivalence. The left vertical map is defined using the natural augmentation from the simplicial object \(B_{\bullet}(\mathcal{D}(-,Kc),\mathcal{D},QF)\) to \(QFKc\); the right vertical map is a special case of this. Furthermore, both augmented simplicial objects have forwards contracting homotopies as detailed in Example 4.5.7. By Corollary 4.5.2, these maps define weak equivalences \(B(\mathcal{D}(-,K-),\mathcal{D},QF)\to QFK\) and \(B(\mathcal{D},\mathcal{D},QF)\to QF\) between pointwise cofibrant diagrams, which are preserved by \(B(*,\mathcal{C},-)\) and \(B(*,\mathcal{D},-)\) by 5.2.5. Hence, the vertical maps are weak equivalences and therefore so is the bottom map by the 2-of-3 property. 
+
+An alternate proof of this theorem will be given at the end of section 11.5.
+
+**Exercise 8.5.7**.: Using Theorem 8.1.8, show that if \(K\colon\mathcal{C}\to\mathcal{D}\) is any functor such that for any diagram \(F\colon\mathcal{D}\to\mathbf{sSet}\), the natural map \(\operatorname{hocolim}_{\mathcal{C}}FK\to\operatorname{hocolim}_{\mathcal{D}}F\) is a weak equivalence, then \(K\) is homotopy final.
+
+**Corollary 8.5.8** (Quillen's Theorem A).: _If \(K\colon\mathcal{C}\to\mathcal{D}\) is homotopy final, then \(\mathit{NC}\to\mathit{ND}\) is a weak equivalence._
+
+Proof.: A map of simplicial sets is a weak equivalence just when the induced map of geometric realizations is a weak equivalence. But \(|\mathit{NC}|=B(*,\mathcal{C},*)\cong\operatorname{hocolim}_{\mathcal{C}}*\). So the map in question \(|\mathit{NC}|\to|\mathit{ND}|\) is just the map between the homotopy colimit of the restricted diagram \(\mathcal{C}\stackrel{{ K}}{{\to}}\mathcal{D}\stackrel{{ *}}{{\to}}\mathbf{Top}\) and the homotopy colimit of \(*\colon\mathcal{D}\to\mathbf{Top}\). 
+
+**Example 8.5.9**.: If \(\mathcal{D}\) has a terminal object \(t\), the inclusion \(t\colon\mathbb{1}\to\mathcal{D}\) is homotopy final and hence the homotopy colimit of any diagram of shape \(\mathcal{D}\) is weakly equivalent to the image of \(t\). For instance, the mapping cylinder, a model for the homotopy colimit of an arrow \(f\colon X\to Y\) in \(\mathbf{Top}\), deformation retracts onto \(Y\); cf. 6.4.4.
+
+The author learned the following example from Omar Antolin Camarena.
+
+**Example 8.5.10**.: If \(M\) is a commutative monoid, its group completion \(G\) can be constructed as a quotient of \(M\times M\) by the relation \((m,n)\sim(m^{\prime},n^{\prime})\) if there is \(k\in M\) so that \(m+n^{\prime}+k=m^{\prime}+n+k\). The map \(m\mapsto(m,0)\colon M\to G\) satisfies the expected universal property.
+
+Regarding \(M\) and \(G\) as one-object categories, the functor \(M\to G\) is homotopy final because the relevant slice category is filtered. Hence, Corollary 8.5.8 tells us that the natural map \(BM\to BG\) is a weak equivalence. For arbitrary (not necessarily commutative) monoids \(M\), the fundamental group of \(BM\) is the group completion, as can be directly verified, but having a weak equivalence \(BM\to BG\) is quite special; in fact, while \(BG\) is always a \(1\)-type, Dusa McDuff proved that any connected homotopy type can be obtained as the classifying space of a monoid [10].
+
+**Exercise 8.5.11**.: _Give an example to show that the functor of Example 8.3.8 is not homotopy final._
+
+**Example 8.5.12**.: _Write \(m\colon\overrightarrow{\mathbb{A}}\hookrightarrow\mathbb{A}\) for the inclusion subcategory containing all objects but only the monomorphisms (face maps). We claim this inclusion is homotopy initial. To show that each slice category \(m/[n]\) is contractible, first define an endofunctor \(S:m/[n]\to m/[n]\) that sends \(\alpha\colon[k]\to[n]\) to the map \(S\alpha\colon[k+1]\to[n]\) with \((S\alpha)(0)=0\) and \((S\alpha)(i)=\alpha(i-1)\) for \(i>0\). Write \(E\colon m/[n]\to m/[n]\) for the functor constant at the map \([0]\stackrel{{ 0}}{{\to}}[n]\). The maps \(d^{0}\) define the components of a natural transformation \(\operatorname{id}\Rightarrow S\) and the maps \(0\) define a natural transformation \(E\Rightarrow S\). Taking nerves, these natural transformations define a zig-zag of homotopies from the identity to \(E\), exhibiting contractibility of \(N(m/[n])\). Hence \(\overrightarrow{\mathbb{A}}\hookrightarrow\mathbb{A}\) is homotopy initial. The dual inclusion is thus homotopy final, and Theorem 8.5.6 implies that the homotopy colimit of a simplicial object in a simplicial model category is weakly equivalent to the homotopy colimit of the subfunctor that "forgets the degeneracy maps."_
+
+_Our interest in this observation stems from the fact that for pointwise cofibrant simplicial objects, the homotopy colimit of the restricted diagram is weakly equivalent to its **fat geometric realization**, the functor tensor product with the restricted Yoneda embedding \(\overrightarrow{\mathbb{A}}\to\mathbf{Set}^{\mathbb{A}^{\mathrm{\pi}}}\); see Example 11.5.6. The fat geometric realization is constructed like ordinary geometric realization except that it forgets to collapse the degenerate simplices. It follows from the \(2\)-of-\(3\) property that the homotopy colimit of a pointwise cofibrant simplicial object in a simplicial model category is weakly equivalent to its fat geometric realization, which is generally easier to compute._
+
+**Example 8.5.13**.: _The diagonal map \(\Delta\colon\mathbb{A}\to\mathbb{A}\times\mathbb{A}\) is homotopy initial. To prove this, we must show \(\Delta/([p],[q])\) is contractible. Extend the notation of 8.5.12 to define an analogous functor \(S\colon\Delta/([p],[q])\to\Delta/([p],[q])\) by_
+
+\[(\alpha\colon[k]\to[p],\beta\colon[k]\to[q])\mapsto(S\alpha\colon[k+1]\to[p],S \alpha\colon[k+1]\to[q]).\]
+
+_Define \(E\colon\Delta/[p],[q]\to\Delta/[p],[q]\) to be the functor constant at \(([0]\stackrel{{ 0}}{{\to}}[p],[0]\stackrel{{ 0}}{{\to}}[q])\). As before there exist natural transformations \(\operatorname{id}\Rightarrow S\Leftarrow E\) which exhibit the homotopy contractibility of \(\Delta/([p],[q])\). The upshot is that the homotopy colimit of a bisimplicial object in a simplicial model category is weakly equivalent to the homotopy colimit of its diagonal._
+
+**Exercise 8.5.14**.: _Let \(\mathbb{A}_{\infty}\) and \(\mathbb{A}_{-\infty}\) denote the wide subcategories of \(\mathbb{A}\) containing only those maps that preserve the top and bottom elements, respectively, in each ordinal. Freely adjoining a top or bottom element defines natural inclusions \(\mathbb{A}\hookrightarrow\mathbb{A}_{\infty}\) and \(\mathbb{A}\hookrightarrow\mathbb{A}_{-\infty}\). Extending a cosimplicial object along one of these inclusions produces an augmentation and either a forwards or backwards contracting homotopy._
+
+_Show that these inclusions are homotopy initial, proving the result promised in Remark 4.5.4: the homotopy colimit of a simplicial object admitting an augmentation and contracting homotopy is weakly equivalent to its augmentation._
+
+_To motivate the topic of the next chapter, we note that an alternate proof of the Homotopy Finality Theorem 8.5.6 should be available. In the Reduction Theorem 8.1.8, we showed that the homotopy colimit of a diagram of the form \(\mathcal{C}\xrightarrow{K}\mathcal{D}\xrightarrow{F}\mathcal{M}\) is isomorphic to the homotopy colimit of the diagram \(F\) weighted by \(N(-/K)\colon\mathcal{D}^{\mathrm{op}}\to\mathbf{sSet}\). If \(K\) is homotopy final, then the natural map \(N(-/K)\to N(-/\mathcal{D})\) between the weights is a weak equivalence. If we knew that weakly equivalent weights induced weakly equivalent weighted colimits of pointwise cofibrant diagrams, we would be done.
+
+It turns out this is not quite true; the weights must also be "fat" enough, or stated precisely, the weights must be cofibrant in a suitable sense. Our hoped-for simple proof will appear as an immediate corollary to a theorem (Theorem 11.5.1) in Chapter 11, once we have the appropriate language to state and prove it. But in the next chapter we take an important first step and prove this result for weighted _homotopy_ limits and colimits, generalizing Theorem 5.1.1 and Corollary 5.1.3 to enriched category theory. In particular, we will show that for any diagram in a simplicial model category, any weighted homotopy colimits formed with weakly equivalent weights are weakly equivalent.
+
+[MISSING_PAGE_EMPTY:9656]
+
+## Chapter 9 Weighted homotopy limits and colimits
+
+In Chapter 5, we proved that the bar construction gives a uniform way to construct homotopy limits and colimits of diagrams of any shape, defined to be derived functors of the appropriate limit or colimit functor, in a simplicial model category. But, on account of Corollary 7.6.4, such categories admit a richer class of limits and colimits--the weighted limits and colimits for any simplicially enriched weight, computed as enriched functor cotensor or tensor products.
+
+In this chapter we will prove that the enriched version of the two-sided bar construction can be used to construct a derived functor of the enriched functor tensor product. This provides a notion of weighted homotopy colimit that enjoys the same formal properties of our homotopy colimit functor. The construction and proofs closely parallel those of Chapter 5, though more sophisticated hypotheses will be needed to guarantee that the two-sided bar construction is homotopically well behaved. These results, due to Shulman [20], partially motivated our earlier presentation.
+
+The notion of derived functor used here is precisely the one introduced in Chapter 2. This is to say, a derived functor of a \(\mathcal{V}\)-functor between \(\mathcal{V}\)-categories whose underlying categories are homotopical is defined to be a derived functor of the underlying unenriched functor. A priori, and indeed in many cases of interest, the point-set derived functor defining the weighted homotopy colimit will not be a \(\mathcal{V}\)-functor. However under reasonable hypotheses, its _total_ derived functor inherits a natural enrichment--just not over \(\mathcal{V}\). This will be the subject of the next chapter.
+
+### 9.1 The enriched bar and cobar construction
+
+Recall that the functor tensor product generalizes seamlessly to the enriched context. The coend used to define the functor tensor product is replaced by the enriched coend, the difference being that the coproduct indexed by sets of arrows is replaced by a coproduct indexed by ordered pairs of objects and of tensors with the appropriate hom-object. A similar modification defines the two-sided enriched bar construction associated to a pair of \(\mathcal{V}\)-functors \(G\colon\underline{\mathcal{D}}^{\text{op}}\to\underline{\mathcal{V}}\), \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\) and a tensored and cotensored cocomplete \(\mathcal{V}\)-category \(\mathcal{M}\).
+
+The simplicial two-sided bar construction extends the diagram inside the coequalizer of (7.6.1) to a simplicial object in \(\mathcal{M}\). Note that because \(\mathbb{A}\) is unenriched, a simplicial object in a \(\mathcal{V}\)-category is the same thing as a simplicial object in the underlying unenriched category.
+
+**Definition 9.1.1**: _Given a small \(\mathcal{V}\)-category \(\underline{\mathcal{D}}\), a tensored \(\mathcal{V}\)-category \(\underline{\mathcal{M}}\), and \(\mathcal{V}\)-functors \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\), \(G\colon\underline{\mathcal{D}}^{\text{op}}\to\underline{\mathcal{V}}\), the **enriched simplicial bar construction** is a simplicial object \(B_{\bullet}(G,\underline{\mathcal{D}},F)\) in \(\mathcal{M}\) defined by_
+
+\[B_{n}(G,\underline{\mathcal{D}},F)=\coprod_{d_{0},\ldots,d_{n}\in\underline{ \mathcal{D}}}\bigl{(}Gd_{n}\times\underline{\mathcal{D}}(d_{n-1},d_{n})\times \cdots\times\underline{\mathcal{D}}(d_{0},d_{1})\bigr{)}\otimes Fd_{0}.\]For \(0<i<n\), the \(i\)th face map \(B_{n}(G,\underline{\mathcal{D}},F)\to B_{n-1}(G,\underline{\mathcal{D}},F)\) is induced by the composition map
+
+\[\circ\colon\underline{\mathcal{D}}(d_{i},d_{i+1})\times\underline{\mathcal{D}} (d_{i-1},d_{i})\to\underline{\mathcal{D}}(d_{i-1},d_{i+1}),\]
+
+an arrow in \(\mathcal{V}\). For \(0\leq i\leq n\), the \(i\)th degeneracy \(B_{n}(G,\underline{\mathcal{D}},F)\to B_{n+1}(G,\underline{\mathcal{D}},F)\) is induced by the identity arrow \(*\to\underline{\mathcal{D}}(d_{i},d_{i})\). The outer face maps have similar definitions: the \(0\)th face map is induced by
+
+\[(Gd_{n}\times\underline{\mathcal{D}}(d_{n-1},d_{n})\times\cdots\times \underline{\mathcal{D}}(d_{0},d_{1}))\otimes Fd_{0}\]
+
+\[(Gd_{n}\times\underline{\mathcal{D}}(d_{n-1},d_{n})\times\cdots\times \underline{\mathcal{D}}(d_{1},d_{2}))\otimes(\underline{\mathcal{D}}(d_{0},d_ {1})\otimes Fd_{0})\]
+
+\[(Gd_{n}\times\underline{\mathcal{D}}(d_{n-1},d_{n})\times\cdots\times\underline {\mathcal{D}}(d_{1},d_{2}))\otimes Fd_{1}\]
+
+\[B_{n-1}(G,\underline{\mathcal{D}},F)\]
+
+where \(\mathrm{ev}\colon\underline{\mathcal{D}}(d_{0},d_{1})\otimes Fd_{0}\to Fd_{1}\) is adjunct, in the adjunction defining the tensor, to the arrow \(\underline{\mathcal{D}}(d_{0},d_{1})\to\underline{\mathcal{M}}(Fd_{0},Fd_{1})\) specified as part of the data that makes \(F\) a \(V\)-functor. The contravariant \(\mathcal{V}\)-functor \(G\) plays the role of \(F\) in the definition of the \(n\)th face map.
+
+It is straightforward to check that the face and degeneracy maps satisfy the desired relations to make \(B_{\bullet}(G,\underline{\mathcal{D}},F)\) a simplicial object in \(\mathcal{M}\). Dually:
+
+**Definition 9.1.2**.: Given \(\mathcal{V}\)-functors \(G\colon\underline{\mathcal{D}}\to\mathcal{V}\) and \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\), the **enriched cosimplicial cobar construction \(C^{\bullet}(G,\underline{\mathcal{D}},F)\)** is a cosimplicial object in \(\mathcal{M}\). Using exponential notation for the cotensor, the object of \(n\)-simplices is
+
+\[C^{n}(G,\underline{\mathcal{D}},F)=\prod_{d_{0},\ldots,d_{n}}Fd_{n}^{\underline {\mathcal{D}}(d_{n-1},d_{n})\times\cdots\times\underline{\mathcal{D}}(d_{0},d _{1})\rtimes Gd_{0}}\]
+
+**Remark 9.1.3**.: Before defining the maps that make \(C^{\bullet}(G,\underline{\mathcal{D}},F)\) a cosimplicial object in \(\mathcal{M}\), recall that an arrow \(V\to W\) in \(\mathcal{V}\) induces an arrow \(m^{W}\to m^{V}\) in \(\mathcal{M}\) by the defining universal property. The intuition is that cotensors are similar to homs; indeed if \(\mathcal{V}=\mathcal{M}=\mathbf{Set}\), then \(m^{V}=\prod_{V}m=\mathbf{Set}(V,m)\). This is the essential reason why \(C^{\bullet}(G,\underline{\mathcal{D}},F)\) is cosimplicial, rather than simplicial.
+
+As for the enriched simplicial bar construction, the degeneracy and inner face maps are defined using the \(\mathcal{V}\)-category structure on \(\underline{\mathcal{D}}\), e.g., composition \(\underline{\mathcal{D}}(d_{i},d_{i+1})\times\underline{\mathcal{D}}(d_{i-1}, d_{i})\to\underline{\mathcal{D}}(d_{i-1},d_{i+1})\) induces the \(i\)th face map \(C^{n-1}(G,\underline{\mathcal{D}},F)\to C^{n}(G,\underline{\mathcal{D}},F)\). The \(n\)th face map \(C^{n-1}(G,\underline{\mathcal{D}},F)\to C^{n}(G,\underline{\mathcal{D}},F)\) is induced by the map
+
+\[C^{n-1}(G,\underline{\mathcal{D}},F)\]
+
+where \(\mathrm{cove}\colon Fd_{n-1}\to Fd_{n}^{\underline{\mathcal{D}}(d_{n-1},d_{n})}\) is adjunct, in the adjunction defining the cotensor, to the arrow \(\underline{\mathcal{D}}(d_{n-1},d_{n})\to\underline{\mathcal{M}}(Fd_{n-1},Fd_ {n})\) specified as part of the data that makes \(F\) a \(\mathcal{V}\)-functor. The definition of the \(0\)th face map is similar.
+
+Remark: If \(\mathcal{D}\) is unenriched, these definition agrees with the ordinary simplicial bar construction and cosimplicial cobar construction introduced in 4.2.1 and 4.3.2.
+
+Just as in the unenriched case, given any cosimplicial object \(\Delta^{\bullet}\colon\mathbb{A}\to\mathcal{V}\), we can define geometric realization of simplicial objects and totalization of cosimplicial objects in any \(\mathcal{V}\)-category.
+
+Definition: Fixing a cosimplicial object \(\Delta^{\bullet}\colon\mathbb{A}\to\mathcal{V}\), the **enriched bar construction** and **enriched cobar construction** are defined to be the functor tensor product and functor cotensor product as appropriate:
+
+\[B(G,\underline{\mathcal{D}},F):=\Delta^{\bullet}\otimes_{B\mapsto\mathcal{V}}B _{\bullet}(G,\underline{\mathcal{D}},F)\qquad\qquad C(G,\underline{\mathcal{ D}},F):=\{\Delta^{\bullet},C^{\bullet}(G,\mathcal{D},F)\}^{\mathbb{A}}\]
+
+Note that the left-hand and right-hand \(\mathcal{V}\)-functors \(G\) have conflicting variance.
+
+Example: The enriched version of the two-sided bar construction can be used to extend the constructions in Examples 4.2.4 and 4.5.5 of spaces \(BG=B(*,G,*)\) and \(EG=B(G,G,*)\) associated to a discrete group \(G\) to **topological groups**, represented as a one-object **Top**-categories \(\underline{G}\) equipped with an involution that is used to define inverses.
+
+A continuous (topologically enriched) functor \(X\colon\underline{G}\to\underline{\text{Top}}\) whose domain is a topological group encodes a \(\underline{G}\)-space \(X\). Its conical colimit, which can be defined because **Top** is cartesian closed, is the orbit space of \(X\). The results in the next section will tell us how to construct instead the conical homotopy colimit, a model for the homotopy orbit space.
+
+### Weighted homotopy limits and colimits
+
+Let \(\mathcal{M}\) be a complete and cocomplete category that is tensored, cotensored, and enriched over a complete and cocomplete closed symmetric monoidal category (\(\mathcal{V},\times,*\)). We use the notation \((\underline{\mathcal{M}}^{\underline{\mathcal{D}}})_{0}\) to distinguish the (unenriched) category of \(\mathcal{V}\)-functors \(\underline{\mathcal{D}}\to\underline{\mathcal{M}}\) and \(\mathcal{V}\)-natural transformations from the category \(\mathcal{M}^{\underline{\mathcal{D}}}\) of functors and natural transformations between the underlying categories of \(\underline{\mathcal{D}}\) and \(\underline{\mathcal{M}}\).
+
+By Theorem 7.6.3, weighted colimits and weighted limits are computed by the functors
+
+\[-\otimes_{\underline{\mathcal{D}}}-\colon(\underline{\mathcal{V}}^{\underline {\mathcal{D}}^{\text{op}}})_{0}\times(\underline{\mathcal{M}}^{\underline{ \mathcal{D}}})_{0}\to\mathcal{M}\qquad\text{and}\qquad\{-,-\}^{\underline{ \mathcal{D}}}\colon(\underline{\mathcal{V}}^{\underline{\mathcal{D}}})_{0}^{ \text{op}}\times(\underline{\mathcal{M}}^{\underline{\mathcal{D}}})_{0}\to \mathcal{M}.\]
+
+In order to discuss derived functors, we must have some notion of weak equivalence in \(\mathcal{V}\) and \(\mathcal{M}\). When the underlying categories \(\mathcal{V}\) and \(\mathcal{M}\) have a homotopical structure, these functors may or may not preserve pointwise weak equivalences. The main theorem of this section describes deformations that exist under suitable conditions that may be used to construct a left derived functor of the weighted colimit bifunctor and a right derived functor of the weighted limit bifunctor. We call this left derived functor the **weighted homotopy colimit** and this right derived functor the **weighted homotopy limit**.
+
+Based on previous experience in Chapter 5, we might guess part of the answer. The colimit of \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\) weighted by \(G\colon\underline{\mathcal{D}}^{\text{op}}\to\underline{\mathcal{V}}\) is computed by the enriched functor tensor product
+
+\[\operatorname{colim}^{G}F\cong G\otimes_{\underline{\mathcal{D}}}F:=\operatorname {coeq}\Biggl{(}\coprod_{d,d^{\prime}\in\underline{\mathcal{D}}}(Gd^{\prime} \times\underline{\mathcal{D}}(d,d^{\prime}))\otimes Fd\rightrightarrows \coprod_{d\in\underline{\mathcal{D}}}Gd\otimes Fd\Biggr{)}.\]
+
+Observe that the diagram contained inside the coequalizer is a truncation of the enriched simplicial bar construction. On account of the coYoneda isomorphisms
+
+\[G\otimes_{\underline{\mathcal{D}}}B(\underline{\mathcal{D}},\underline{ \mathcal{D}},F)\cong B(G,\underline{\mathcal{D}},F)\cong B(G,\underline{ \mathcal{D}},\underline{\mathcal{D}})\otimes_{\underline{\mathcal{D}}}F, \tag{9.2.1}\]we think of the enriched bar construction as a "fattened up" version of the enriched functor tensor product. These isomorphisms say \(B(G,\underline{\mathcal{D}},F)\) is the colimit of \(F\) weighted by a fattened up weight \(B(G,\underline{\mathcal{D}},\underline{\mathcal{D}})\) or the colimit of a fattened up diagram \(B(\underline{\mathcal{D}},\underline{\mathcal{D}},F)\) weighted by \(G\). The remainder of our discussion is aimed at supplying conditions so that this construction is homotopical, in which case it will follow from the isomorphisms (9.2.1) that the enriched two-sided bar construction supplies a deformation for the weighted colimit functor, and hence computes the appropriate left derived functor.
+
+The main task is to understand the homotopical properties of the two-sided enriched bar construction. As a first step, observe that the cosimplicial object \(\Delta^{\bullet}\colon\mathbb{A}\to\mathcal{V}\) used to define geometric realization and totalization extends to an adjunction
+
+(9.2.2)
+
+because \(\mathcal{V}\) was supposed to be cocomplete (see 1.5.1). If we further suppose that this left adjoint is strong monoidal, then by Theorem 3.7.11 the \(\mathcal{V}\)-enriched categories \(\mathcal{V}\) and \(\mathcal{M}\) become simplicially enriched, tensored, and cotensored. It follows from Corollary 3.8.4 that geometric realization preserves simplicial homotopy equivalences of the form described in 3.8.2.
+
+Furthermore, if \(\mathcal{V}\) is a monoidal model category and the adjunction (9.2.2) is Quillen as well as strong monoidal, then any \(\mathcal{V}\)-model category \(\mathcal{M}\) becomes a simplicial model category [13, SS4.2]. The definitions of **monoidal model category** and \(\mathcal{V}\)-**model category** will be given in 11.4.6 and 11.4.7. For now, we axiomatize a few consequences of those definitions in analogy to our axioms for a simplicial model category in 3.8.6:
+
+**Lemma 9.2.3**.: _A monoidal model category \(\mathcal{V}\), or a \(\mathcal{V}\)-model category \(\mathcal{M}\) in the case where \(\mathcal{V}\) is a monoidal model category_
+
+1. _is complete and cocomplete_
+2. _is tensored, cotensored, and enriched over_ \(\mathcal{V}\)_;_
+3. _has subcategories of_ _cofibrant_ _and_ _fibrant_ _objects preserved, respectively, by tensoring or cotensoring with any cofibrant object of_ \(\mathcal{V}\)_;_
+4. _admits a left deformation_ \(Q\) _into the cofibrant objects and a right deformation_ \(R\) _into the fibrant objects;_
+5. _is a saturated homotopical category;_
+6. _has the property that the internal hom preserves weak equivalences between cofibrant objects in its first variable, provided the second variable is fibrant, and preserves weak equivalences between fibrant objects in its second variable, provided its first variable is cofibrant._
+
+Examples of such \(\mathcal{V}\) include \(\mathbf{Top}\), \(\mathbf{sSet}_{*}\), and \(\mathbf{Top}_{*}\). This is how we concluded that the convenient categories of spaces described in section 6.1 were simplicial model categories. If the homotopical structures on \(\mathcal{V}\) and \(\mathcal{M}\) come from these model structures, then simplicial homotopy equivalences are necessarily weak equivalences under these hypothesis.
+
+The next step is to obtain an analog of Corollary 5.2.5, which gives conditions under which the unenriched two-sided bar construction preserves weak equivalences in each variable. In the enriched setting, the necessary hypotheses are somewhat more technical.
+
+**Lemma 9.2.4** ([17, 23.12]).: _Suppose \(\mathcal{V}\) is a monoidal model category with a strong monoidal Quillen adjunction (9.2.2); \(\mathcal{M}\) is a \(\mathcal{V}\)-model category; the hom-objects \(\underline{\mathcal{D}}(d,d^{\prime})\in\mathcal{V}\) are cofibrant; and the unit maps \(*\to\underline{\mathcal{D}}(d,d)\) are cofibrations in \(\mathcal{V}\). Then_
+
+* \(B(-,\underline{\mathcal{D}},-)\colon(\underline{\mathcal{V}}\underline{\mathcal{ D}}^{\mathcal{D}^{\mathcal{V}}})_{0}\times(\underline{\mathcal{M}}\underline{ \mathcal{D}})_{0}\to\mathcal{M}\) _preserves weak equivalences between pointwise cofibrant diagrams_* \(B(-,\underline{\mathcal{D}},\underline{\mathcal{D}})\colon(\mathcal{V}\underline{ \mathcal{I}}^{\varpi})_{0}\to(\mathcal{V}\underline{\mathcal{I}}^{\varpi})_{0}\) _and_ \(B(\underline{\mathcal{D}},\underline{\mathcal{D}},-)\colon(\underline{\mathcal{ M}}^{\underline{\mathcal{D}}})_{0}\to(\underline{\mathcal{M}}^{\underline{ \mathcal{D}}})_{0}\) _preserve pointwise cofibrant diagrams_
+* \(C(-,\underline{\mathcal{D}},-)\colon(\mathcal{V}\underline{\mathcal{I}})_{0}^{ \varpi}\times(\underline{\mathcal{M}}^{\underline{\mathcal{D}}})_{0}\to \mathcal{M}\) _preserves weak equivalences between pointwise cofibrant diagrams in the first variable and pointwise fibrant diagrams in the second_
+* \(C(\underline{\mathcal{D}},\underline{\mathcal{D}},-)\colon(\underline{ \mathcal{M}}^{\underline{\mathcal{D}}})_{0}\to(\underline{\mathcal{M}}^{ \underline{\mathcal{D}}})_{0}\) _preserves pointwise fibrant diagrams._
+
+Note that when \(\mathcal{V}=\mathbf{sSet}\) and \(\mathcal{M}\) is a simplicial model category, the hypotheses on \(\underline{\mathcal{D}}\) are automatically satisfied. When \(\mathcal{V}=\mathbf{Top}\) and \(\mathcal{M}\) is a topological model category, the hypotheses on \(\underline{\mathcal{D}}\) are satisfied when the hom-spaces are cell complexes and the unit map is a relative cell complex. Replacing the usual model structure on \(\mathbf{Top}\) by the mixed model structure of Exercise 11.3.8, also a monoidal model category with a strong monoidal Quillen adjunction (9.2.2), it suffices that the hom-spaces of \(\underline{\mathcal{D}}\) are homotopy equivalent to cell complexes.1
+
+Footnote 1: Thanks to Angela Klamt for pointing this out.
+
+Proof sketch.: The statement in [3, SS23] is more general, presenting a precise axiomatization of the "goodness" conditions needed for \(B(-,\underline{\mathcal{D}},-)\) to be homotopical. The general strategy is the following: First use these axioms to show that, for pointwise cofibrant diagrams, the enriched simplicial bar construction is "Reedy cofibrant" in the sense that the latching maps are "cofibrations" in \(\mathcal{M}\). Secondly, note that the axioms imply that pointwise equivalences between pointwise cofibrant diagrams give rise to pointwise equivalences between simplicial objects. Finally, show that the axioms imply that pointwise weak equivalences between "Reedy cofibrant" simplicial objects realize to weak equivalences. 
+
+One issue remains in using the enriched bar construction to define a left derived functor of the weighted colimit: our diagram \(F\colon\underline{\mathcal{D}}\to\underline{\mathcal{M}}\) and weight \(G\colon\underline{\mathcal{D}}^{\varpi}\to\underline{\mathcal{V}}\) might not be pointwise cofibrant. We have assumed that \(\overline{\mathcal{M}}\) and \(\mathcal{V}\) are \(\mathcal{V}\)-model categories, which means that there exist left deformations into the subcategories of cofibrant objects. However, these deformations are not necessarily \(\mathcal{V}\)-functors, and hence cannot be used to construct weakly equivalent pointwise cofibrant \(\mathcal{V}\)-functors.2 It might be the case that some deformation \(Q\colon\mathcal{M}\to\mathcal{M}\) into the subcategory of cofibrant objects just happens to be a \(\mathcal{V}\)-functor, in which case we obtain the desired deformation on \(\underline{\mathcal{M}}^{\underline{\mathcal{D}}}\) just by postcomposition. Alternatively, this issue can be avoided in the following settings:
+
+Footnote 2: Note, we do not require a “pointwise cofibrant replacement” \(\mathcal{V}\)-functor \(\underline{\mathcal{M}}^{\underline{\mathcal{D}}}\to\underline{\mathcal{M}}^ {\underline{\mathcal{D}}}\), but we do need a functorial way to replace a \(\mathcal{V}\)-functor \(F\in\underline{\mathcal{M}}^{\underline{\mathcal{D}}}\) by a weakly equivalent \(\mathcal{V}\)-functor that is pointwise cofibrant.
+
+1. When all objects of \(\mathcal{M}\) and \(\mathcal{V}\) are cofibrant, of course there is no problem.
+2. When \(\mathcal{D}\) is unenriched, any unenriched functor \(\mathcal{D}\to\mathcal{M}\) is equally a \(\mathcal{V}\)-functor \(\underline{\mathcal{D}}\to\underline{\mathcal{M}}\) whose domain is implicitly the free \(\mathcal{V}\)-category on \(\mathcal{D}\). So any deformation \(Q\colon\mathcal{M}\to\mathcal{M}\), even if unenriched, will suffice.
+3. When all objects of \(\mathcal{V}\) are cofibrant and \(\mathcal{M}\) is a cofibrantly generated \(\mathcal{V}\)-model category, Theorem 13.2.1 will show that there exist \(\mathcal{V}\)-functorial left and right deformations in \(\mathcal{M}\).
+
+To unify these conditions, we formally suppose that there exists a functor \(Q\colon(\underline{\mathcal{M}}^{\underline{\mathcal{D}}})_{0}\to(\underline{ \mathcal{M}}^{\underline{\mathcal{D}}})_{0}\) equipped with a natural weak equivalence \(Q\Rightarrow 1\) such that the \(\mathcal{V}\)-functors in its image are pointwise cofibrant. We require similar hypotheses on \(\mathcal{V}\underline{\mathcal{I}}^{\varpi}\). For the reader's convenience, let us summarize the assumptions we have made.
+
+**Assumptions 9.2.5**.: The standing hypotheses are:1. \((\mathcal{V},\times,*)\) is a closed monoidal model category with a strong monoidal Quillen adjunction \(|-|:\mathbf{sSet}\rightleftarrows\mathcal{V}\colon\mathcal{V}(\Delta^{*},-)\).
+2. \(\mathcal{M}\) is a \(\mathcal{V}\)-model category; in particular, \(\mathcal{M}\) is enriched, tensored, and cotensored over \(\mathcal{V}\) and over \(\mathbf{sSet}\), and simplicial homotopy equivalences are weak equivalences in \(\mathcal{M}\).
+3. There exist deformations for \(\underline{\mathcal{M}^{\underline{O}}}\) and \(\underline{\mathcal{V}^{\underline{D}^{\varphi}}}\) into pointwise cofibrant or fibrant \(\mathcal{V}\)-functors, as appropriate.
+4. The hom-objects of \(\underline{\mathcal{D}}\) are cofibrant and the unit maps are cofibrations in \(\mathcal{V}\).
+
+**Theorem 9.2.6** ([3, 13.7,13.14]).: _Under the standing hypotheses, we have a left deformation_
+
+\[Q\times B(\underline{\mathcal{D}},\underline{\mathcal{D}},Q)\colon(\underline {\mathcal{V}^{\underline{D}^{\varphi}}})_{0}\times(\underline{\mathcal{M}^{ \underline{O}}})_{0}\to(\underline{\mathcal{V}^{\underline{D}^{\varphi}}})_{0} \times(\underline{\mathcal{M}^{\underline{O}}})_{0}\]
+
+_for the enriched functor tensor product \(-\otimes_{\underline{\mathcal{D}}}-\) and a right deformation_
+
+\[Q\times C(\underline{\mathcal{D}},\underline{\mathcal{D}},R)\colon(\underline {\mathcal{V}^{\underline{D}}})_{0}^{\mathrm{op}}\times(\underline{\mathcal{M} ^{\underline{O}}})_{0}\to(\underline{\mathcal{V}^{\underline{D}}})_{0}^{ \mathrm{op}}\times(\underline{\mathcal{M}^{\underline{O}}})_{0}\]
+
+_for the enriched functor cotensor product \([-,-]^{\underline{\mathcal{D}}}\)._
+
+Proof.: Exactly like the proof of Theorem 5.1.1. Note that the proof of Lemma 5.2.6 works equally with a pointwise cofibrant functor \(G\) in place of \(*\). 
+
+The following corollary is then immediate from Theorem 2.2.8.
+
+**Corollary 9.2.7** ([3, 13.12,13.17]).: _Under the hypotheses of 9.2.5 \(B(Q,\underline{\mathcal{D}},Q)\) is a left derived functor of the weighted colimit bifunctor and \(C(Q,\underline{\mathcal{D}},R)\) is a right derived functor of the weighted limit bifunctor computing the weighted homotopy colimit and the weighted homotopy limit. That is, given weights \(G\in\underline{\mathcal{V}^{\underline{D}^{\varphi}}}\) and \(H\in\underline{\mathcal{V}^{\underline{O}}}\) and a diagram \(F\in\underline{\mathcal{M}^{\underline{O}}}\), we have_
+
+\[\operatorname{hocolim}^{G}F :=\mathbb{L}\operatorname{colim}^{G}F\cong B(QG,\underline{ \mathcal{D}},QF)\] \[\operatorname{holim}^{H}F :=\mathbb{R}\operatorname{lim}^{H}F\cong C(QH,\underline{ \mathcal{D}},RF).\]
+
+**Remark 9.2.8**.: A point made in section 6.3 is even more salient here. By 9.2.6 and 9.2.7, the existence of any deformations into pointwise cofibrant and pointwise fibrant diagrams, no matter how complicated, means that if the given weights and diagrams happen to be pointwise cofibrant or fibrant already, then the enriched two-sided bar or cobar construction already has the correct homotopy type to compute the weighted homotopy colimit or limit without making use of the deformations \(Q\) and \(R\).
+
+Furthermore, our proof, using the homotopical properties of the two-sided bar and cobar construction as detailed in Lemma 9.2.4, shows that a pointwise weak equivalence between pointwise cofibrant weights induces a weak equivalence between the associated weighted homotopy limits or colimits. When \(\mathcal{V}\) is the usual simplicial model category of simplicial sets, all weights are pointwise cofibrant, so we have now proven the claim made at the end of Chapter 8: weighted homotopy limits and weighted homotopy colimits formed with pointwise weakly equivalent weights are weakly equivalent.
+
+Warning 9.2.9.: The simplification for the case of topological spaces described in Remark 6.3.4 and proven in section 14.5, which allowed us to compute homotopy colimits without first taking a pointwise cofibrant replacement of the diagram, does not appear to extend to weighted homotopy colimits. As far as we know, it really is necessary to replace a generic diagram by a pointwise cofibrant one. See Remark 14.5.10.
+
+**Example 9.2.10**.: The homotopy colimit of a continuous functor \(X\colon\underline{G}\to\underline{\mathbf{Top}}\), whose domain is a topological group and whose target space \(X\) is a cell complex, is the space \(B(*,\underline{G},X)\cong\operatorname{colim}^{*}(B(\underline{G},\underline{G },X))\) of **homotopy orbits**. The homotopy limit, using the enriched analog of the isomorphism (7.7.5), is the space \(C(*,\underline{G},X)\cong\operatorname{\mathbf{Top}}^{\underline{G}}(B(*, \underline{G},\underline{G}),X)\) of **homotopy fixed points**.
+
+**Example 9.2.11**.: Using the weighted colimit and limit formulae (7.6.7) for left and right enriched Kan extension, we can define **homotopy Kan extensions** in enriched settings satisfying the hypotheses of 9.2.5. Suppose we have a \(\mathcal{V}\)-functor \(K\colon\underline{C}\to\underline{\mathcal{D}}\) between small \(\mathcal{V}\)-categories so that the hom-objects of both \(\underline{C}\) and \(\underline{\mathcal{D}}\) are cofibrant. Then the weights for left and right Kan extension are pointwise cofibrant and we define, for \(F\in\underline{\mathcal{M}}^{\underline{C}}\),
+
+\[\operatorname{hoLan}_{K}F :=\mathbb{L}\operatorname{Lan}_{K}F\cong\mathbb{L} \operatorname{colim}^{\underline{\mathcal{D}}(K-,-)}F\cong B(\underline{ \mathcal{D}}(K-,-),\underline{C},QF)\qquad\text{and}\] \[\operatorname{hoRan}_{K}F :=\mathbb{R}\operatorname{Ran}_{K}F\cong\mathbb{R} \operatorname{lim}^{\underline{\mathcal{D}}(-,K-)}F\cong C(\underline{ \mathcal{D}}(-,K-),\underline{C},RF).\]
+
+Note that the weighted homotopy colimit and limit functors defined by Corollary 9.2.7 require composition with the deformations \(Q\) and \(R\). Hence, these point-set derived functors are not necessarily \(\mathcal{V}\)-functors. This rather unsatisfying state of affairs will be addressed in the next chapter.
+
+[MISSING_PAGE_EMPTY:9664]
+
+## Chapter 10 Derived enrichment
+
+Suppose \(\mathcal{M}\) is a \(\mathcal{V}\)-model category with cofibrant replacement \(Q\colon\,\mathcal{M}\to\mathcal{M}\). As noted above, on account of the free \(\mathcal{V}\)-category-underlying category adjunction, even if \(Q\) is not a \(\mathcal{V}\)-functor, postcomposition transforms a \(\mathcal{V}\)-functor \(F\colon\mathcal{D}\to\,\underline{\mathcal{M}}\) into a pointwise cofibrant \(\mathcal{V}\)-functor, \(QF\colon\mathcal{D}\to\,\underline{\mathcal{M}}\), provided that the domain \(\mathcal{D}\) is unenriched. In this way, postcomposition defines a functor \(Q\colon(\underline{\mathcal{M}}^{Q})_{0}\to(\underline{\mathcal{M}}^{Q})_{0}\) that replaces any diagram by a pointwise weakly equivalent objectwise cofibrant \(\mathcal{V}\)-functor. While this \(Q\) is sufficient for the purposes of constructing derived functors of the weighted limit and colimit functors, it is likely not a \(\mathcal{V}\)-functor, and hence the derived functors constructed in this way will not be enriched. For example, the standard procedure of replacing a space by a CW complex is not continuous [1, SS4.1].1
+
+Footnote 1: Indeed, it is not a functor at all, but this is not the point here.
+
+Indeed, a reasonable case can be made that \(\mathcal{V}\)-enrichments are too much to ask for: after all derived functors are merely point-set level lifts of functors between homotopy categories, which we would not expect to be enriched. But on the contrary, in good situations homotopy categories of enriched categories and total derived functors between them admit canonical enrichments--just not over the closed monoidal category \(\mathcal{V}\) that we started with.
+
+Our presentation largely follows [2, SS16]. As a starting point for this discussion, we state a theorem which we will generalize (and prove) below.
+
+**Theorem 10.0.1**.: _If \(\mathcal{M}\) is a simplicial model category, then \(\operatorname{Ho}\mathcal{M}\) is enriched, tensored, and cotensored over the homotopy category of spaces._
+
+By a result of Quillen [2], the total derived functors of \(|-|\dashv S\) form an adjoint equivalence of homotopy categories. We write
+
+\[\mathcal{H}:=\operatorname{Ho}\mathbf{sSet}\cong\operatorname{Ho}\mathbf{Top}\]
+
+for the **homotopy category of spaces**, equivalent to the category of CW complexes and homotopy classes of maps. Taking \(\mathcal{M}=\mathbf{sSet}\), this result asserts that \(\mathcal{H}\) admits the structure of a closed monoidal category. In this case, the monoidal structure on \(\mathcal{H}\) is given by the cartesian product (which is also the homotopy product; cf. Remark 6.3.1) with the singleton serving as the monoidal unit. Its internal hom is somewhat more subtle. In this chapter, we will see how such monoidal structures arise in general.
+
+We close this chapter with a two-section epilogue exploring a notion of weak equivalence that arises formally from enrichment over the family of homotopical categories introduced in section 10.2. Under mild hypotheses, this notion of equivalence is quite well-behaved and provides a useful stepping stone to the broader class of weak equivalences previously studied, mirroring classical results in homotopy theory that describe the relationship between homotopy equivalences and weak homotopy equivalences of topological spaces.
+
+### 10.1. Enrichments encoded as module structures
+
+We have already defined the homotopy categories and total derived functors we now assert are enriched. To prove this, we use a technique, previewed in section 3.7, for recognizing when a priori unenriched functors admit enrichments. The general strategy is as follows: Point-set level enrichments can be encoded as module structures with respect to a tensor or cotensor. These module structures consist of unenriched functors and natural transformations satisfying suitable coherence conditions. In good situations, axiomatized below, these functors can be derived, in which case we can use them to recognize when other derived functors--including the defining tensors and cotensors themselves--admit enrichments.
+
+We leave aside the derived functors until the necessary enriched category theory is in place. Recall an (unenriched) **two-variable adjunction** consists of bifunctors
+
+\[F\colon\mathcal{M}\times\mathcal{N}\to\mathcal{P}\qquad G\colon\mathcal{M}^{ \mathrm{op}}\times\mathcal{P}\to\mathcal{N}\qquad H\colon\mathcal{N}^{\mathrm{ op}}\times\mathcal{P}\to\mathcal{M}\]
+
+that are pointwise adjoints in a compatible way, i.e., so that there exist hom-set isomorphisms
+
+\[\mathcal{P}(F(m,n),p)\cong\mathcal{N}(n,G(m,p))\cong\mathcal{M}(m,H(n,p)) \tag{10.1.1}\]
+
+natural in each variable. Our main examples will be a closed monoidal structure (in which case \(G\) and \(H\) coincide) or a tensor-cotensor-hom two-variable adjunction.
+
+Remark 10.1.2.: In both of these examples, the categories involved are all \(\mathcal{V}\)-categories and the usual definition demands something stronger: that the functors are \(\mathcal{V}\)-bifunctors and that the isomorphisms (10.1.1) lie in the enriching category \(\mathcal{V}\). This will be an important consequence of the hypotheses we assume below--the derived tensor-cotensor-hom two-variable adjunctions will consist of enriched bifunctors and enriched natural transformations--but one of the main points is that we will not need to assume this hypothesis. This enrichment will follow from coherence conditions with respect to module structures on \(\mathcal{M}\), \(\mathcal{N}\), and \(\mathcal{P}\).
+
+As always, let \((\mathcal{V},\mathsf{\times},*)\) be a closed symmetric monoidal category.
+
+Definition 10.1.3.: A **closed \(\mathcal{V}\)-module**\(\underline{\mathcal{M}}\) consists of
+
+* a two-variable adjunction \((\otimes,\{\mathsf{l}\},\underline{\mathrm{hom}})\colon\mathcal{V}\times \mathcal{M}\to\mathcal{M}\)
+* a natural isomorphism \(v\otimes(w\otimes m)\cong(v\times w)\otimes m\) for all \(v,w\in\mathcal{V}\) and \(m\in\mathcal{M}\)
+* a natural isomorphism \(*\otimes m\cong m\) for all \(m\in\mathcal{M}\).
+
+As the notation suggests, the two-variable adjunction should be thought of as a candidate tensor-cotensor-hom adjunction, but it is a priori unenriched. We saw in Lemma 3.7.7 that in a tensored and cotensored \(\mathcal{V}\)-category, the tensor is associative and unital. In other words, a tensored and cotensored \(\mathcal{V}\)-category is a closed \(\mathcal{V}\)-module. Conversely:
+
+Proposition 10.1.4.: _A closed \(\mathcal{V}\)-module \(\underline{\mathcal{M}}\) is uniquely a tensored, cotensored, and enriched \(\mathcal{V}\)-category in such a way that the given two-variable adjunction underlies the tensor-cotensor-hom two-variable adjunction._
+
+Proof.: The proof, relying principally on Lemma 3.5.12, is similarly to many of the proofs in section 3.7 and is left as an exercise for the reader. 
+
+Note that we have elected to use the same notation for an enriched category and a closed \(\mathcal{V}\)-module. Dually, the enrichment can be encoded by a "cotensor \(\mathcal{V}\)-module" structure. We will have more to say about this dual encoding in Remark 10.1.6.
+
+[MISSING_PAGE_EMPTY:9667]
+
+inherits a canonical enrichment so that the resulting adjunction is a \(\mathcal{V}\)-adjunction. The dual theorem says that if a functor preserves cotensors up to coherent isomorphism, then any left adjoint admits a canonical enrichment.
+
+Similarly, a two variable \(\mathcal{V}\)-adjunction can be encoded as a \(\mathcal{V}\)**-bilinear functor**. We leave the definition as an exploratory exercise for the intrepid; or see [20, 14.8-14.12].
+
+### Derived structures for enrichment
+
+Our aim is to use the definitions just presented to axiomatize the conditions necessary to obtain derived enrichments. Before beginning, we need one final preliminary: an extension of Theorem 2.2.11, which told us that the total derived functors of a deformable adjunction are themselves adjoint, to two-variable adjunctions. Using the notation of (10.1.1) above, suppose \(\mathcal{M}\), \(\mathcal{N}\), and \(\mathcal{P}\) are homotopical categories such that \(\mathcal{M}\) and \(\mathcal{N}\) have left deformations and \(\mathcal{P}\) has a right deformation.
+
+**Definition 10.2.1**.: The two-variable adjunction (10.1.1) is **deformable** just when \(F\) is left deformable and \(G\) and \(H\) are right deformable.2
+
+Footnote 2: The left deformations on \(\mathcal{M}\) and \(\mathcal{N}\) become right deformations on \(\mathcal{M}^{\varphi}\) and \(\mathcal{N}^{\varphi}\).
+
+**Lemma 10.2.2** ([20, 15.2]).: _If \((F,G,H)\colon\mathcal{M}\times\mathcal{N}\to\mathcal{P}\) is a deformable two-variable adjunction, then the total derived functors constructed from the deformations form a two-variable adjunction_
+
+\[(\mathbf{L}F,\mathbf{R}G,\mathbf{R}H)\colon\operatorname{Ho}\mathcal{M}\times \operatorname{Ho}\mathcal{N}\to\operatorname{Ho}\mathcal{P}\]
+
+_between the associated homotopy categories._
+
+Proof.: Writing \(Q\) for the left deformations on both \(\mathcal{M}\) and \(\mathcal{N}\) and \(R\) for the right deformation on \(\mathcal{P}\), it follows from Theorem 2.2.8 that \(F(Q-,Q-),G(Q-,R-),H(Q-,R-)\) are derived functors. Fixing \(m\in\mathcal{M},n\in\mathcal{N},p\in\mathcal{P}\), Theorem 2.2.11 gives us adjunctions
+
+\[\mathbf{L}F(m,-)+\mathbf{R}G(m,-),\qquad\mathbf{L}F(-,n)+\mathbf{R}H(n,-), \qquad\mathbf{R}G(-,p)+\mathbf{R}H(-,p),\]
+
+where, e.g., \(\mathbf{L}F(m,-)\) is the total derived functor whose point-set level lift is \(F(Qm,Q-)\). The uniqueness statement in Theorem 2.2.11 says that the hom-set isomorphisms exhibiting these adjunctions are the unique ones compatible with the upstairs adjunctions. Thus, the upstairs compatibility implies that these total derived adjunctions assemble into a two-variable adjunction between the homotopy categories. 
+
+**Example 10.2.3**.: The axioms for a simplicial model category, as listed in Lemma 3.8.6, or more generally for a monoidal model category or a \(\mathcal{V}\)-model category, as described in Lemma 9.2.3, demand that \(Q\) and \(R\) form deformations for the two-variable adjunction \((\otimes,\{\},\underline{\operatorname{hom}})\).
+
+Now that we know how to derive two-variable adjunctions, let us try to prove that \(\mathcal{H}\) is a closed symmetric monoidal category. By Lemma 10.2.2, the two-variable adjunction \((\times,\underline{\operatorname{hom}},\underline{\operatorname{hom}})\) defining the closed monoidal structure on simplicial sets induces a total derived two-variable adjunction \((\times,\mathbf{R}\underline{\operatorname{hom}},\mathbf{R}\underline{ \operatorname{hom}})\) on \(\mathcal{H}\) where the homotopy product and internal hom are defined by
+
+\[X\overset{\operatorname{L}}{\times}Y:=QX\times QY\qquad\mathbf{R}\underline{ \operatorname{hom}}(X,Y):=\underline{\operatorname{hom}}(QX,RY).\]In this particular case, the left deformations are not necessary but we leave them in place in order to give a proof that extends to the general case. We require an associativity isomorphism \(-\stackrel{{\mathbf{L}}}{{\times}}(-\stackrel{{\mathbf{L}} }{{\times}}-)\cong(-\stackrel{{\mathbf{L}}}{{\times}}-)\stackrel{{ \mathbf{L}}}{{\times}}-\). If the product of two cofibrant objects is again cofibrant, then the obvious candidate map
+
+\[X\stackrel{{\mathbf{L}}}{{\times}}(Y\stackrel{{ \mathbf{L}}}{{\times}}Z)=QX\times Q(QY\times QZ)\stackrel{{ 1\times q}}{{\longrightarrow}}QX\times(QY\times QZ)\]
+
+\[\cong(QX\times QY)\times QZ\stackrel{{(q\times 1)^{-1}}}{{\longrightarrow}}Q(QX\times QY)\times QZ=(X\stackrel{{ \mathbf{L}}}{{\times}}Y)\stackrel{{\mathbf{L}}}{{\times}}Z\]
+
+is an isomorphism in \(\mathcal{H}\). We also require a unit isomorphism \(*\stackrel{{\mathbf{L}}}{{\times}}-\cong-\). If the unit object \(*\) is cofibrant, or if tensoring with cofibrant objects preserves the weak equivalence \(Q*\to*\), then the map
+
+\[X\stackrel{{\mathbf{L}}}{{\times}}*=QX\times Q*\stackrel{{ 1\times q}}{{\longrightarrow}}QX\times*\cong QX\stackrel{{ q}}{{\longrightarrow}}X\]
+
+is an isomorphism in \(\mathcal{H}\).
+
+This situation is axiomatized in the following definition.
+
+**Definition 10.2.4**.: A **closed symmetric monoidal homotopical category** is a closed symmetric monoidal category \((\mathcal{V},\times,*)\) that is also homotopical and is equipped with a specified left deformation \((Q\colon\mathcal{V}\to\mathcal{V}_{Q},q\colon Q\Rightarrow 1)\) and right deformation \((R\colon\mathcal{V}\to\mathcal{V}_{R},r\colon 1\Rightarrow R)\) such that
+
+1. these functors define a deformation for the tensor-hom two-variable adjunction;
+2. the tensor preserves cofibrant objects, i.e., the tensor restricts to a functor \[-\times-\colon\mathcal{V}_{Q}\times\mathcal{V}_{Q}\to\mathcal{V}_{Q};\]
+3. if \(v\) is cofibrant the natural map \(Q*\times v\to*\times v\cong v\) is a weak equivalence;
+4. the internal hom from a cofibrant object to a fibrant object is fibrant;
+5. if \(v\) is fibrant, the natural map \(v\cong\underline{\hom}(*,v)\to\underline{\hom}(Q*,v)\) is a weak equivalence.
+
+The symmetry isomorphism tells us that \(v\times Q*\to v\) is also a weak equivalence. Conditions (iii) and (v) follow from (i) if the monoidal unit \(*\) is a cofibrant object in \(\mathcal{V}\).
+
+**Example 10.2.5**.: A monoidal model category, axiomatized in 9.2.3 and defined in 11.4.6, is a closed monoidal homotopical category. In particular, \(\mathbf{sSet},\mathbf{sSet}_{*}\), \(\mathbf{Top}\), \(\mathbf{Top}_{*}\) are all examples, as is the category \(\mathbf{Ch}_{\bullet}(R)\) of unbounded chain complexes over any commutative ring \(R\).
+
+**Theorem 10.2.6** ([3, 15.4]).: _The homotopy category of a closed symmetric monoidal homotopical category is a closed monoidal category, with structures given by the total derived functors of the upstairs structures._
+
+Proof.: The discussion commenced above proves that the total left derived functor of the monoidal product defines a monoidal product for the homotopy category with \(Q*\) serving as the monoidal unit. In the notation of Definition 10.2.4, define the internal hom to be \(\underline{\hom}(Q-,R-)\), the total right derived functor of the upstairs internal hom. By Lemma 10.2.2, these total derived functors define a closed monoidal structure on the homotopy category. See also the proof of [13, 4.3.2]. 
+
+**Remark 10.2.7**.: The proof just given made no use of the axioms (iv) and (v), but we have good reason for their inclusion, explained in Remark 10.2.15.
+
+**Remark 10.2.8**.: As a quick reality check, note that the hom-sets in the underlying category of the enriched category \(\operatorname{Ho}\!\mathcal{V}\) coincide with the original hom-sets:
+
+\[(\underline{\operatorname{Ho}\!\mathcal{V}})_{0}(v,w):=\operatorname{Ho}\! \mathcal{V}(*,\mathbf{R}\underline{\mathcal{V}}(v,w))\cong\operatorname{Ho} \!\mathcal{V}(*\stackrel{{\mathbf{L}}}{{\otimes}}v,w)\cong \operatorname{Ho}\!\mathcal{V}(v,w)\]
+
+Of course this is necessarily the case for any closed monoidal category; cf. Lemma 3.4.9.
+
+It is essential in what follows that the deformations of a closed symmetric monoidal homotopical category be taken as part of the structure of that category \(\mathcal{V}\). In this context:
+
+**Definition 10.2.9**.: A \(\mathcal{V}\)**-homotopical category**\(\underline{\mathcal{M}}\) is a tensored and cotensored \(\mathcal{V}\)-category whose underlying category \(\mathcal{M}\) is homotopical and equipped with deformations \(\mathcal{M}_{Q}\), \(\mathcal{M}_{R}\) such that, together with the specified deformations \(\mathcal{V}_{Q}\), \(\mathcal{V}_{R}\) for \(\mathcal{V}\),
+
+1. the specified functors form a deformation for the unenriched two-variable adjunction \((\otimes,\{\},\underline{\operatorname{hom}})\colon\mathcal{V}\times \mathcal{M}\to\mathcal{M}\);
+2. the tensor preserves cofibrant objects, i.e., the tensor restricts to a functor \[-\otimes-:\mathcal{V}_{Q}\times\mathcal{M}_{Q}\to\mathcal{M}_{Q};\]
+3. the natural map \(Q*\otimes m\to*\otimes\ m\cong m\) is a weak equivalence for all \(m\in\mathcal{M}_{Q}\);
+4. the cotensor from a cofibrant object to a fibrant object is fibrant;
+5. the natural map \(m\cong\{*,m\}\to\{Q*,m\}\) is a weak equivalence for all \(m\in\mathcal{M}_{R}\)
+
+**Example 10.2.10**.: A closed symmetric monoidal homotopical category \(\mathcal{V}\) is a \(\mathcal{V}\)-homotopical category.
+
+**Example 10.2.11**.: A \(\mathcal{V}\)-model category, axiomatized in 9.2.3 and defined in 11.4.7, is a \(\mathcal{V}\)-homotopical category. In particular, a simplicial model category is a \(\mathbf{sSet}\)-homotopical category.
+
+The following result, whose proof extends the proof of Theorem 10.2.6, has Theorem 10.0.1 as a special case.
+
+**Theorem 10.2.12** ([3, 16.2]).: _If \(\mathcal{M}\) is a \(\mathcal{V}\)-homotopical category, then \(\operatorname{Ho}\!\mathcal{M}\) is the underlying category of a \(\operatorname{Ho}\!\mathcal{V}\)-enriched, tensored, and cotensored category with enrichment given by the total derived two-variable adjunction_
+
+\[(\stackrel{{\mathbf{L}}}{{\otimes}},\mathbf{R}\{\},\underline{ \operatorname{hom}})\colon\operatorname{Ho}\!\mathcal{V}\times\operatorname{ Ho}\!\mathcal{M}\to\operatorname{Ho}\!\mathcal{M}.\]
+
+Proof.: It follows from Definition 10.2.9 and Lemma 10.2.2 that the derived functors of \((\otimes,\{\},\underline{\operatorname{hom}})\) define a two-variable adjunction \((\stackrel{{\mathbf{L}}}{{\otimes}},\mathbf{R}\{\},\underline{ \operatorname{hom}})\colon\operatorname{Ho}\!\mathcal{V}\times\operatorname{ Ho}\!\mathcal{M}\to\operatorname{Ho}\!\mathcal{M}\). By Theorem 10.2.6, we know \((\operatorname{Ho}\!\mathcal{V},\stackrel{{\mathbf{L}}}{{\times}},*)\) is a closed symmetric monoidal category. It remains to show that this derived two-variable adjunction gives \(\operatorname{Ho}\!\mathcal{M}\) the structure of a tensored and cotensored \(\operatorname{Ho}\!\mathcal{V}\)-category. We prove this by exhibiting \(\operatorname{Ho}\!\mathcal{M}\) as a closed \(\operatorname{Ho}\!\mathcal{V}\)-module and appealing to Proposition 10.1.4.
+
+For this, we must define natural isomorphisms
+
+\[v\stackrel{{\mathbf{L}}}{{\otimes}}(w\stackrel{{ \mathbf{L}}}{{\otimes}}m)\cong(v\stackrel{{\mathbf{L}}}{{ \times}}w)\stackrel{{\mathbf{L}}}{{\otimes}}m\quad\text{and}\quad *\stackrel{{\mathbf{L}}}{{\otimes}}m\cong m\qquad\forall\ v,w\in \operatorname{Ho}\!\mathcal{V},\ m\in\operatorname{Ho}\!\mathcal{M}.\]
+
+For the latter, by 10.2.9.(iii) we have a natural weak equivalence
+
+\[*\stackrel{{\mathbf{L}}}{{\otimes}}m=Q*\otimes Qm\stackrel{{ \sim}}{{\to}}*\otimes Qm\cong Qm\stackrel{{\sim}}{{\to}}m\]in \(\mathcal{M}\) which descends to the desired isomorphism. The former makes use of 10.2.9(ii) and the fact that cofibrant replacement in \(\mathcal{V}\) defines a common left deformation for the monoidal product and the tensor. The two non-trivial maps in the zig zag
+
+\[Qv\otimes Q(Qw\otimes Qm)\stackrel{{\sim}}{{\to}}Qv\otimes(Qw \otimes Qm)\cong(Qv\times Qw)\otimes Qm\stackrel{{\sim}}{{\gets }}Q(Qv\times Qw)\otimes Qm\]
+
+are weak equivalences because the bifunctors \(\times\) and \(\otimes\) preserve cofibrant objects. In this way, the associativity isomorphism that exhibits \(\mathcal{M}\) and as a closed \(\mathcal{V}\)-module descends to make \(\operatorname{Ho}\!\mathcal{M}\) a closed \(\operatorname{Ho}\!\mathcal{V}\)-module. 
+
+With this result we now understand why the homotopy categories of any simplicial model category are enriched, tensored, and cotensored over \(\mathcal{H}\). Now we would like to see under what conditions total derived functors become \(\mathcal{H}\)-enriched.
+
+Warning 10.2.13.: The deformations attached to a \(\mathcal{V}\)-homotopical category should be regarded as a fixed part of its structure, much like enrichments are specified, rather than chosen anew each time. The point is, the process of deriving the coherence isomorphisms used to show that particular total derived functors admit enrichments is somewhat delicate. The axioms of Definitions 10.2.4 and 10.2.9 are chosen so that there exist common deformations for all of the relevant structures. See [2, SS16] for more on this point.
+
+**Proposition 10.2.14** ([2, 16.4]).: _If \(F\colon\mathcal{M}\to\mathcal{N}\) is a \(\mathcal{V}\)-functor between \(\mathcal{V}\)-homotopical categories and that is left deformable and preserves cofibrant objects, then its total left derived functor \(\mathbf{L}F\colon\operatorname{Ho}\!\mathcal{M}\to\operatorname{Ho}\! \mathcal{N}\) is canonically \(\operatorname{Ho}\!\mathcal{V}\)-enriched._
+
+We will give two proofs, the first a direct and the second a more formal argument, which provide different perspectives illustrating the same point.
+
+Proof.: Using Proposition 10.1.5, we can obtain a \(\operatorname{Ho}\!\mathcal{V}\)-enrichment on \(\mathbf{L}F\) by means of a natural transformation
+
+\[\hat{\alpha}\colon v\stackrel{{\mathbf{L}}}{{\otimes}}\mathbf{L} Fm\Rightarrow\mathbf{L}F(v\stackrel{{\mathbf{L}}}{{\otimes}}m).\]
+
+The obvious candidate is
+
+\[Qv\otimes QFQm\stackrel{{ 1\times q}}{{\to}}Qv\otimes FQm \stackrel{{\alpha_{Q,Q}}}{{\to}}F(Qv\otimes Qm)\stackrel{{ (Fq)^{-1}}}{{\to}}FQ(Qv\otimes Qm).\]
+
+The right map is a weak equivalence in \(\mathcal{N}\) because we have assumed that the tensor on \(\mathcal{M}\) preserves cofibrant objects. If \(F\) preserves cofibrant objects the left map is also a weak equivalence in \(\mathcal{N}\). Hence, in \(\operatorname{Ho}\!\mathcal{N}\), \(\hat{\alpha}\) is isomorphic to \(\alpha_{Q,Q}\) and therefore satisfies the appropriate coherence conditions to define an enrichment of \(\mathbf{L}F\). 
+
+Proof.: By hypothesis, the bifunctors \(-\otimes F-\) and \(F(-\otimes-)\) are both homotopical on \(\mathcal{V}_{Q}\times\mathcal{M}_{Q}\). It follows that these composite functors admit total left derived functors
+
+\[\mathbf{L}(-\otimes F-)=Q-\otimes FQ-\qquad\text{and}\qquad\mathbf{L}F(- \otimes-)=F(Q-\otimes Q-).\]
+
+As remarked in the proof of Theorem 2.2.9, it is not automatically the case that the total left derived functor of a composite functor agrees with the composite of the total left derived functors of the components, even if all these derived functors exist. This does hold if the first functor in the composable pair preserves cofibrant objects. For the right-hand side, this was part of the hypotheses in the \(\mathcal{V}\)-homotopical category \(\mathcal{M}\). For the left-hand side, we include this condition as a specific hypothesis on \(F\). In general a natural transformation, such as \(\alpha\), admits a total left derived natural transformation whenever its domain and codomain admit a common deformation, so the rest of the argument is formal.
+
+**Remark 10.2.15**.: Because we have included the axioms (iv) and (v) involving cotensors in our definitions of closed symmetric monoidal homotopical category and \(\mathcal{V}\)-homotopical category, a dual version of this result is available: if \(F\) is a \(\mathcal{V}\)-functor between \(\mathcal{V}\)-homotopical categories that is right deformable and preserves fibrant objects then its total right derived functor is canonically \(\operatorname{Ho}\!\mathcal{V}\)-enriched.
+
+**Proposition 10.2.16** ([3, 16.8]).: _If \(F\colon\mathcal{M}\rightleftarrows\mathcal{N}\colon G\) is a \(\mathcal{V}\)-adjunction between \(\mathcal{V}\)-homotopical categories and a deformable adjunction, then if either \(F\) preserves cofibrant objects or if \(G\) preserves fibrant objects, then there is a total derived \(\mathcal{V}\)-adjunction_
+
+\[\mathbf{L}F\colon\underline{\operatorname{Ho}\!\mathcal{M}}\rightleftarrows \underline{\operatorname{Ho}\!\mathcal{N}}\colon\mathbf{R}G.\]
+
+When the hypotheses of Proposition 10.2.16 are satisfied we say the adjunction \(F\dashv G\) is \(\mathcal{V}\)**-deformable**. The right-hand statement is only true in the presence of the cotensor axioms (iv) and (v) of Definitions 10.2.4 and 10.2.9.
+
+**Exercise 10.2.17**.: Write out a (sketched) proof of this proposition in a way that highlights the main points of the argument.
+
+We record a final result for completeness sake.
+
+**Proposition 10.2.18** ([3, 16.13]).: _Suppose we have a two-variable \(\mathcal{V}\)-adjunction_
+
+\[F\colon\underline{\mathcal{M}}\otimes\underline{\mathcal{N}}\to\underline{ \mathcal{P}}\qquad G\colon\underline{\mathcal{M}}^{\operatorname{op}}\otimes \underline{\mathcal{P}}\to\underline{\mathcal{N}}\qquad\underline{\mathcal{N}} ^{\operatorname{op}}\otimes\underline{\mathcal{P}}\to\underline{\mathcal{M}}\]
+
+_between \(\mathcal{V}\)-homotopical categories whose underlying unenriched two-variable adjunction is deformable and such that one of the three bifunctors preserves (co)fibrant objects, as appropriate. Then the total derived functors form a two-variable \(\operatorname{Ho}\!\mathcal{V}\) adjunction._
+
+### Weighted homotopy limits and colimits, revisited
+
+We have seen that if \(\mathcal{V}\) is a closed symmetric monoidal homotopical category, then \(\operatorname{Ho}\!\mathcal{V}\) is a closed monoidal category, and hence a suitable base for enrichment. Also, if \(\mathcal{M}\) is a \(\mathcal{V}\)-homotopical category, then its homotopy category is \(\operatorname{Ho}\!\mathcal{V}\)-enriched, tensored, and cotensored. Furthermore, there exist elementary conditions under which \(\operatorname{Ho}\!\mathcal{V}\)-enrichments extend to total derived functors of \(\mathcal{V}\)-functors between \(\mathcal{V}\)-homotopical categories: the total left derived functor of a left deformable \(\mathcal{V}\)-functor that preserves cofibrant objects is \(\operatorname{Ho}\!\mathcal{V}\)-enriched. Similarly, given a deformable \(\mathcal{V}\)-adjunction, if either the left adjoint preserves cofibrant objects or the right adjoint preserves fibrant objects, then the total derived functors define a \(\operatorname{Ho}\!\mathcal{V}\)-adjunction; this is what it means to say the adjoint pair is \(\mathcal{V}\)-deformable.
+
+Our goal is now to apply these results to the total derived functors of the weighted homotopy colimit and weighted homotopy limit bifunctors constructed in Chapter 10. In order to do so, we must combine the hypotheses from these chapters. The assumptions of 9.2.5, in which we supposed that \(\mathcal{V}\) is a monoidal model category and that \(\mathcal{M}\) is a \(\mathcal{V}\)-model category, imply that \(\mathcal{V}\) is a closed symmetric monoidal homotopical category and that \(\mathcal{M}\) is \(\mathcal{V}\)-homotopical. It remains only to provide a \(\mathcal{V}\)-homotopical structure on the diagram category \((\underline{\mathcal{M}}^{\underline{\mathcal{D}}})_{0}\) for any small \(\mathcal{V}\)-category \(\underline{\mathcal{D}}\), which we do not assume supports any relevant model structure. It turns out no additional hypotheses are needed, though this claim will require a bit of justification.
+
+Recall if \(\mathcal{M}\) is a homotopical category then \(\mathcal{M}^{\mathcal{D}}\) is a homotopical category with its weak equivalences defined pointwise. Furthermore:
+
+**Lemma 10.3.1**.: _If \(\mathcal{M}\) is a saturated homotopical category, then \(\mathcal{M}^{\mathcal{D}}\) is saturated._Proof. Because the weak equivalences in \(\mathcal{M}^{\mathcal{O}}\) were defined pointwise, for each \(d\in\mathcal{D}\), the functor \(\operatorname{ev}_{d}\colon\mathcal{M}^{\mathcal{D}}\to\mathcal{M}\) is homotopical. Hence, we have a commutative diagram
+
+where the vertical arrows are the localizations defined after 2.1.6. The component at \(d\) of any map which becomes an isomorphism in \(\operatorname{Ho}\mathcal{M}^{\mathcal{D}}\) is therefore an isomorphism in \(\operatorname{Ho}\mathcal{M}\) and hence a weak equivalence if \(\mathcal{M}\) is saturated. So \(\mathcal{M}^{\mathcal{D}}\) is also saturated under these hypotheses. 
+
+The same argument works for the underlying category of an enriched functor category \(\underline{\mathcal{M}^{\mathcal{D}}}\). Recall that simplicial homotopies in \((\underline{\mathcal{M}^{\mathcal{D}}})_{0}\) were defined using the \(\mathcal{V}\)-tensor structure on diagrams, which is defined pointwise; cf. Remark 3.8.2. In particular, simplicial homotopy equivalences in \((\underline{\mathcal{M}^{\mathcal{D}}})_{0}\) are weak equivalences if this is true for \(\mathcal{M}\).
+
+It remains to define the deformations that make \(\underline{\mathcal{M}^{\mathcal{D}}}\) a \(\mathcal{V}\)-homotopical category. The following is a direct consequence of the homotopical properties of the two-sided enriched bar construction described in Lemma 9.2.4.
+
+**Lemma 10.3.2** ([3, 20.8]).: _If \(\underline{\mathcal{M}}\) and \(\underline{\mathcal{D}}\) are \(\mathcal{V}\)-categories satisfying the assumptions of 9.2.5, then \(\underline{\mathcal{M}^{\mathcal{D}}}\) is a \(\mathcal{V}\)-homotopical category when equipped with either_
+
+1. _the left deformation_ \(B(\underline{\mathcal{D}},\underline{\mathcal{D}},Q-)\) _and the right deformation_ \(R\) _or_
+2. _the right deformation_ \(C(\underline{\mathcal{D}},\underline{\mathcal{D}},R-)\) _and the left deformation_ \(Q\)_._
+
+We call (i) and (ii) the **bar**\(\mathcal{V}\)-**homotopical structure** and the **cobar**\(\mathcal{V}\)-**homotopical structure**. Note, that this result does not rely on the existence of any model structure on the diagram category \((\underline{\mathcal{M}^{\mathcal{D}}})_{0}\). This is an advantage of axiomatizing the conditions we need to derive enrichment in the definition of a \(\mathcal{V}\)-homotopical category. The following results, which continue the same hypotheses, are immediate consequences.
+
+**Corollary 10.3.3** ([3, 20.9]).: _The homotopy category of the category \((\underline{\mathcal{M}^{\mathcal{D}}})_{0}\) of \(\mathcal{V}\)-functors and \(\mathcal{V}\)-natural transformations is tensored, cotensored, and enriched over \(\operatorname{Ho}\mathcal{V}\)._
+
+**Corollary 10.3.4** ([3, 21.1-2]).: _If \(W\) is a pointwise cofibrant weight, then the total left derived functor of \(\operatorname{colim}^{W}\) and the total right derived functor of \(\operatorname{lim}^{W}\) are \(\operatorname{Ho}\mathcal{V}\)-enriched._
+
+Now suppose \(\Phi\colon\underline{\mathcal{M}}\rightleftarrows\underline{\mathcal{N}}\colon\Psi\) is a \(\mathcal{V}\)-deformable adjunction. Because left \(\mathcal{V}\)-adjoints commute with the enriched bar construction and right \(\mathcal{V}\)-adjoints commute with the enriched cobar construction, the induced \(\mathcal{V}\)-adjunction \(\Phi^{\mathcal{D}}\colon\underline{\mathcal{M}^{\mathcal{D}}}\rightleftarrows \underline{\mathcal{N}^{\mathcal{D}}}\colon\Psi^{\mathcal{D}}\) is also \(\mathcal{V}\)-deformable. In particular:
+
+**Theorem 10.3.5** ([3, 22.2-3]).: _Let \(W\) be a pointwise cofibrant weight. Under the standing hypotheses, there is a \(\operatorname{Ho}\mathcal{V}\)-natural isomorphism_
+
+\[\mathbf{L}\operatorname{colim}^{W}(\mathbf{L}\Phi^{\mathcal{D}}(F))\cong \mathbf{L}\Phi(\mathbf{L}\operatorname{colim}^{W}F).\]
+
+_In words, total left derived functors of left \(\mathcal{V}\)-adjoints preserve weighted homotopy colimits._
+
+A dual \(\operatorname{Ho}\mathcal{V}\)-natural isomorphism shows that total right derived functors of right \(\mathcal{V}\)-adjoints preserve weighted homotopy limits.
+
+Proof.: The only thing to check is that the derived functors can be composed. This is straightforward (or see [20, SS21]). 
+
+We conclude by mentioning a final result concerning enriched Kan extensions. The proof makes use of the flexible handedness of Proposition 10.2.16: the homotopical behavior of precomposition, sometimes a right adjoint and sometimes a left adjoint, is much easier to understand than that of either Kan extension.
+
+**Theorem 10.3.6** ([20, 22.2-22.3]).: _If \(K\colon\underline{\mathcal{C}}\to\underline{\mathcal{D}}\) is a \(\mathcal{V}\)-functor between small \(\mathcal{V}\)-categories and \(\underline{\mathcal{V}}\) and \(\underline{\mathcal{M}}\) satisfy 9.2.5, then the \(\mathcal{V}\)-adjunctions_
+
+\[\operatorname{Lan}_{K}\colon\underline{\mathcal{M}}^{\underline{\mathcal{C}}} \rightleftarrows\underline{\mathcal{M}}^{\underline{\mathcal{D}}}\colon K^{*} \qquad\text{and}\qquad K^{*}\colon\underline{\mathcal{M}}^{\underline{ \mathcal{D}}}\rightleftarrows\underline{\mathcal{M}}^{\underline{\mathcal{C}}}\colon \operatorname{Ran}_{K}\]
+
+_are \(\mathcal{V}\)-deformable._
+
+More precisely, \(\operatorname{Lan}_{K}\dashv K^{*}\) is \(\mathcal{V}\)-deformable with respect to the bar \(\mathcal{V}\)-homotopical structures, and \(K^{*}\dashv\operatorname{Ran}_{K}\) is \(\mathcal{V}\)-deformable with respect to the cobar \(\mathcal{V}\)-homotopical structures. In the former case, this means that the point-set level left derived functor of \(\operatorname{Lan}_{K}\), applied to \(F\in\underline{\mathcal{M}}^{\underline{\mathcal{C}}}\) is
+
+\[\begin{split}\mathbb{L}\operatorname{Lan}_{K}F\cong\operatorname{ Lan}_{K}B(\underline{\mathcal{C}},\underline{\mathcal{C}},QF)& \cong\underline{\mathcal{D}}(K-,-)\otimes_{\underline{\mathcal{C}}}B( \underline{\mathcal{C}},\underline{\mathcal{C}},QF)\\ &\cong B(\underline{\mathcal{D}}(K-,-)\otimes_{\underline{ \mathcal{C}}}\underline{\mathcal{C}},\underline{\mathcal{C}},QF)\cong B( \underline{\mathcal{D}}(K-,-),\underline{\mathcal{C}},QF),\end{split}\]
+
+which was the definition of the homotopy left Kan extension functor given in Example 9.2.11. Dually, using the deformations of the cobar \(\mathcal{V}\)-homotopical structure, the point-set level right derived functor of \(\operatorname{Ran}_{K}\) is
+
+\[\begin{split}\mathbb{R}\operatorname{Ran}_{K}F\cong\operatorname{ Ran}_{K}C(\underline{\mathcal{C}},\underline{\mathcal{C}},RF)& \cong\{\underline{\mathcal{D}}(-,K-),C(\underline{\mathcal{C}}, \underline{\mathcal{C}},RF)\}^{\underline{\mathcal{C}}}\\ &\cong C(\underline{\mathcal{D}}(-,K-)\otimes_{\mathbb{C}^{\mathbb{ C}^{\mathbb{C}^{\mathbb{C}}}}}\underline{\mathcal{C}},\underline{\mathcal{C}},RF)\cong C( \underline{\mathcal{D}}(-,K-),\underline{\mathcal{C}},RF),\end{split}\]
+
+which recovers our formula for homotopy right Kan extension.
+
+Because restriction along \(K\) is homotopical, the total left and right derived functors of \(K^{*}\) are both isomorphic to \(K^{*}\). A priori, the derived _enrichments_ produced by the two \(\mathcal{V}\)-deformable adjunctions might differ; however, as [20, SS22] explains, this turns out not to be the case. Hence:
+
+**Corollary 10.3.7** ([20, 22.5]).: _There is a derived \(\operatorname{Ho}^{\prime}\!\mathcal{V}\)-adjunction_
+
+\[\mathbf{L}\operatorname{Lan}_{K}+\mathbf{R}K^{*}\cong K^{*}\cong\mathbf{L}K^{* }+\mathbf{R}\operatorname{Ran}_{K}.\]
+
+### Homotopical structure via enrichment
+
+We conclude this chapter with two short sections that explore homotopical structures on the underlying category of an enriched category that arise from the enrichment in a closed symmetric monoidal homotopical category. The highlight will be a generalization of the classical comparison between the homotopy equivalences (the homotopical structure determined by the topological enrichment) and weak homotopy equivalences of topological spaces.
+
+As a starting point, though not fully in the spirit of what is to follow, we note the following somewhat curious result.
+
+**Lemma 10.4.1**.: _If \(\operatorname{Ho}^{\prime}\!\mathcal{V}\) is locally small, the homotopy category of any \(\mathcal{V}\)-homotopical category is also locally small._Proof.: Let \(\underline{\mathcal{M}}\) be a \(\mathcal{V}\)-homotopical category. The claim holds because the underlying category of the \(\operatorname{\mathrm{H}o}\!\mathcal{V}\)-enriched category \(\underline{\mathrm{H}o}\!\mathcal{M}\) is the homotopy category of the underlying category of \(\underline{\mathcal{M}}\). Tautologically both categories have the same objects. By definition, the set of arrows from \(m\) to \(m^{\prime}\) in the underlying category of \(\underline{\mathrm{H}o}\!\mathcal{M}\) is
+
+\[\operatorname{\mathrm{H}o}\!\mathcal{V}(*,\underline{\mathrm{H}o}\!\mathcal{M}( m,m^{\prime}))=\operatorname{\mathrm{H}o}\!\mathcal{V}(*,\underline{\mathbf{R} \underline{\mathrm{h}om}}(m,m^{\prime}))\cong\operatorname{\mathrm{H}o}\! \mathcal{M}(*\stackrel{{\mathbf{L}}}{{\otimes}}m,m^{\prime})\cong \operatorname{\mathrm{H}o}\!\mathcal{M}(m,m^{\prime})\qed\]
+
+In some sense, we seem to have gotten something for nothing. To quote [20]: "The presence of enrichment often simplifies, rather than complicates, the study of homotopy theory, since enrichment over a suitable category automatically provides well-behaved notions of homotopy and homotopy equivalence."
+
+To explore what this means, let us first simplify and suppose \(\underline{\mathcal{M}}\) is a tensored and cotensored \(\mathcal{V}\)-category, where \(\mathcal{V}\) is a closed symmetric monoidal homotopical category, but where \(\mathcal{M}\) is not known to be homotopical in its own right. By Theorem 10.2.6, \(\operatorname{\mathrm{H}o}\!\mathcal{V}\) is a closed symmetric monoidal category with monoidal product \(\stackrel{{\mathbf{L}}}{{\times}}\) represented on the point-set level by the bifunctor \(-\stackrel{{\mathbb{L}}}{{\times}}-:=Q-\times Q-\). The natural map
+
+\[X\stackrel{{\mathbb{L}}}{{\times}}Y=QX\times QY\stackrel{{ \vartheta\times q}}{{\longrightarrow}}X\times Y\]
+
+descends along the localization functor \(\gamma\colon\mathcal{V}\to\operatorname{\mathrm{H}o}\!\mathcal{V}\) to define a natural arrow
+
+\[\gamma X\stackrel{{\mathbf{L}}}{{\times}}\gamma Y\to\gamma(X\times Y) \tag{10.4.2}\]
+
+that makes \(\gamma\) a lax monoidal functor. It follows from Lemma 3.4.3, that any \(\mathcal{V}\)-enriched category is canonically \(\operatorname{\mathrm{H}o}\!\mathcal{V}\)-enriched.
+
+Let \(\underline{h}\!\mathcal{M}\) be the \(\operatorname{\mathrm{H}o}\!\mathcal{V}\)-category arising from a \(\mathcal{V}\)-category \(\underline{\mathcal{M}}\), with hom-objects defined by applying the localization functor \(\gamma\) and composition given by the map
+
+\[\gamma\underline{\mathcal{M}}(y,z)\stackrel{{\mathbf{L}}}{{ \times}}\gamma\underline{\mathcal{M}}(x,y)\to\gamma(\underline{\mathcal{M}}(y,z)\times\underline{\mathcal{M}}(x,y))\to\gamma\underline{\mathcal{M}}(x,z)\]
+
+in \(\operatorname{\mathrm{H}o}\!\mathcal{V}\). Note that the functor \(\gamma\) is the identity on objects. Thus, the hom-objects of \(\underline{h}\!\mathcal{M}\) are represented by the same hom-objects of \(\underline{\mathcal{M}}\), but the structure of the former enriched category is given by maps in \(\operatorname{\mathrm{H}o}\!\mathcal{V}\), not in \(\mathcal{V}\). Employing the category theorists' philosophy that an object in a category is fundamentally a stand-in for its isomorphism class, the objects in \(\operatorname{\mathrm{H}o}\!\mathcal{V}\) can be thought of as weak equivalence classes of objects of \(\mathcal{V}\). For \(\mathcal{V}=\mathbf{sSet}\) or \(\mathbf{Top}\), the hom-objects of \(\underline{\mathcal{M}}\) are spaces while the hom-objects of \(\underline{h}\!\mathcal{M}\) are typically thought of as homotopy types.
+
+We are not interested in \(\underline{h}\!\mathcal{M}\) directly; rather, we care about its underlying category \(h\!\mathcal{M}\) with hom-sets
+
+\[h\mathcal{M}(x,y):=\operatorname{\mathrm{H}o}\!\mathcal{V}(*,\underline{h} \!\mathcal{M}(x,y))=\operatorname{\mathrm{H}o}\!\mathcal{V}(*,\underline{ \mathcal{M}}(x,y)).\]
+
+Note this notation is consistent with the introduction to Chapter 3.
+
+**Definition 10.4.3**.: Call a morphism in \(\mathcal{M}\) a \(\mathcal{V}\)-**equivalence** if its image in \(h\mathcal{M}\) is an isomorphism.
+
+Because isomorphisms satisfy the 2-of-6 property, the \(\mathcal{V}\)-equivalences give any category \(\mathcal{M}\) enriched over a closed symmetric monoidal homotopical category \(\mathcal{V}\) the structure of a homotopical category. There is a canonical functor \(\mathcal{M}\to h\mathcal{M}\) that we call "localization." This terminology will be justified by Theorem 10.4.6.
+
+**Example 10.4.4**.: When \(\mathcal{V}=\mathbf{Top}\), \(\mathbf{sSet}\), or \(\mathbf{Ch}_{\bullet}(R)\), \(h\mathcal{M}\) is the category whose morphisms are given by taking points in the hom-spaces up to, respectively, homotopy, simplicial homotopy, or chain homotopy. Hence, the \(\mathcal{V}\)-equivalences are precisely the homotopy equivalences, simplicial homotopy equivalences, or chain homotopy equivalences.
+
+Just as any topological functor preserves homotopy equivalences (though not necessarily weak homotopy equivalences), and any additive functor preserves chain homotopy equivalences (though not necessarily quasi-isomorphisms), we can prove in general that any \(\mathcal{V}\)-functor automatically preserves \(\mathcal{V}\)-equivalences.
+
+**Lemma 10.4.5** ([3, 17.4]).: _Any \(\mathcal{V}\)-functor \(F\colon\underline{\mathcal{M}}\to\underline{\mathcal{N}}\) between \(\mathcal{V}\)-categories preserves \(\mathcal{V}\)-equivalences._
+
+Proof.: We claim that the functor underlying \(F\) extends along the localizations to produce a commutative diagram
+
+This assertion is obvious on objects. Given \(x,y\in\mathcal{M}\), the map \(hF\) is defined on hom-sets by applying the functor \(\operatorname{H\!\mathcal{V}}\!\left(\ast,-\right)\) to \(F\colon\underline{\mathcal{M}}\!\left(x,y\right)\to\underline{\mathcal{N}} \!\left(Fx,Fy\right)\) as indicated
+
+\[h\mathcal{M}\!\left(x,y\right)=\operatorname{H\!\mathcal{V}}\!\left(\ast, \underline{\mathcal{M}}\!\left(x,y\right)\right)\longrightarrow\operatorname{H \!\mathcal{V}}\!\left(\ast,\underline{\mathcal{N}}\!\left(Fx,Fy\right)\right)=h \mathcal{N}\!\left(Fx,Fy\right).\]
+
+The rest of the argument is elementary: a \(\mathcal{V}\)-equivalence in \(\mathcal{M}\) becomes an isomorphism in \(h\mathcal{M}\), hence remains an isomorphism in \(h\mathcal{N}\), and hence its image in \(\mathcal{N}\) is a \(\mathcal{V}\)-equivalence. 
+
+The \(\mathcal{V}\)-equivalences make \(\mathcal{M}\) a homotopical category, but is it a \(\mathcal{V}\)-homotopical category? And if so, is the associated \(\operatorname{H\!\mathcal{O}}\!\left(\ast,\right)\)-enrichment associated to the homotopy category \(\operatorname{H\!o}\!\left(\ast,\right)\) related to \(\underline{h}\!\left(\mathcal{M}\right)\)? We have no reason to suppose that \(\mathcal{M}\) has well-behaved left or right deformations, so we will attempt to provide a \(\mathcal{V}\)-homotopical structure with all objects of \(\mathcal{M}\) fibrant and cofibrant. This is not as unreasonable as it sounds: the tensor and cotensor with any \(v\in\mathcal{V}\), being \(\mathcal{V}\)-functors, preserve all \(\mathcal{V}\)-equivalences and hence are homotopical. Similarly, by definition, the internal hom \(\underline{h}\!\left(m,m^{\prime}\right)=\gamma\underline{\mathcal{M}}\! \left(m,m^{\prime}\right)\) takes \(\mathcal{V}\)-equivalences to isomorphisms in \(\operatorname{H\!\mathcal{V}}\!\left(\ast,\right)\), so if \(\mathcal{V}\) is saturated, then the internal hom also preserves weak equivalences in both variables.
+
+Supposing that the monoidal unit is cofibrant (or that the unit conditions 10.2.9 (iii) and (v) are satisfied), it remains only to check that tensoring with or cotensoring into any \(m\in\mathcal{M}\) preserves weak equivalences between cofibrant objects in \(\mathcal{V}\). It turns out this holds if the \(\mathcal{V}\)-category \(\underline{\mathcal{M}}\) is locally fibrant, i.e., if the hom-objects \(\underline{\mathcal{M}}\!\left(m,m^{\prime}\right)\) are fibrant in \(\mathcal{V}\).
+
+**Theorem 10.4.6** ([3, 17.5]).: _If \(\mathcal{M}\) is locally fibrant and if the unit conditions (iii) and (v) are satisfied, then the \(\mathcal{V}\)-equivalences make \(\mathcal{M}\) a saturated \(\mathcal{V}\)-homotopical category in such a way that we have an isomorphism \(\underline{h}\!\left(\ast,\right)\cong\operatorname{H\!o}\!\left(\ast, \right)\) of \(\operatorname{H\!o}\!\left(\ast,\right)\)-categories. Therefore, \(h\mathcal{M}\) is the localization of \(\mathcal{M}\) at the \(\mathcal{V}\)-equivalences._
+
+Proof.: Suppose \(f\colon v\to w\) is a weak equivalence between cofibrant objects. We use the Yoneda lemma to show that \(f\otimes m\colon v\otimes m\to w\otimes m\) is an isomorphism in \(h\mathcal{M}\), andhence a \(\mathcal{V}\)-equivalence. By naturality, the following diagram commutes in \(\mathcal{V}\).
+
+The internal hom in \(\mathcal{V}\) preserves weak equivalences between cofibrant objects in its first variable when its second variable is fibrant. Hence, the right vertical map and thus also the left vertical map is a weak equivalence. Applying \(\gamma\colon\mathcal{V}\to\operatorname{Ho}\!\mathcal{V}\), we obtain an isomorphism \(\underline{h}\mathcal{M}(w\otimes m,n)\cong\underline{h}\mathcal{M}(v\otimes m,n)\) in \(\operatorname{Ho}\!\mathcal{V}\). Because the map \((f\otimes m)^{*}\) is \(\mathcal{V}\)-natural, this isomorphism is \(\operatorname{Ho}\!\mathcal{V}\)-natural. Hence, the Yoneda lemma implies that \(f\otimes m\colon v\otimes m\to w\otimes m\) is an isomorphism in \(h\mathcal{M}\), and hence \(f\otimes m\) is a \(\mathcal{V}\)-equivalence, as desired.
+
+For the last part of the statement, because the deformations on \(\mathcal{M}\) are taken to be identities, the definitions of hom-objects in the \(\operatorname{Ho}\!\mathcal{V}\)-categories \(h\mathcal{M}\) and \(\underline{\operatorname{Ho}\!\mathcal{M}}\) agree
+
+\[\underline{h}\mathcal{M}(m,m^{\prime})=\gamma\underline{\mathcal{M}}(m,m^{ \prime})=\underline{\mathcal{M}}(m,m^{\prime})=\underline{\operatorname{Ho} \!\mathcal{M}(m,m^{\prime})},\]
+
+and tautologously \(\mathcal{M}\) is saturated. 
+
+This completes the justification of the discussion from the beginning of Chapter 3. If \(\mathcal{M}\) is a topologically enriched, tensored, and cotensored category, its homotopy products, defined representably, are products in its homotopy category \(h\mathcal{M}\cong\operatorname{Ho}\!\mathcal{M}\).
+
+### 10.5. Homotopy equivalences vs. weak equivalences
+
+Now suppose \(\mathcal{M}\) is known to be a \(\mathcal{V}\)-homotopical category. The weak equivalences specified by its homotopical structure are likely distinct from the \(\mathcal{V}\)-equivalences just defined. Nonetheless, we will show that just as in classical homotopy theory, the \(\mathcal{V}\)-equivalences are a useful stepping stone to the weak equivalences. The following remarkable theorem of Shulman is a generalization of classical results that describe the relationship between homotopy equivalences and weak homotopy equivalences of topological spaces (see also Digression 11.3.13).
+
+**Theorem 10.5.1** ([3, 18.1]).: _Suppose \(\mathcal{M}\) is a \(\mathcal{V}\)-homotopical category. Then there is a \(\operatorname{Ho}\!\mathcal{V}\)-functor \(\phi\colon\underline{h}\mathcal{M}\to\underline{\operatorname{Ho}\!\mathcal{ M}}\) whose underlying unenriched functor commutes with both localizations_
+
+(10.5.2)
+
+_Furthermore:_
+
+1. _The restriction of_ \(\phi\) _to the fibrant-cofibrant objects is fully faithful._
+2. _If either_ \(Q\) _preserves fibrant objects or_ \(R\) _preserves cofibrant objects, then the restriction of_ \(\phi\) _to the fibrant-cofibrant objects is an equivalence._
+3. _A weak equivalence between fibrant-cofibrant objects is a_ \(\mathcal{V}\)_-equivalence._
+4. _If_ \(\mathcal{M}\) _is saturated then all_ \(\mathcal{V}\)_-equivalences are weak equivalences._
+
+Note all three functors in (10.5.2) are identity-on-objects; the difference is in the morphisms. The first localization "takes homotopy classes of maps." The second localization formally inverts the weak equivalences. In classical terminology, (i) says that maps in the homotopy category between fibrant-cofibrant objects are homotopy classes of maps, and (ii) says that the homotopy category is equivalent to the category of homotopy classes of maps between fibrant-cofibrant objects, supposing that fibrant-cofibrant replacements exist.
+
+Proof of Theorem 10.5.1.: The functor \(\phi\) is defined on hom-objects by the natural map
+
+\[\underline{h\mathcal{M}(m,m^{\prime})}=\underline{\mathcal{M}(m,m^{\prime})} \to\underline{\mathcal{M}(Qm,Rm^{\prime})}=\underline{\operatorname{Ho} \mathcal{M}(m,m^{\prime})} \tag{10.5.3}\]
+
+given by precomposing with \(Qm\to m\) and postcomposing with \(m^{\prime}\to Rm^{\prime}\). We leave it as an exercise to check that this defines a \(\operatorname{Ho}\mathcal{V}\)-functor.
+
+For (i), if \(m\) is cofibrant and \(m^{\prime}\) is fibrant, then (10.5.3) is a weak equivalence and hence an isomorphism in \(\operatorname{Ho}^{\prime}\!V\); hence \(\phi\) is fully-faithful. For (ii), if either \(Q\) preserves fibrant objects or \(R\) preserves cofibrant objects, then every object in \(\mathcal{M}\) is weakly equivalent to a fibrant-cofibrant one and hence every object is isomorphic in \(\operatorname{Ho}\mathcal{M}\) to one in the image of \(h\mathcal{M}_{QR}\). The restriction of \(\phi\) is therefore an equivalence of \(\operatorname{Ho}\mathcal{V}\)-categories.
+
+For (iii), a weak equivalence between fibrant-cofibrant objects is an isomorphism in \(\operatorname{Ho}\mathcal{M}\) and hence also in \(h\mathcal{M}\) because \(\phi\) is fully faithful on this subcategory. Hence, such a map is a \(\mathcal{V}\)-equivalence. Finally for (iv), any \(\mathcal{V}\)-equivalence in \(\mathcal{M}\) is an isomorphism in \(h\mathcal{M}\) and hence an isomorphism in \(\operatorname{Ho}\mathcal{M}\), and hence a weak equivalence, if \(\mathcal{M}\) is saturated. 
+
+As a corollary, we note that in certain conditions, \(\mathcal{V}\)-functors are extraordinarily easy to derive.
+
+Corollary 10.5.4 ([3, 18.3]).: _Suppose \(\mathcal{M}\) and \(\mathcal{N}\) are \(\mathcal{V}\)-homotopical categories such that \(\mathcal{N}\) is saturated. If every object of \(\mathcal{M}\) is fibrant, then any \(\mathcal{V}\)-functor \(F\colon\underline{\mathcal{M}}\to\underline{\mathcal{N}}\) has a left derived functor. If every object of \(\mathcal{M}\) is cofibrant, then any such \(\mathcal{V}\)-functor has a right derived functor._
+
+Proof.: Suppose all objects are fibrant. By Theorem 10.5.1, all weak equivalences between fibrant-cofibrant objects are \(\mathcal{V}\)-equivalences, which any \(\mathcal{V}\)-functor preserves. Because \(\mathcal{N}\) is saturated, all \(\mathcal{V}\)-equivalences in \(\mathcal{N}\) are weak equivalences. It follows that \(F\) is homotopical on the cofibrant objects, and hence is left deformable, and hence has a left derived functor. 
+
+In fact, any \(\mathcal{V}\)-functor between \(\mathcal{V}\)-homotopical categories whose target is saturated has a **middle derived functor**. See [3, SS4] for the definition.
+
+**Part III**
+
+**Model categories and weak factorization systems**
+
+[MISSING_PAGE_EMPTY:9680]
+
+## Chapter 11 Weak factorization systems in model categories
+
+Having exhausted the theory of derived functors, we shift our focus to model categories, the context in which they are most commonly constructed. This contextualization will appear in section 11.3 where the definition of a model category will finally appear, but first we focus on the parts of a model structure invisible to the underlying homotopical category. We think this perspective nicely complements standard presentations of model category theory, e.g., [1, 10, 11]. (The newer [12] bears a familial resemblance to our presentation.) Those sources allow our treatment here to be quite brief. Where we have nothing of substance to contribute, rather than retrace well-trodden ground, we leave the standard parts of the theory to them.
+
+The reward for our work will come in the last section in which we prove a theorem with a number of important consequences. Specifically, we describe the homotopical properties of the weighted limit and weighted colimit bifunctors in model category language. Using this, we give a simple proof of the Homotopy Finality Theorem 8.5.6 and finally show that the different "op" conventions for the homotopy limit and homotopy colimit functors discussed in Remark 7.8.3 give weakly equivalent results. Finally, we prove that several familiar constructions for particular homotopy colimits have the appropriate universal properties.
+
+### 11.1 Lifting problems and lifting properties
+
+Classically, **cofibrations** and **fibrations**, technical terms in the context of any model structure, refer to classes of continuous functions of topological spaces characterized by certain lifting properties. Our story begins by explaining the common features of any class of maps defined in this way. We will given an "algebraic" characterization of such classes in Chapter 12.
+
+Let \(i\) and \(f\) be arrows in a fixed category \(\mathcal{M}\). A **lifting problem** between \(i\) and \(f\) is simply a commutative square
+
+A **lift** or **solution** is a dotted arrow, as indicated, making both triangles commute. If any lifting problem between \(i\) and \(f\) has a solution, we say that \(i\) has the **left lifting property** with respect to \(f\) and, equivalently, that \(f\) has the **right lifting property** with respect to \(i\). We use the suggestive symbolic notation \(i\mathbin{\raisebox{0.86pt}{\scalebox{0.8}{$\Box$}}}f\) to encode these equivalent assertions.
+
+Example 11.1.1.: A map of sets has the right lifting property against the unique map \(\emptyset\to*\) if and only if the map is an epimorphism. A map of sets has the right lifting property against the unique map \(*\sqcup*\to*\) if and only if the map is a monomorphism.
+
+**Example 11.1.2**.: A discrete right fibration, defined in 7.1.9, is a functor that has the right lifting property with respect to the codomain inclusion of the terminal category into the walking arrow \(\mathbb{1}\to 2\).
+
+Suppose \(\mathcal{L}\) is a class of maps in \(\mathcal{M}\). We write \(\mathcal{L}^{\alpha}\) for the class of arrows that have the right lifting property against each element of \(\mathcal{L}\). Dually, we write \({}^{\alpha}\mathcal{R}\) for the class of arrows that have the left lifting property against a given class \(\mathcal{R}\).
+
+**Example 11.1.3**.: Writing \(i_{0}\) and \(p_{0}\) for the obvious maps induced by the inclusion of the 0th endpoint of the standard unit interval \(I\), the **Hurewicz fibrations** are defined to be \(\{i_{0}\colon A\to A\times I\}^{\alpha}\) and the **Hurewicz cofibrations** are \({}^{\alpha}\{p_{0}\colon A^{I}\to A\}\), where the classes defining these lifting properties are indexed by all topological spaces \(A\). Restricting to the subset of cylinder inclusions on disks, \(\{i_{0}\colon D^{n}\to D^{n}\times I\}^{\alpha}\) is the class of **Serre fibrations**.
+
+Any class of maps that is defined by a left lifting property is **weakly saturated** meaning it is closed under the following constructions:
+
+**Lemma 11.1.4**.: _Any class of arrows of the form \({}^{\alpha}\mathcal{R}\) is closed under coproducts, pushouts, transfinite composition, retracts, and contains the isomorphisms._
+
+A diagram whose domain is the ordinal \(\alpha\) is called an \(\alpha\)**-composite** if, for each limit ordinal \(\beta<\alpha\), the subdiagram indexed by \(\beta\) is a colimit cone. An \(\omega\)-composite might also be called a countable composite. To say that \({}^{\alpha}\mathcal{R}\) is closed under transfinite composition means that if each arrow in an \(\alpha\)-composite between the images of some ordinal and its successor is in \({}^{\alpha}\mathcal{R}\), then the "composite" arrow from the image of zero to the image of \(\alpha\) is also in \({}^{\alpha}\mathcal{R}\).
+
+Proof.: All of the arguments are similar. For instance, suppose \(j\) is a retract of \(i\in{}^{\alpha}\mathcal{R}\). By precomposing a lifting problem with the retract diagram, displayed on the left below, we obtain a solution as indicated
+
+So \(j\) lifts against \(\mathcal{R}\) and is therefore in \({}^{\alpha}\mathcal{R}\). 
+
+Lemma 11.1.4 of course has a dual version describing the closure properties of classes of arrows characterized by a right lifting property, but we prefer not to state it because we do not know what to call the dual notion of transfinite composition.
+
+If \(\mathcal{L}\) and \(\mathcal{R}\) are two classes of maps, we write \(\mathcal{L}\boxdot\mathcal{R}\) to mean that \(\mathcal{L}\subset{}^{\alpha}\mathcal{R}\) and equivalently that \(\mathcal{R}\subset\mathcal{L}^{\alpha}\). Observe that the operators \((-)^{\alpha}\) and \({}^{\alpha}(-)\) form a Galois connection with respect to inclusion.
+
+It will be useful to note that lifting properties interact nicely with adjunctions.
+
+**Lemma 11.1.5**.: _Suppose \(F\colon\mathcal{M}\rightleftarrows\mathcal{N}\colon U\) is an adjunction and let \(\mathcal{A}\) be a class of arrows in \(\mathcal{M}\) and \(\mathcal{B}\) be a class of arrows in \(\mathcal{N}\). Then \(F\mathcal{A}\boxdot\mathcal{B}\) if and only if \(\mathcal{A}\boxdot U\mathcal{B}\)._
+
+Proof.: An adjunction \(F\dashv U\) induces an adjunction \(F\colon\mathcal{M}^{2}\rightleftarrows\mathcal{N}^{2}\colon U\) between the respective arrow categories; the adjoints are defined pointwise by postcomposition. Inparticular, any lifting problem \(Fi\Rightarrow f\) in \(\mathcal{N}\) has an adjunct lifting problem \(i\Rightarrow Uf\) in \(\mathcal{M}\).
+
+Furthermore, by naturality of the original adjunction, the transpose of a solution to one lifting problem solves the other. 
+
+Remark 11.1.6.: Lemma 11.1.5 asserts that the following diagram is a pullback in **Set**
+
+We shall see in 12.6.4 that this assertion can be categorified.
+
+The argument presented in the proof of 11.1.5 can be extended to two-variable adjunctions. A two-variable adjunction does not induce a pointwise-defined two-variable adjunction between arrow categories. However, if the ambient categories have certain finite limits and colimits, then the **Leibniz construction1** produces a two-variable adjunction between the arrow categories.
+
+Footnote 1: The name refers to Leibniz’ formula for the boundary of the product of two polygons \(\partial(A\times B)=(\partial A\times B)\cup_{\partial(A\times B)}(A\times \partial B)\); cf. Exercise 15.0.2.
+
+**Construction 11.1.7** (Leibniz construction).: Consider a two-variable adjunction
+
+\[-\otimes-:\,\mathcal{M}\times\mathcal{N}\to\mathcal{P}\qquad\{-,-\}\colon \mathcal{M}^{\mathrm{op}}\times\mathcal{P}\to\mathcal{N}\qquad\underline{ \hom}(-,-)\colon\mathcal{N}^{\mathrm{op}}\times\mathcal{P}\to\mathcal{M}\]
+
+\[\mathcal{P}(m\otimes n,p)\cong\mathcal{N}(n,\{m,p\})\cong\mathcal{M}(m, \underline{\hom}(n,p)).\]
+
+If \(\mathcal{P}\) has pushouts and \(\mathcal{M}\) and \(\mathcal{N}\) have pullbacks, there is an induced two-variable adjunction
+
+\[-\otimes-:\,\mathcal{M}^{2}\times\mathcal{N}^{2}\to\mathcal{P}^{2}\quad\{-,- \}\colon(\mathcal{M}^{2})^{\mathrm{op}}\times\mathcal{P}^{2}\to\mathcal{N}^{2} \quad\underline{\hom}(-,-)\colon(\mathcal{N}^{2})^{\mathrm{op}}\times\mathcal{ P}^{2}\to\mathcal{M}^{2}\]
+
+between the arrow categories. The left adjoint \(\otimes\) is the **pushout-product** of \(i\colon m\to m^{\prime}\in\mathcal{M}^{2}\) and \(j\colon n\to n^{\prime}\in\mathcal{N}^{2}\) as defined by the diagram
+
+\[\diagram\node{m\otimes n}\arrow{e,t}{i_{*}}\arrow{e,t}{i\otimes j_{*}}\arrow{e,t}{i_{*}}\node{m^{\prime}\otimes n}\arrow{e,t}{i_{*}}\arrow{e,t}{j_{*}}\arrow{e,t}{i\otimes j_{*}}\arrow{e,t}{i\otimes j_{*}}\arrow{e,t}{i_{*}}\node{m^{\prime} \otimes n^{\prime}}.\]The right adjoints \(\{\hat{,}\}\) and \(\hat{\underline{\hom}}\), called **pullback-cotensors** and **pullback-homs**, are defined dually for \(f\colon p\to p^{\prime}\) by the pullbacks in \(\mathcal{N}\) and \(\mathcal{M}\)
+
+Example 11.1.8 (degenerate cases).: The pushout-product of a map \(j\colon n\to n^{\prime}\) with the unique map \(\emptyset\to m\) is the map \(m\otimes j\colon m\otimes n\to m\otimes n^{\prime}\). The pullback-hom of the map \(j\) with the unique map \(p\to*\) is the map \(j^{*}\colon\underline{\hom}(n^{\prime},p)\to\underline{\hom}(n,p)\). The pullback-cotensor of the map \(\emptyset\to m\) with \(f\colon p\to p^{\prime}\) is the map \(f_{*}\colon\{m,p\}\to\{m,p^{\prime}\}\).
+
+Exercise 11.1.9 ().: Prove that \(\hat{\otimes}\), \(\{\hat{,}\}\), and \(\hat{\underline{\hom}}\) define a two-variable adjunction between the arrow categories by writing down explicit hom-set bijections
+
+\[\mathcal{P}^{2}(i\hat{\otimes}j,f)\cong\mathcal{N}^{2}(j,\{\hat{i,}\hat{,}f\}) \cong\mathcal{M}^{2}(i,\hat{\underline{\hom}}(j,f)).\]
+
+A warm-up exercise might be in order: Consider \(m\otimes n^{\prime}\stackrel{{ h}}{{\to}}p\) and let \(n\stackrel{{ j}}{{\to}}n^{\prime}\). Show that the transpose of \(m\otimes n\stackrel{{ m\otimes j}}{{\longrightarrow}}m\otimes n^{ \prime}\stackrel{{ h}}{{\to}}p\) is the composite \(m\stackrel{{ h}}{{\to}}\underline{\hom}(n^{\prime},p)\stackrel{{ j^{\prime}}}{{\to}}\underline{\hom}(n,p)\), where \(\overline{h}\) is the transpose of \(h\).
+
+Lemma 11.1.10 ().: _Let \(\mathcal{A},\mathcal{B},\mathcal{C}\) be classes of maps in \(\mathcal{M},\mathcal{N},\mathcal{P}\), respectively. The following lifting properties are equivalent_
+
+\[\mathcal{A}\otimes\mathcal{B}\mathbin{\,\raisebox{-1.075pt}{\scalebox{0.6}{$ \square$}}\,}\mathcal{C}\quad\Leftrightarrow\quad\mathcal{B}\mathbin{\,\raisebox {-1.075pt}{\scalebox{0.6}{$\square$}}\,}\{\mathcal{A},\mathcal{C}\}\quad \Leftrightarrow\quad\mathcal{A}\mathbin{\,\raisebox{-1.075pt}{\scalebox{0.6}{$ \square$}}\,}\hat{\underline{\hom}}(\mathcal{B},\mathcal{C}).\]
+
+Proof.: Lifting problems \(i\hat{\otimes}j\Rightarrow f\) transpose to lifting problems \(j\Rightarrow\{\hat{i,}\hat{f}\}\) and \(i\Rightarrow\hat{\underline{\hom}}(j,f)\). The adjuncts of a solution to any one of these solve the other two. 
+
+A powerful application of Lemma 11.1.10 is Theorem 11.5.1; an experienced reader might wish to skip to there directly. But simpler applications are also of interest.
+
+Example 11.1.11 ().: The closed monoidal structure on \(\mathbf{Top}\) defines a two-variable adjunction. Using exponential notation for the internal hom, the projection \(p_{0}\colon Z^{I}\to Z\) is the pullback-hom of \(Z\to*\) with the map \(i_{0}\colon*\to I\). As defined in Example 11.1.3, a map \(j\colon A\to X\) is a Hurewicz cofibration if and only if
+
+(11.1.12)
+
+In particular, taking \(Z\) to be the mapping cylinder \(A\times I\cup_{A}X\) and the top right arrow to be the identity, it is necessary that the map \(j\hat{\times}i_{0}\), which is the canonical inclusion of the mapping cylinder into \(X\times I\), has a retraction. Indeed, because the mapping cylinder represents the functor \(\mathbf{Top}\to\mathbf{Set}\) that takes a space \(Z\) to the set of lifting problems (11.1.12), the existence of this retraction suffices to characterize the Hurewicz cofibrations [13, SS6.4].
+
+### Weak factorization systems
+
+In a model category, the lifting properties defining the cofibrations and fibrations are supplemented with a factorization axiom in the following manner:
+
+**Definition 11.2.1**.: A **weak factorization system** on a category is a pair \((\mathcal{L},\mathcal{R})\) of classes of morphisms such that
+
+1. every arrow can be factored as an arrow of \(\mathcal{L}\) followed by an arrow of \(\mathcal{R}\),
+2. \(\mathcal{L}\,\mathfrak{a}\,\mathcal{R}\), and
+3. furthermore, \(\mathcal{L}={}^{\alpha}\mathcal{R}\) and \(\mathcal{R}=\mathcal{L}^{\alpha}\).
+
+_Remark 11.2.2_.: Of course, the third axiom subsumes the second. Indeed, the third axiom makes it clear that either class of a weak factorization system determines the other.
+
+We list them separately to facilitate the comparison with an alternate definition:
+
+**Lemma 11.2.3** (retract argument).: _In the presence of the first two axioms, the third can be replaced by_
+
+1. _the classes_ \(\mathcal{L}\) _and_ \(\mathcal{R}\) _are closed under retracts_
+
+Proof.: Lemma 11.1.4 proves that (closure) \(\Rightarrow\) (closure\({}^{\prime}\)). The converse is the so-called "retract argument," familiar from the model category literature: Suppose \(k\in{}^{\alpha}\mathcal{R}\). In particular, it lifts against its right factor in the factorization guaranteed by the first axiom. Any solution \(w\) to this canonical lifting problem can be rearranged into a retract diagram.
+
+(11.2.4)
+
+Because \(\mathcal{L}\) is closed under retracts, it follows that \(k\in\mathcal{L}\). 
+
+**Example 11.2.5** (Thomas Goodwillie via MathOverflow).: The category \(\mathbf{Set}\) admits exactly six weak factorization systems. Let \(\mathcal{A},\mathcal{E},\mathcal{I},\mathcal{M},\mathcal{N}\) denote the classes of all maps, epimorphisms, isomorphisms, monomorphisms, and maps with empty (null) domain and non-empty codomain. Then
+
+\[(\mathcal{A},\mathcal{I}),\quad(\mathcal{I},\mathcal{A}),\quad(\mathcal{E}, \mathcal{M}),\quad(\mathcal{M},\mathcal{E}),\quad(\mathcal{A}\setminus\mathcal{ N},\mathcal{I}\cup\mathcal{N}),\quad\text{and}\quad(\mathcal{M}\setminus\mathcal{N}, \mathcal{E}\cup\mathcal{N})\]
+
+are weak factorization systems, the first three of which satisfy the stricter condition that the postulated factorizations and liftings are unique.2
+
+Footnote 2: The appellation “weak” is intended to distinguish from **orthogonal factorization systems**, sometimes called simply “factorization systems,” which have unique factorizations and unique liftings. The prototypical example is \((\mathcal{E},\mathcal{M})\) on \(\mathbf{Set}\).
+
+**Example 11.2.6**.: In practice, most weak factorization systems are generated by a set of arrows \(\mathcal{J}\) in the following manner. The right class is \(\mathcal{J}^{\alpha}\) and the left class is \({}^{\alpha}(\mathcal{J}^{\alpha})\). Tautologically \({}^{\alpha}(\mathcal{J}^{\alpha})\,\mathcal{Q}^{\alpha}\) and \(\mathcal{J}^{\alpha}=({}^{\alpha}(\mathcal{J}^{\alpha}))^{\alpha}\). If the category satisfies certain set theoretical conditions, the **small object argument**, which is the subject of Chapter 12, produces appropriate factorizations, in which case the weak factorization system \(({}^{\alpha}(\mathcal{J}^{\alpha}),\mathcal{J}^{\alpha})\) is called **cofibrantly generated**.
+
+### Model categories and Quillen functors
+
+Quillen's **closed model categories** of [25] are called **model categories** by the modern literature. Because a given category can admit multiple model category structures, we prefer to use the term **model structure** when referring to particular classes of maps that define a model category.
+
+The following definition, perhaps first due to [10], a source of several useful facts about model categories, is equivalent to the usual one.
+
+**Definition 11.3.1**.: A **model structure** on a complete and cocomplete homotopical category \((\mathcal{M},\mathcal{W})\) consists of two classes of morphisms \(\mathcal{C}\) and \(\mathcal{F}\) such that \((\mathcal{C}\cap\mathcal{W},\mathcal{F})\) and \((\mathcal{C},\mathcal{F}\cap\mathcal{W})\) are weak factorization systems.
+
+The maps in \(\mathcal{C}\) are called **cofibrations** and the maps in \(\mathcal{F}\) are called **fibrations**. The maps in \(\mathcal{C}\cap\mathcal{W}\) are called **trivial cofibrations** or **acyclic cofibrations** while the maps in \(\mathcal{F}\cap\mathcal{W}\) are called **trivial fibrations** or **acyclic fibrations**. The model structure is said to be **cofibrantly generated** if both of its weak factorization systems are.
+
+**Remark 11.3.2**.: The usual definition asks that \(\mathcal{W}\) satisfies the weaker 2-of-3 property. By Remark 2.1.3, if \(\mathcal{W}\) does not also satisfy the 2-of-6 property, then the pair \((\mathcal{M},\mathcal{W})\) will not admit a model structure, so you would do well to stop trying to find one.
+
+This issue resolved, the only remaining subtle point in the proof that this definition is equivalent to the one the reader might have in mind is the demonstration that our weak equivalences are closed under retracts. The following proof due to [10, 7.8] can also be found in [12, 14.2.5], the argument in the former source transmitted via this author to the latter.
+
+**Lemma 11.3.3**.: _If \((\mathcal{C}\cap\mathcal{W},\mathcal{F})\) and \((\mathcal{C},\mathcal{F}\cap\mathcal{W})\) are weak factorization systems on a complete and cocomplete category, and if \(\mathcal{W}\) satisfies the 2-of-3 property, then \(\mathcal{W}\) is closed under retracts._
+
+Proof.: Let \(f\) be a retract of \(w\in\mathcal{W}\), and suppose temporarily that \(f\in\mathcal{F}\). Factor \(w\) as \(w=vu\) using either weak factorization system; by the 2-of-3 property, \(u\in\mathcal{C}\cap\mathcal{W}\) and \(v\in\mathcal{F}\cap\mathcal{W}\). Define arrows \(s\) and \(t\)
+
+the former by composing and the latter as a solution to the lifting problem between \(u\in\mathcal{C}\cap\mathcal{W}\) and \(f\in\mathcal{F}\). By commutativity of the two triangles \(ts=1\), which means that \(f\) is a retract of \(v\). As \(v\in\mathcal{F}\cap\mathcal{W}\), \(f\) is a well by the dual of Lemma 11.1.4.
+
+Now we prove the general case, dropping the hypothesis that \(f\) is a fibration. Factor \(f\) as \(f=hg\) with \(g\in\mathcal{C}\cap\mathcal{W}\) and \(h\in\mathcal{F}\) and construct the indicated pushout
+
+By Lemma 11.1.4, \(i\in\mathcal{C}\cap\mathcal{W}\). The arrows \(w\) and \(sh\) form a cone over the pushout diagram, so there is a unique morphism \(j\) as shown such that \(ji=w\). By the 2-of-3 property, \(j\in\mathcal{W}\). Similarly, \(gr\) and the identity form a cone over the pushout diagram, so there is a unique morphism \(y\) shown below
+
+such that \(yx\) is the identity. The lower two squares now display \(h\) as a retract of \(j\). As \(j\in\mathcal{W}\) and \(h\in\mathcal{F}\), the previous argument shows that \(h\in\mathcal{W}\). But \(g\) is already in \(\mathcal{W}\), so by the 2-of-3 property \(f=hg\in\mathcal{W}\) as desired. 
+
+When convenient, we use a tilde to decorate arrows that represent weak equivalences, a tail to decorate cofibrations, and an extra tip to decorate fibrations. For instance, the pair of factorizations provided by the two weak factorization systems of a model structure might be displayed as a commutative square
+
+Exercise 11.3.4.: Use Example 11.2.5 to show that **Set** admits only finitely many model structures. How many? What are they?
+
+Example 11.3.5.: Quillen's original manuscript [2] establishes a model structure on simplicial sets in which the cofibrations are the monomorphisms, the fibrations are the **Kan fibrations**, and the weak equivalences are the weak homotopy equivalences. This model structure is cofibrantly generated. The generating cofibrations are the set of inclusions of the boundary of an \(n\)-simplex into that simplex, for each \(n\). The generating trivial cofibrations are the set of inclusions \(\{\Lambda^{n}_{k}\to\Delta^{n}\mid n\geq 0,0\leq k\leq n\}\) of each horn into the appropriate simplex. The trivial cofibrations are called **anodyne** maps. The fibrant objects are called **Kan complexes**.
+
+Another model structure with the same cofibrations but whose fibrant objects are the quasi-categories, is due to Andre Joyal and will be introduced in Part IV.
+
+**Example 11.3.6**.: There is a model structure on **Top**, also due to [2], whose cofibrations are retracts of relative cell complexes, fibrations are Serre fibrations, and weak equivalences are weak homotopy equivalences. The generating cofibrations are the inclusions of the spheres of each dimension into the disks they bound. The generating trivial cofibrations are described in Example 11.1.3.
+
+Another model structure due to Arne Strom is formed by the Hurewicz cofibrations, Hurewicz fibrations, and homotopy equivalences [10].
+
+**Example 11.3.7**.: The category \(\mathbf{Ch}_{\bullet}(R)\) of unbounded chain complexes of modules over a ring \(R\) has a model structure, due in this context to Mark Hovey [2, SS2.3], whose weak equivalences are quasi-isomorphisms and whose trivial fibrations and fibrations are defined by the lifting properties \(\{S^{n-1}\to D^{n}\mid n\in\mathbb{Z}\}^{\alpha}\) and \(\{0\to D^{n}\mid n\in\mathbb{Z}\}^{\alpha}\). Here \(S^{n}\) is the chain complex with \(R\) in degree \(n\) and zeros elsewhere, and \(D^{n}\) has \(R\) in degrees \(n\), \(n-1\) with an identity differential.
+
+In parallel with the topological setting, there is another model structure given by the Hurewicz cofibrations, Hurewicz fibrations, and chain homotopy equivalences. These notions are defined using an interval object. If the ring is non-commutative, this should be defined to be the chain complex of abelian groups with \(\mathbb{Z}\) in degree one, \(\mathbb{Z}\oplus\mathbb{Z}\) in degree zero, and \(1\mapsto(1,-1)\) as the only non-zero differential [12, SS18].
+
+Example 11.3.7 shows that classical homological algebra is subsumed by Quillen's "homotopical algebra." There are many other model structures relevant to homological algebra, for instance on chain complexes that are bounded above or bounded below, or for unbounded chain complexes taking values in other abelian categories; see [1].
+
+**Exercise 11.3.8**.: Show that the categories **Top** and \(\mathbf{Ch}_{\bullet}(R)\) each admit a third "mixed" model structure with weak homotopy equivalences or quasi-isomorphisms and Hurewicz fibrations. This observation was originally made by Michael Cole [1].
+
+**Example 11.3.9**.: There is a "folk model structure" on **Cat** whose whose weak equivalences are categorical equivalences. The cofibrations are functors injective on objects, and the fibrations are the **isofibrations**, i.e., functors lifting on the right against the inclusion, into the free-standing isomorphism, of one of the two objects.
+
+**Exercise 11.3.10**.: There is a model structure on the category **sSet-Cat** of simplicially enriched categories and simplicially enriched functors due to Julia Bergner [1]. The weak equivalences are the DK-equivalences introduced in section 3.5. The fibrant objects are simplicial categories which are **locally Kan**, i.e., for which each hom-space is a Kan complex. See Theorem 16.1.2.
+
+Morphisms between model categories come in two flavors: **left** and **right Quillen functors**. A left Quillen functor is a cocontinuous functor3 that preserves cofibrations and trivial cofibrations. Dually, a right Quillen functor preserves limits, fibrations, and trivial fibrations. Frequently, such functors occur in an adjoint pair in which case the pair is called a **Quillen adjunction**.
+
+**Lemma 11.3.11**.: _An adjunction \(F\colon\mathcal{M}\rightleftarrows\mathcal{N}\colon U\) between model categories is a Quillen adjunction if any of the following equivalent conditions hold_
+
+* \(F\) _is left Quillen_
+* \(U\) _is right Quillen_
+* \(F\) _preserves cofibrations and_ \(U\) _preserves fibrations_
+* \(F\) _preserves trivial cofibrations and_ \(U\) _preserves trivial fibrations._
+
+Proof.: This is an immediate consequence of Lemma 11.1.5. 
+
+_Remark 11.3.12_.: We like emphasizing weak factorization systems in the context of model structures for a few reasons. The overdetermination of the model category axioms and the closure properties of the classes of cofibrations and fibrations are consequences of analogous characteristics of the constituent weak factorization systems described in Remark 11.2.2 and Lemma 11.1.4. The equivalence of various definitions of a Quillen adjunction has to do with the individual interactions between the adjunction and each weak factorization system, as shown in Lemma 11.1.5. Finally, the small object argument, mentioned in Example 11.2.6, constructs a functorial factorization for a cofibrantly generated weak factorization system; the model structure context is beside the point.
+
+**Digression 11.3.13** (the homotopy category of a model category).: If a homotopical category \((\mathcal{M},\mathcal{W})\) admits a model structure, any model structure, then its homotopy category admits a simple description, in precise analogy to that presented in Theorem 10.5.1. Because we are not assuming that \(\mathcal{M}\) is enriched, the proofs are somewhat more delicate. The appropriate notions of homotopy have to be conjured from mid air by factoring either the diagonal or the fold map. But this story is by now quite standard, and we happily defer to [1].
+
+We should at least state the upshot. A model structure on \((\mathcal{M},\mathcal{W})\) in particular gives a notion of **fibrant** and **cofibrant** objects--more about which in just a moment. An object is fibrant just when the map to the terminal object is a fibration and cofibrant just when the map from the initial object is a cofibration. In a model category, it is an elementary exercise to show that
+
+* every object is weakly equivalent to one that is both fibrant and cofibrant.
+
+With more care, one can show that
+
+* weak equivalences between fibrant-cofibrant objects are precisely "homotopy equivalences,"
+
+where "homotopy" is an equivalence relation defined on such hom-sets with respect to appropriate "cylinder" or "path" objects, as alluded to above.
+
+In particular, \(\operatorname{Ho}\mathcal{M}\) is equivalent to the homotopy category of the subcategory of fibrant-cofibrant objects, and this latter homotopy category is obtained by just taking "homotopy classes of maps" as arrows. This was precisely the conclusion of Theorem 10.5.1 (under somewhat different hypotheses).
+
+Now we will provide the promised contextualization of the theory of derived functors. Recall from 2.2.4 that a functor is left deformable if it is homotopical when restricted to a subcategory of "cofibrant" objects. The following lemma implies that any left Quillen functor is left deformable with respect to the cofibrant objects.
+
+**Lemma 11.3.14** (Ken Brown's lemma).: _Let \(\mathcal{M}\) and \(\mathcal{N}\) be model categories and suppose \(F\colon\mathcal{M}\to\mathcal{N}\) sends trivial cofibrations between cofibrant objects to weak equivalences. Then \(F\) is homotopical on the full subcategory of cofibrant objects._Proof.: Suppose \(w\colon A\to B\) is a weak equivalence between cofibrant objects. Factor the map \((w,1)\colon A\sqcup B\to B\) as a cofibration followed by a trivial fibration. The pushout square shows that coproduct inclusions of cofibrant objects are cofibrations.
+
+Hence the maps \(i\colon A\to C\) and \(j\colon B\to C\) are seen to be cofibrations, by commutativity of the inner triangles, and also weak equivalences, by the 2-of-3 property applied to the outer ones. In particular, we have constructed a diagram
+
+in which the maps \(i\) and \(j\) are trivial cofibrations and \(q\) is a retraction of \(j\) that factors \(w\) through \(i\).
+
+The rest of the argument is elementary. By hypothesis, the maps \(Fi\) and \(Fj\) are weak equivalences as is the image of the identity at \(B\). Hence \(Fq\) is a weak equivalence by the 2-of-3 property and consequently so is \(Fw\) by 2-of-3 again, as desired. 
+
+Applying the cofibration-trivial fibration factorization to maps of the form \(\emptyset\to m\), we obtain cofibrant objects \(Qm\) together with a natural weak equivalence \(q_{m}\colon Qm\to m\). If the factorization is functorial,4 as is commonly supposed to be the case, this procedure defines a left deformation \((Q,q)\). The upshot is that the left derived functor of any left Quillen functor \(F\) is defined by \(FQ\). Note further that left Quillen functors preserve cofibrant objects, so composites of these left derived functors of left Quillen functors are again left derived functors; cf. Theorem 2.2.9.
+
+Footnote 4: This notion will be defined in 12.1.1.
+
+Dual arguments show that right Quillen functors are right deformable with respect to the subcategory of fibrant objects, which they preserve. A right deformation is obtained by applying the trivial cofibration-fibration factorization to maps to the terminal object.
+
+**Exercise 11.3.15**.: A **Quillen equivalence** is a Quillen adjunction \(F\colon\mathcal{M}\rightleftarrows\mathcal{N}\colon U\) so that either of the equivalent conditions are satisfied
+
+1. The total derived functors \(\mathbf{L}F\dash\mathbf{R}U\) form an equivalence of categories.
+2. For any cofibrant \(m\in\mathcal{M}\) and fibrant \(n\in\mathcal{N}\), a map \(Fm\to n\) is a weak equivalence in \(\mathcal{N}\) if and only if its adjunct \(m\to Un\) is a weak equivalence in \(\mathcal{M}\).
+
+Prove this.
+
+### Simplicial model categories
+
+A proper definition of a simplicial model category is surely overdue. First, we need one more ancillary notion, a left Quillen bifunctor, whose definition makes use of the Leibniz construction 11.1.7. Using the notation appropriate to this setting:
+
+**Definition 11.4.1**.: A bifunctor \(-\otimes\) - between model categories is a **left Quillen bifunctor** if it preserves colimits in both variables and if the associated pushout-product bifunctor \(-\otimes-\) maps pairs of cofibrations to a cofibration that is acyclic if either of the domain cofibrations are.
+
+At first glance, this definition seems a bit odd. An important point is the following lemma.
+
+**Lemma 11.4.2**.: _Left Quillen bifunctors are homotopical on the subcategories of cofibrant objects and, furthermore, preserve cofibrant objects._
+
+Proof.: These claims follow from Example 11.1.8 and Ken Brown's Lemma 11.3.14. First note that the map \(\emptyset\to m\otimes n\) is the pushout-product of the maps \(\emptyset\to m\) and \(\emptyset\to n\); hence, if the latter two are cofibrations, so is the former.
+
+Now suppose \(i\colon m\to m^{\prime}\) and \(j\colon n\to n^{\prime}\) are weak equivalences between cofibrant objects. The map \(i\otimes j\colon m\otimes n\to m^{\prime}\otimes n^{\prime}\) factors as \(i\otimes n\) followed by \(m^{\prime}\otimes j\). So it suffices to prove that tensoring with a cofibrant object preserves weak equivalences between cofibrant objects. If \(i\) is a trivial cofibration, then \(i\otimes n\) is the pushout-product of \(i\) with the cofibration \(\emptyset\to n\) and is hence a trivial cofibration and in particular a weak equivalence. The conclusion follows from Lemma 11.3.14. 
+
+**Right Quillen bifunctors** are defined dually--the meaning of "dual" in this context perhaps merits some explanation. Here a bifunctor, which we'll call "hom," contravariant in its first variable and covariant in its second, is right Quillen if the associated "pullback-hom" sends a cofibration in the first variable and fibration in the second to a fibration that is acyclic if either of these maps is also a weak equivalence. The duality has to do with the fact that a model structure on \(\mathcal{M}\) gives rise to a model structure on \(\mathcal{M}^{\text{op}}\) with the cofibrations and fibrations swapped.
+
+**Lemma 11.4.3**.: _If \((\otimes,\{,\},\underline{\text{hom}})\) is a two-variable adjunction, then \(\otimes\) is a left Quillen bifunctor if and only if \(\{,\}\) is a right Quillen bifunctor if and only if \(\underline{\text{hom}}\) is a right Quillen bifunctor._
+
+In this case we say that \((\otimes,\{,\},\underline{\text{hom}})\) is a **Quillen two-variable adjunction**.
+
+Proof.: Lemma 11.1.10 implies this result and also more refined statements a la Lemma 11.3.11. 
+
+**Definition 11.4.4**.: A **simplicial model category** is a model category \(\mathcal{M}\) that is tensored, cotensored, and simplicially enriched and such that \((\otimes,\{,\},\underline{\text{hom}})\) is a Quillen two-variable adjunction.
+
+The three statements encoded in the assertion that \((\otimes,\{,\},\underline{\text{hom}})\) is a Quillen two-variable adjunction are frequently referred to as the **SM7 axiom**.
+
+**Exercise 11.4.5**.: Prove the assertions in Lemma 3.8.6 except (vi): that simplicial homotopy equivalences are weak equivalences. This follows from Theorem 10.5.1 or a direct argument that can be found, for instance, in [2, 9.5.15-16].
+
+Quillen's definition has been generalized by Hovey [10, SS4.2].
+
+**Definition 11.4.6**.: A **monoidal model category** is a closed (symmetric) monoidal category \((\mathcal{V},\times,*)\) with a model structure so that the monoidal product and hom define a Quillen two-variable adjunction and furthermore so that the maps
+
+\[Q*\times v\to*\times v\cong v\qquad\text{and}\qquad v\times Q*\to v\times*\cong v\]
+
+are weak equivalences if \(v\) is cofibrant.
+
+**Definition 11.4.7**.: A \(\mathcal{V}\)**-model category** is a model category \(\mathcal{M}\) that is tensored, cotensored, and \(\mathcal{V}\)-enriched in such a way that \((\otimes,\{,\},\underline{\text{hom}})\) is a Quillen two-variable adjunction and the maps
+
+\[Q*\otimes m\to*\otimes\ m\cong m\]
+
+are weak equivalences if \(m\) is cofibrant.
+
+**Exercise 11.4.8**.: Using Definition 11.4.6 or Definition 11.4.7 prove the appropriate case of Lemma 9.2.3.
+
+The conditions on the cofibrant replacement of the monoidal unit (which are implied by the Quillen two-variable adjunction if the monoidal unit is cofibrant) are included so that a monoidal model category is a closed monoidal homotopical category and a \(\mathcal{V}\)-model category is a \(\mathcal{V}\)-homotopical category. Ultimately these conditions are necessary for the proofs of Theorems 10.2.6 and 10.2.12, which show that the homotopy categories are again closed monoidal and enriched, respectively. See the discussion in section 10.2.
+
+### Weighted colimits as left Quillen bifunctors
+
+To wrap up this chapter, we use our facility with weak factorization systems and two-variable adjunctions to prove some cool results about weighted (and thus homotopy) limits and colimits in simplicial model categories. For this we need one last preliminary. If \(\mathcal{M}\) is a model category and \(\mathcal{D}\) is a small category the **projective model structure** on \(\mathcal{M}^{\mathcal{D}}\) (which may or may not exist) has weak equivalences and fibrations defined pointwise and the **injective model structure** on \(\mathcal{M}^{\mathcal{D}}\) (which may or may not exist) has weak equivalences and cofibrations defined pointwise. Projective model structures exist whenever \(\mathcal{M}\) is cofibrantly generated; cf. Theorem 12.3.2. Injective model structures exist when \(\mathcal{M}\) is additionally locally presentable, in which case we say that the model structure is **combinatorial [2]**. This is the case for Quillen's model structure on simplicial sets.
+
+The following theorem of Nicola Gambino has an elementary proof. Nonetheless, it has a number of powerful consequences, which we will devote the rest of this section to exploring.
+
+**Theorem 11.5.1** ([1]).: _If \(\mathcal{M}\) is a simplicial model category, \(\mathcal{D}\) is a small category, then the weighted colimit functor_
+
+\[-\otimes_{\mathcal{D}}-:\mathbf{sSet}^{\mathcal{D}^{\mathcal{D}^{\mathcal{D}}} }\times\mathcal{M}^{\mathcal{D}}\to\mathcal{M}\]
+
+_is left Quillen if the domain has the (injective, projective) or (projective, injective) model structure. Similarly, the weighted limit functor_
+
+\[\{-,-\}^{\mathcal{D}}:(\mathbf{sSet}^{\mathcal{D}})^{\operatorname{op}}\times \mathcal{M}^{\mathcal{D}}\to\mathcal{M}\]
+
+_is right Quillen if the domain has the (projective, projective) or (injective, injective) model structure._Proof.: Note we have used Theorem 7.6.3 to express weighted colimits as functor tensor products and weighted limits as functor cotangent products. By Lemma 11.4.3 we can prove both statements in adjoint form. The functor tensor product \(\otimes_{\mathcal{D}}\) has a right adjoint (used to express the defining universal property of the weighted colimit)
+
+\[\underline{\mathcal{M}}(-,-)\colon(\mathcal{M}^{\mathcal{D}})^{\mathrm{op}} \times\mathcal{M}\to\mathbf{sSet}^{\mathcal{D}^{\mathrm{op}}}\]
+
+which sends \(F\in\mathcal{M}^{\mathcal{D}}\) and \(m\in\mathcal{M}\) to \(\underline{\mathcal{M}}(F-,m)\colon\mathcal{D}^{\mathrm{op}}\to\mathbf{sSet}\).
+
+To prove the statement when \(\mathbf{sSet}^{\mathcal{D}^{\mathrm{op}}}\) has the projective and \(\mathcal{M}^{\mathcal{D}}\) has the injective model structure, we must show that this is a right Quillen bifunctor with respect to the pointwise (trivial) cofibrations in \(\mathcal{M}^{\mathcal{D}}\), (trivial) fibrations in \(\mathcal{M}\), and pointwise (trivial) fibrations in \(\mathbf{sSet}^{\mathcal{D}^{\mathrm{op}}}\). Because the limits involved in the definition of right Quillen bifunctors are also formed pointwise, this follows immediately from the corresponding property of the simplicial hom bifunctor, which was part of the definition of a simplicial model category. The other cases are similar. 
+
+_Remark 11.5.2_.: The previous argument works equally well if \(\mathcal{D}\) is a small simplicial category and the diagram categories are the categories of simplicial functors and simplicial natural transformations. Because our applications will involve unenriched diagrams, we have opted for the simpler statement.
+
+This result has immediate consequences for the theory of derived functors including in particular homotopy (co)limits--ordinary (co)limits being functor tensor products with the terminal weight--giving alternate proofs of some of the key theorems from Part I and Part II of this book. A special case of Theorem 11.5.1 asserts that homotopy colimits can be computed by taking a projective cofibrant replacement of the weight and a pointwise cofibrant replacement of the diagram (our usual approach) or by taking a projective cofibrant replacement of the diagram. The latter approach typically involves replacing certain maps in the diagram by cofibrations, a well-known strategy for producing homotopy colimits in particular cases.
+
+For ease of reference, let us record this new observation as a corollary.
+
+_Corollary 11.5.3_.: _Let \(\mathcal{M}\) be a simplicial model category and let \(\mathcal{D}\) be a small category. If \(\mathcal{M}\) is cofibrantly generated, then projective cofibrant replacement defines a left deformation for \(\operatorname{colim}\colon\mathcal{M}^{\mathcal{D}}\to\mathcal{M}\) and hence the homotopy colimit of a diagram may be computed as the colimit of any projective cofibrant replacement. Dually, if \(\mathcal{M}\) is combinatorial, then injective cofibrant replacement defines a right deformation for \(\operatorname{lim}\colon\mathcal{M}^{\mathcal{D}}\to\mathcal{M}\) and hence the homotopy limit of a diagram may be computed as the limit of an injective fibrant replacement._
+
+To apply Theorem 11.5.1, we need a better understanding of the projective cofibrations.
+
+_Lemma 11.5.4_.: _Let \(A\to B\) be any cofibration in a model category \(\mathcal{M}\). Then the induced map from the copowers \(\mathcal{D}(d,-)\cdot A\to\mathcal{D}(d,-)\cdot B\) is a projective cofibration in \(\mathcal{M}^{\mathcal{D}}\)_
+
+To explain the notation, the copower bifunctor \(-\cdot\cdot-\colon\mathbf{Set}\times\mathcal{M}\to\mathcal{M}\) extends to a bifunctor \(\mathbf{Set}^{\mathcal{D}}\times\mathcal{M}\to\mathcal{M}^{\mathcal{D}}\), where morphisms in \(\mathcal{D}\) act by reindexing coproducts.
+
+Proof.: It suffices to show that this map lifts against all pointwise trivial fibrations. By the defining universal property of the copower and the Yoneda lemma, there is adjunction \(\mathcal{D}(d,-)\cdot-\colon\mathcal{M}\rightleftarrows\mathcal{M}^{\mathcal{ D}}\colon\mathrm{ev}_{d}\) whose right adjoint evaluates at an object \(d\in\mathcal{D}\). By definition \(A\to B\) lifts against all trivial fibrations and the conclusion follows from Lemma 11.1.5.
+
+Remark 11.5.5.: Combining Lemma 11.5.4 and Lemma 11.1.4 allows us to recognize a large class of projective cofibrations: any retract of a transfinite composite of pushouts of coproducts of the maps of Lemma 11.5.4 lifts against any pointwise trivial fibration and is hence a projective cofibration. Indeed, by Corollary 12.2.4, _all_ projective cofibrations admit this description.
+
+Example 11.5.6.: Let \(y\colon\overrightarrow{\triangle}\to\mathbf{sSet}\) denote the restriction of the usual cosimplicial object to the wide subcategory of monomorphisms. We claim that \(y\) is projective cofibrant with respect to the Quillen model structure on simplicial sets. Using Remark 11.5.5, we define \(y\) to be the colimit of a sequence of pushouts of projective cofibrations \(\overrightarrow{\triangle}([n],-)\cdot(\partial\Delta^{n}\to\Delta^{n})\).
+
+The initial map in this sequence is \(\emptyset\to\overrightarrow{\triangle}([0],-)\). The second is constructed via the pushout
+
+The top horizontal "attaching map" is the obvious one: by the Yoneda lemma, this natural transformation is determined by two points in the discrete simplicial set \(y^{0}_{1}=\overrightarrow{\triangle}([0],[1])\), and we choose the elements corresponding to the faces of \(\partial\Delta^{1}\).
+
+Observe that the simplicial set \(y^{1}_{2}\) has a non-degenerate 1-simplex corresponding to each monomorphism \([1]\to[2]\). These assemble into the boundary of a 2-simplex and in this way can be used to define the attaching map for \(\overrightarrow{\triangle}([2],-)\cdot(\partial\Delta^{2}\to\Delta^{2})\); the pushout defines the functor \(y^{2}\). By construction, the simplicial set \(y^{n}_{n+1}\) contains a non-degenerate \(\partial\Delta^{n+1}\) whose consistent \(n\)-simplices correspond to the monomorphisms \([n]\to[n+1]\). These are used to freely attach an \((n+1)\)-simplex. By construction, \(y\cong\operatorname{colim}_{n}y^{n}\) is thus projectively cofibrant. Theorem 11.5.1 now proves the assertions of Example 8.5.12.
+
+Example 11.5.7.: Let \(\mathcal{D}\) be the category \(b\xleftarrow{f}a\xrightarrow{g}c\) indexing pushout diagrams and let \(F\colon\mathcal{D}\to\mathcal{M}\) take values in a cofibrantly generated simplicial model category. If \(Fa\) is cofibrant and \(Ff\) and \(Fg\) are cofibrations, then \(F\) is projectively cofibrant (and \(Fb\) and \(Fc\) are cofibrant objects). To see this, we factor \(\emptyset\to F\) as a composite of three projective cofibrations:The vertical arrows are cofibrations by Lemma 11.5.4 and Lemma 11.1.4. The attaching maps \(u\) and \(v\) are adjunct, under different adjunctions, to the identity at \(Fa\).
+
+By this observation and Corollary 11.5.3, the ordinary pushout of a pair of cofibrations between cofibrant objects is a homotopy pushout. Given a generic pushout diagram \(Y\stackrel{{ h}}{{\leftarrow}}X\stackrel{{ k}}{{ \rightarrow}}Z\) its projective cofibrant replacement may be formed by taking a cofibrant replacement \(q\colon X^{\prime}\to X\) of \(X\) and then factoring the composites \(hq\) and \(kq\) as a cofibration followed by a trivial fibration.
+
+(11.5.8)
+
+By Corollary 11.5.3, the pushout of the diagram \(Y^{\prime}\gets X^{\prime}\to Z^{\prime}\) is the homotopy pushout of the original diagram.
+
+Remark 11.5.9.: If all that is desired of our notion of homotopy pushout is that it preserves pointwise weak equivalences between diagrams (and not that homotopy pushouts represent homotopy coherent cones) the hypothesis that \(\mathcal{M}\) is a _simplicial_ model category can be dropped: the ordinary pushout functor is homotopical when restricted to diagrams of cofibrations between cofibrant objects.
+
+To prove this, note that the argument just given shows that such diagrams are projectively cofibrant. The pushout functor is easily seen to be left Quillen with respect to the projective model structure: its right adjoint, the constant diagram functor, is manifestly right Quillen. The conclusion follows by Ken Brown's Lemma 11.3.14.
+
+With more care, we can also drop the hypothesis that the model structure is cofibrantly generated. Even if the projective model structure does not exist, the shape of the pushout diagram allows us to construct functorial "projective cofibrant replacements" nonetheless.5 The proof in Corollary 14.3.2 and Remark 14.3.4 will give this extension and also show that the pushout functor is homotopical under even more general conditions than described here.
+
+Footnote 5: The precise reason is that the pushout diagram is a Reedy category.
+
+

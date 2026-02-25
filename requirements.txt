@@ -1,0 +1,13 @@
+# Data Processing
+pandas
+tqdm
+
+# Hugging Face Ecosystem for LLM Training
+transformers
+datasets
+trl
+peft
+accelerate
+
+# 4-bit Quantization 
+bitsandbytes

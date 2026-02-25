@@ -1,0 +1,1078 @@
+## 27 Orthogonal projection onto a line
+
+Let \(\mathbf{a}\) and \(\mathbf{b}\) be two free vectors such that \(\mathbf{a}\neq\mathbf{0}\). Let's build their geometric realizations \(\mathbf{a}=\overrightarrow{OA}\) and \(\mathbf{b}=\overrightarrow{OB}\) at some arbitrary point \(O\). The nonzero vector \(\overrightarrow{OA}\) defines a line. Let's drop the perpendicular from the terminal point of the vector \(\overrightarrow{OB}\), i. e. from the point \(B\), to this line and let's denote through \(C\) the base of this perpendicular (see Fig. 27.1). In the special case where \(\mathbf{b}\parallel\mathbf{a}\) and where the point \(B\) lies on the line \(OA\) we choose the point \(C\) coinciding with the point \(B\).
+
+The point \(C\) determines two vectors \(\overrightarrow{OC}\) and \(\overrightarrow{CB}\). The vector \(\overrightarrow{OC}\) is collinear to the vector \(\mathbf{a}\), while the vector \(\overrightarrow{CB}\) is perpendicular to it. By means of parallel translations one can replicate the vectors \(\overrightarrow{OC}\) and \(\overrightarrow{CB}\) up to free vectors \(\mathbf{b}_{\parallel}\) and \(\mathbf{b}_{\perp}\) respectively. Note that the point \(C\) is uniquely determined by the point \(B\) and by the line \(OA\) (see Theorem 6.5 in Chapter III of the book [7]). For this reason the vectors \(\mathbf{b}_{\parallel}\) and \(\mathbf{b}_{\perp}\) do not depend on the choice of a point \(O\) and we can formulate the following theorem.
+
+**Theorem 27.1**: _For any nonzero vector \(\mathbf{a}\neq\mathbf{0}\) and for any vector \(\mathbf{b}\) there two unique vectors \(\mathbf{b}_{\parallel}\) and \(\mathbf{b}_{\perp}\) such that the vector \(\mathbf{b}_{\parallel}\) is collinear to \(\mathbf{a}\), the vector \(\mathbf{b}_{\perp}\) is perpendicular to \(\mathbf{a}\), and they both satisfy the equality being the expansion of the vector \(\mathbf{b}\):_
+
+\[\mathbf{b}=\mathbf{b}_{\parallel}+\mathbf{b}_{\perp}. \tag{27.1}\]
+
+One should recall the special case where the point \(C\) coincides with the point \(B\). In this case \(\mathbf{b}_{\perp}=\mathbf{0}\) and we cannot verify visually the orthogonality of the vectors \(\mathbf{b}_{\perp}\) and \(\mathbf{a}\). In orderto extend the theorem 27.1 to this special case the following definition is introduced.
+
+**Definition 27.1**.: All null vectors are assumed to be perpendicular to each other and each null vector is assumed to be perpendicular to any nonzero vector.
+
+Like the definition 3.2, the definition 27.1 is formulated for geometric vectors. Upon passing to free vectors it is convenient to unite the definition 3.2 with the definition 27.1 and then formulate the following definition.
+
+**Definition 27.2**.: A free null vector \(\mathbf{0}\) of any physical nature is codirected to itself and to any other vector. A free null vector \(\mathbf{0}\) of any physical nature is perpendicular to itself and to any other vector.
+
+When taking into account the definition 27.2, the theorem 27.1 is proved by the constructions preceding it, while the expansion (27.1) follows from the evident equality
+
+\[\overrightarrow{OB}=\overrightarrow{OC}+\overrightarrow{CB}.\]
+
+Assume that a vector \(\mathbf{a}\neq\mathbf{0}\) is fixed. In this situation the theorem 27.1 provides a mapping \(\pi_{\mathbf{a}}\) that associates each vector \(\mathbf{b}\) with its parallel component \(\mathbf{b}_{\parallel}\).
+
+**Definition 27.3**.: The mapping \(\pi_{\mathbf{a}}\) that associates each free vector \(\mathbf{b}\) with its parallel component \(\mathbf{b}_{\parallel}\) in the expansion (27.1) is called the _orthogonal projection onto a line given by the vector \(\mathbf{a}\neq\mathbf{0}\)_ or, more exactly, the _orthogonal projection onto the direction of the vector \(\mathbf{a}\neq\mathbf{0}\)_.
+
+The orthogonal projection \(\pi_{\mathbf{a}}\) is closely related to the scalar product of vectors. This relation is established by the following theorem.
+
+**Theorem 27.2**.: For each nonzero vector \(\mathbf{a}\neq\mathbf{0}\) and for any vector \({\bf b}\) the vector \(\pi_{\bf a}({\bf b})\) is calculated by means of the formula
+
+\[\pi_{\bf a}({\bf b})=\frac{({\bf b},{\bf a})}{|{\bf a}|^{2}}\,{\bf a}. \tag{27.2}\]
+
+Proof. If \({\bf b}={\bf 0}\) both sides of the equality (27.2) do vanish and it is trivially fulfilled. Therefore we can assume that \({\bf b}\neq{\bf 0}\).
+
+It is easy to see that the vectors in two sides of the equality (27.2) are collinear. For the beginning let's prove that the lengths of these two vectors are equal to each other. The length of the vector \(\pi_{\bf a}({\bf b})\) is calculated according to Fig. 27.1:
+
+\[|\pi_{\bf a}({\bf b})|=|{\bf b}_{\parallel}|=|{\bf b}|\,|\cos\varphi|. \tag{27.3}\]
+
+The length of the vector in the right hand side of the formula (27.2) is determined by the formula itself:
+
+\[\left|\frac{({\bf b},{\bf a})}{|{\bf a}|^{2}}\,{\bf a}\right|=\frac{|({\bf b},{\bf a})|}{|{\bf a}|^{2}}\,|{\bf a}|=\frac{|{\bf b}|\,|{\bf a}|\,|\cos\varphi |}{|{\bf a}|}=|{\bf b}|\,|\cos\varphi|. \tag{27.4}\]
+
+Comparing the results of (27.3) and (27.4), we conclude that
+
+\[|\pi_{\bf a}({\bf b})|=\biggl{|}\frac{({\bf b},{\bf a})}{|{\bf a}|^{2}}\,{\bf a }\biggr{|}. \tag{27.5}\]
+
+Due to (27.5) in order to prove the equality (27.2) it is sufficient to prove the codirectedness of vectors
+
+\[\pi_{\bf a}({\bf b})\uparrow\,\frac{({\bf b},{\bf a})}{|{\bf a}|^{2}}\,{\bf a}. \tag{27.6}\]
+
+Since \(\pi_{\bf a}({\bf b})={\bf b}_{\parallel}\), again applying Fig. 27.1, we consider the following three possible cases:
+
+\[0\leqslant\varphi<\pi/2,\qquad\quad\varphi=\pi/2,\qquad\quad\pi/2<\varphi \leqslant\pi.\]In the first case both vectors (27.6) are codirected with the vector \(\mathbf{a}\neq\mathbf{0}\). Hence they are codirected with each other.
+
+In the second case both vectors (27.6) are equal to zero. They are codirected according to the definition 3.2.
+
+In the third case both vectors (27.6) are opposite to the vector \(\mathbf{a}\neq\mathbf{0}\). Therefore they are again codirected with each other. The relationship (27.6) and the theorem 27.2 in whole are proved. 
+
+**Definition 27.4**.: A mapping \(f\) acting from the set of all free vectors to the set of all free vectors is called a _linear mapping_ if it possesses the following two properties:
+
+1. \(f(\mathbf{a}+\mathbf{b})=f(\mathbf{a})+f(\mathbf{b})\);
+2. \(f(\alpha\,\mathbf{a})=\alpha\,f(\mathbf{a})\).
+
+The properties 1) and 2), which should be fulfilled for any two vectors \(\mathbf{a}\) and \(\mathbf{b}\) and for any number \(\alpha\), constitute a property which is called the _linearity_.
+
+**Theorem 27.3**.: For any nonzero vector \(\mathbf{a}\neq\mathbf{0}\) the orthogonal projection \(\pi_{\mathbf{a}}\) onto a line given by the vector \(\mathbf{a}\) is a linear mapping.
+
+In order to prove the theorem 27.3 we need the following auxiliary lemma.
+
+**Lemma 27.1**.: For any nonzero vector \(\mathbf{a}\neq\mathbf{0}\) the sum of two vectors collinear to \(\mathbf{a}\) is a vector collinear to \(\mathbf{a}\) and the sum of two vectors perpendicular to \(\mathbf{a}\) is a vector perpendicular to \(\mathbf{a}\).
+
+Proof of the lemma 27.1.: The first proposition of the lemma is obvious. It follows immediately from the definition 5.1.
+
+Let's prove the second proposition. Let \(\mathbf{b}\) and \(\mathbf{c}\) be two vectors, such that \(\mathbf{b}\perp\mathbf{a}\) and \(\mathbf{c}\perp\mathbf{a}\).
+
+In the cases \({\bf b}={\bf 0}\), \({\bf c}={\bf 0}\), \({\bf b}+{\bf c}={\bf 0}\), and in the case \({\bf b}\parallel{\bf c}\) the second proposition of the lemma is also obvious. In these cases geometric realizations of all the three vectors \({\bf b}\), \({\bf c}\), and \({\bf b}+{\bf c}\) can be chosen such that they lie on the same line. Such a line is perpendicular to the vector \({\bf a}\).
+
+Let's consider the case where \({\bf b}\not\parallel{\bf c}\). Let's build a geometric realization of the vector \({\bf b}=\overrightarrow{OB}\) with initial point at some arbitrary point \(O\). Then we lay the vector \({\bf c}=\overrightarrow{BC}\) at the terminal point \(B\) of the vector \(\overrightarrow{OB}\). Since \({\bf b}\not\parallel{\bf c}\), the points \(O\), \(B\), and \(C\) do not lie on a single straight line altogether. Hence they determine a plane. We denote this plane through \(\alpha\). The sum of vectors \(\overrightarrow{OC}=\overrightarrow{OB}+\overrightarrow{BC}\) lies on this plane. It is a geometric realization for the vector \({\bf b}+{\bf c}\), i.. e. \(\overrightarrow{OC}={\bf b}+{\bf c}\).
+
+We build two geometric realizations \(\overrightarrow{OA}\) and \(\overrightarrow{BD}\) for the vector \({\bf a}\). These are two different geometric vectors. From the equality \(\overrightarrow{OA}=\overrightarrow{BD}\) we derive that the lines \(OA\) and \(BD\) are parallel. Due to \({\bf b}\perp{\bf a}\) and \({\bf c}\perp{\bf a}\) the line \(BD\) is perpendicular to the pair of crosswise intersecting lines \(OB\) and \(BC\) lying on the plane \(\alpha\). Hence it is perpendicular to this plane. From \(BD\perp\alpha\) and \(BD\parallel OA\) we derive \(OA\perp\alpha\), while from \(OA\perp\alpha\) we derive \(\overrightarrow{OA}\perp\overrightarrow{OC}\). Hence the sum of vectors \({\bf b}+{\bf c}\) is perpendicular to the vector \({\bf a}\). The lemma 27.1 is proved. \(\Box\)
+
+Proof of the theorem 27.3. According to the definition 27.4, in order to prove the theorem we need to verify two linearity conditions for the mapping \(\pi_{\bf a}\). The first of these conditions in our particular case is written as the equality
+
+\[\pi_{\bf a}({\bf b}+{\bf c})=\pi_{\bf a}({\bf b})+\pi_{\bf a}({\bf c}). \tag{27.7}\]
+
+Let's denote \({\bf d}={\bf b}+{\bf c}\). According to the theorem 27.1, there are expansions of the form (27.1) for the vectors \({\bf b}\), \({\bf c}\), and \({\bf d}\):
+
+\[{\bf b}={\bf b}_{\parallel}+{\bf b}_{\perp}, \tag{27.8}\] \[{\bf c}={\bf c}_{\parallel}+{\bf c}_{\perp}, \tag{27.9}\]\[\mathbf{d}=\mathbf{d}_{\parallel}+\mathbf{d}_{\perp}. \tag{27.10}\]
+
+According the same theorem 27.1, the components of the expansions (27.8), (27.9), (27.10) are uniquely fixed by the conditions
+
+\[\mathbf{b}_{\parallel}\parallel\mathbf{a}, \mathbf{b}_{\perp}\perp\mathbf{a}, \tag{27.11}\] \[\mathbf{c}_{\parallel}\parallel\mathbf{a}, \mathbf{c}_{\perp}\perp\mathbf{a},\] (27.12) \[\mathbf{d}_{\parallel}\parallel\mathbf{a}, \mathbf{d}_{\perp}\perp\mathbf{a}. \tag{27.13}\]
+
+Adding the equalities (27.8) and (27.9), we get
+
+\[\mathbf{d}=\mathbf{b}+\mathbf{c}=(\mathbf{b}_{\parallel}+\mathbf{c}_{\parallel })+(\mathbf{b}_{\perp}+\mathbf{c}_{\perp}). \tag{27.14}\]
+
+Due to (27.11) and (27.12) we can apply the lemma 27.1 to the components of the expansion (27.14). This yields
+
+\[(\mathbf{b}_{\parallel}+\mathbf{c}_{\parallel})\parallel\mathbf{a}, (\mathbf{b}_{\perp}+\mathbf{c}_{\perp})\perp\mathbf{a}. \tag{27.15}\]
+
+The rest is to compare (27.14) with (27.10) and (27.15) with (27.13). From this comparison, applying the theorem 27.1, we derive the following relationships:
+
+\[\mathbf{d}_{\parallel}=\mathbf{b}_{\parallel}+\mathbf{c}_{\parallel}, \mathbf{d}_{\perp}=\mathbf{b}_{\perp}+\mathbf{c}_{\perp}. \tag{27.16}\]
+
+According to the definition 27.3, the first of the above relationships (27.16) is equivalent to the equality (27.7) which was to be verified.
+
+Let's proceed to proving the second linearity condition for the mapping \(\pi_{\mathbf{a}}\). It is written as follows:
+
+\[\pi_{\mathbf{a}}(\alpha\,\mathbf{b})=\alpha\,\pi_{\mathbf{a}}(\mathbf{b}). \tag{27.17}\]
+
+Let's denote \(\mathbf{e}=\alpha\,\mathbf{b}\) and then, applying the theorem 27.1, write
+
+\[\mathbf{b} =\mathbf{b}_{\parallel}+\mathbf{b}_{\perp}, \tag{27.18}\] \[\mathbf{e} =\mathbf{e}_{\parallel}+\mathbf{e}_{\perp}. \tag{27.19}\]According to the theorem 27.1, the components of the expansions (27.18) and (27.19) are uniquely fixed by the conditions
+
+\[{\bf b}_{\parallel}\parallel{\bf a}, {\bf b}_{\perp}\perp{\bf a}, \tag{27.20}\] \[{\bf e}_{\parallel}\parallel{\bf a}, {\bf e}_{\perp}\perp{\bf a}. \tag{27.21}\]
+
+Let's multiply both sides of (27.18) by \(\alpha\). Then we get
+
+\[{\bf e}=\alpha{\bf b}=\alpha\,{\bf b}_{\parallel}+\alpha{\bf b}_{\perp}. \tag{27.22}\]
+
+Multiplying a vector by the number \(\alpha\), we get a vector collinear to the initial vector. For this reason from (27.20) we derive
+
+\[(\alpha\,{\bf b}_{\parallel})\parallel{\bf a}, (\alpha\,{\bf b}_{\perp})\perp{\bf a}, \tag{27.23}\]
+
+Let's compare (27.22) with (27.19) and (27.23) with (27.21). Then, applying the theorem 27.1, we obtain
+
+\[{\bf e}_{\parallel}=\alpha\,{\bf b}_{\parallel}, {\bf e}_{\perp}=\alpha\,{\bf b}_{\perp}. \tag{27.24}\]
+
+According to the definition 27.3, the first of the equalities (27.24) is equivalent to the required equality (27.17). The theorem 27.3 is proved. \(\Box\)
+
+**SS 28. Properties of the scalar product.**
+
+Theorem 28.1. The scalar product of vectors possesses the following four properties which are fulfilled for any three vectors \({\bf a}\), \({\bf b}\), \({\bf c}\) and for any number \(\alpha\):
+
+1. \(({\bf a},{\bf b})=({\bf b},{\bf a})\);
+2. \(({\bf a}+{\bf b},{\bf c})=({\bf a},{\bf c})+({\bf b},{\bf c})\);
+3. \((\alpha\,{\bf a},{\bf c})=\alpha\,({\bf a},{\bf c})\);
+4. \(({\bf a},{\bf a})\geqslant 0\) and \(({\bf a},{\bf a})=0\) implies \({\bf a}={\bf 0}\).
+
+[MISSING_PAGE_FAIL:74]
+
+numerators of the fractions in their right hand sides are also zero. This fact proves the properties 2) and 3) from the theorem 28.1 are valid in the case \(\mathbf{c}\neq\mathbf{0}\).
+
+According to the definition 26.1 the scalar product \((\mathbf{a},\mathbf{a})\) is equal to zero for \(\mathbf{a}=\mathbf{0}\). Otherwise, if \(\mathbf{a}\neq\mathbf{0}\), the formula (26.1) is applied where we should set \(\mathbf{b}=\mathbf{a}\). This yields \(\varphi=0\) and
+
+\[(\mathbf{a},\mathbf{a})=\left|\mathbf{a}\right|^{2}>0.\]
+
+This inequality proves the property 4) and completes the proof of the theorem 28.1 in whole. \(\square\)
+
+Theorem 28.2. Apart from the properties 1)-4), the scalar product of vectors possesses the following two properties fulfilled for any three vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\) and for any number \(\alpha\):
+
+* \((\mathbf{c},\mathbf{a}+\mathbf{b})=(\mathbf{c},\mathbf{a})+(\mathbf{a}, \mathbf{b})\);
+* \((\mathbf{c},\alpha\,\mathbf{a})=\alpha\,(\mathbf{c},\mathbf{a})\).
+
+Definition 28.2. The properties 5) and 6) in the theorem 28.2 are called the properties of _linearity with respect to the second multiplicand_.
+
+The properties 5) and 6) are easily derived from the properties 2) and 3) by applying the property 1). Indeed, we have
+
+\[(\mathbf{c},\mathbf{a}+\mathbf{b})=(\mathbf{a}+\mathbf{b},\mathbf{c})=(\mathbf{ a},\mathbf{c})+(\mathbf{b},\mathbf{c})=(\mathbf{c},\mathbf{a})+(\mathbf{c}, \mathbf{b}),\]
+
+These calculations prove the theorem 28.2.
+
+**SS 29. Calculation of the scalar product through the coordinates of vectors in a skew-angular basis.**
+
+Let \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\) be some arbitrary basis in the space \(\mathbb{E}\). According to the definition 18.1, this is an ordered triple of non-coplanar vectors. The arbitrariness of a basis means that no auxiliary restrictions are imposed onto the vectors \(\mathbf{e}_{1},\,\mathbf{e}_{2},\,\mathbf{e}_{3}\), except for non-coplanarity. In particular, this means that the angles between the vectors \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\) in an arbitrary basis should not be right angles. For this reason such a basis is called a _skew-angular basis_ and abbreviated as SAB.
+
+Definition 29.1. In this book a _skew-angular basis_ (SAB) is understood as an _arbitrary basis_.
+
+Thus, let \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\) be some skew-angular basis in the space \(\mathbb{E}\) and let \(\mathbf{a}\) and \(\mathbf{b}\) be two free vectors given by its coordinates in this basis. We write this fact as follows:
+
+\[\mathbf{a}=\left\|\begin{matrix}a^{1}\\ a^{2}\\ a^{3}\end{matrix}\right\|,\qquad\qquad\qquad\mathbf{b}=\left\|\begin{matrix}b^{ 1}\\ b^{2}\\ b^{3}\end{matrix}\right\| \tag{29.1}\]
+
+Unlike (21.1), instead of the arrow sign in (29.1) we use the equality sign. Doing this, we emphasize the fact that once a basis is fixed, vectors are uniquely identified with their coordinates.
+
+The conditional writing (29.1) means that the vectors \(\mathbf{a}\) and \(\mathbf{b}\) are presented by the following expansions:
+
+\[\mathbf{a}=\sum_{i=1}^{3}a^{i}\,\mathbf{e}_{i},\qquad\qquad\qquad\mathbf{b}= \sum_{j=1}^{3}b^{j}\,\mathbf{e}_{j}. \tag{29.2}\]
+
+Substituting (29.2) into the scalar product \((\mathbf{a},\mathbf{b})\), we get
+
+\[(\mathbf{a},\mathbf{b})=\bigg{(}\sum_{i=1}^{3}a^{i}\,\mathbf{e}_{i},\,\sum_{j= 1}^{3}b^{j}\,\mathbf{e}_{j}\bigg{)}. \tag{29.3}\]
+
+In order to transform the formulas (29.3) we apply the properties 2) and 5) of the scalar product from the theorems 28.1 and 28.2. Due to these properties we can take the summation signs over \(i\) and \(j\) out of the brackets of the scalar product:
+
+\[(\mathbf{a},\mathbf{b})=\sum_{i=1}^{3}\sum_{j=1}^{3}\,(a^{i}\,\mathbf{e}_{i},b ^{j}\,\mathbf{e}_{j}). \tag{29.4}\]Then we apply the properties 3) and 6) from the theorems 28.1 and 28.2. Due to these properties we can take the numeric factors \(a^{i}\) and \(b^{j}\) out of the brackets of the scalar product in (29.4):
+
+\[(\mathbf{a},\mathbf{b})=\sum_{i=1}^{3}\sum_{j=1}^{3}a^{i}\,b^{j}\,(\mathbf{e}_{ i},\mathbf{e}_{j}). \tag{29.5}\]
+
+The quantities \((\mathbf{e}_{i},\mathbf{e}_{j})\) in the formula (29.5) depend on a basis \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\), namely on the lengths of the basis vectors and on the angles between them. They do not depend on the vectors \(\mathbf{a}\) and \(\mathbf{b}\). The quantities \((\mathbf{e}_{i},\mathbf{e}_{j})\) constitute an array of nine numbers
+
+\[g_{ij}=(\mathbf{e}_{i},\mathbf{e}_{j}) \tag{29.6}\]
+
+enumerated by two lower indices. The components of the array (29.6) are usually arranged into a square matrix:
+
+\[G=\left\|\begin{matrix}g_{11}&g_{12}&g_{13}\\ g_{21}&g_{22}&g_{23}\\ g_{31}&g_{32}&g_{33}\end{matrix}\right\| \tag{29.7}\]
+
+Definition 29.2.: The matrix (29.7) with the components (29.6) is called the Gram matrix of a basis \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\).
+
+Taking into account the notations (29.6), we write the formula (29.5) in the following way:
+
+\[(\mathbf{a},\mathbf{b})=\sum_{i=1}^{3}\sum_{j=1}^{3}a^{i}\,b^{j}\,g_{ij}. \tag{29.8}\]
+
+Definition 29.3.: The formula (29.8) is called the _formula for calculating the scalar product through the coordinates of vectors in a skew-angular basis_.
+
+The formula (29.8) can be written in the matrix form
+
+\[({\bf a},{\bf b})=\|\,a^{1}\quad a^{2}\quad a^{3}\,\|\cdot\left\|\begin{matrix}g_{ 11}&g_{12}&g_{13}\\ g_{21}&g_{22}&g_{23}\\ g_{31}&g_{32}&g_{33}\end{matrix}\right\|\cdot\left\|\begin{matrix}b^{1}\\ b^{2}\\ b^{3}\end{matrix}\right\| \tag{29.9}\]
+
+Note that the coordinate column of the vector \({\bf b}\) in the formula (29.9) is used as it is, while the coordinate column of the vector \({\bf a}\) is transformed into a row. Such a transformation is known as _matrix transposing_ (see [7]).
+
+Definition 29.4.: A transformation of a rectangular matrix under which the element in the intersection of \(i\)-th row and \(j\)-th column is taken to the intersection of \(j\)-th row and \(i\)-th column is called the _matrix transposing_. It is denoted by means of the sign \(\top\). In the TeX and LaTeX computer packages this sign is coded by the operator \(\backslash\)top.
+
+The operation of matrix transposing can be understood as the mirror reflection with respect to the main diagonal of a matrix
+
+Taking into account the notations (29.1), (29.7), and the definition 29.4, we can write the matrix formula (29.9) as follows:
+
+\[({\bf a},{\bf b})={\bf a}^{\top}\cdot G\cdot{\bf b}. \tag{29.10}\]
+
+In the right hand side of the formula (29.10) the vectors \({\bf a}\) and \({\bf b}\) are presented by their coordinate columns, while the transformation of one of them into a row is written through the matrix transposing.
+
+Exercise 29.1.: Show that for an arbitrary rectangular matrix \(A\) the equality \((A^{\top})^{\top}=A\) is fulfilled.
+
+Exercise 29.2.: Show that for the product of two matrices \(A\) and \(B\) the equality \((A\cdot B)^{\top}=B^{\top}\cdot A^{\top}\) is fulfilled.
+
+**Exercise 29.3**: Define the Gram matrices for bases on a line and for bases on a plane. Write analogs of the formulas (29.8), (29.9), and (29.10) for the scalar product of vectors lying on a line and on a plane.
+
+## SS 30. Symmetry of the Gram matrix
+
+**Definition 30.1**: A square matrix \(A\) is called _symmetric_, if it is preserved under transposing, i. e. if the following equality is fulfilled: \(A^{\top}=A\).
+
+Gram matrices possesses many important properties. One of these properties is their symmetry.
+
+**Theorem 30.1**: The Gram matrix \(G\) of any basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) in the space \(\mathbb{E}\) is symmetric.
+
+According to the definition 30.1 the symmetry of \(G\) is expressed by the formula \(G^{\top}=G\). According to the definition 29.4, the equality \(G^{\top}=G\) is equivalent to the relationship
+
+\[g_{ij}=g_{ji} \tag{30.1}\]
+
+for the components of the matrix \(G\). As for the relationship (30.1), upon applying (29.6), it reduces to the equality
+
+\[({\bf e}_{i},{\bf e}_{j})=({\bf e}_{j},{\bf e}_{i})\]
+
+which is fulfilled due to the symmetry of the scalar product (see Theorem 28.1 and Definition 28.1).
+
+Note that the coordinate columns of the vectors \({\bf a}\) and \({\bf b}\) enter the right hand side of the formula (29.10) in somewhat unequal way -- one of them is transposed, the other is not transposed. The symmetry of the matrix \(G\) eliminates this difference. Redesignating the indices \(i\) and \(j\) in the double sum(29.8) and taking into account the relationship (30.1) for the components of the Gram matrix, we get
+
+\[({\bf a},{\bf b})=\sum_{j=1}^{3}\sum_{i=1}^{3}a^{j}\,b^{i}\,g_{ji}=\sum_{i=1}^{3} \sum_{j=1}^{3}b^{i}\,a^{j}\,g_{ij}. \tag{30.2}\]
+
+In the matrix form the formula (30.2) is written as follows:
+
+\[({\bf a},{\bf b})={\bf b}^{\top}\!\cdot G\cdot{\bf a}. \tag{30.3}\]
+
+The formula (30.3) is analogous to the formula (29.10), but in this formula the coordinate column of the vector \({\bf b}\) is transposed, while the coordinate column of the vector \({\bf a}\) is not transposed.
+
+Exercise 30.1.: Formulate and prove a theorem analogous to the theorem 30.1 for bases on a plane. Is it necessary to formulate such a theorem for bases on a line.
+
+## 31. Orthonormal basis
+
+Definition 31.1.: A basis on a straight line consisting of a nonzero vector \({\bf e}\) is called an _orthonormal basis_, if \({\bf e}\) is a unit vector, i. e. if \(|{\bf e}|=1\).
+
+Definition 31.2.: A basis on a plane, consisting of two non-collinear vectors \({\bf e}_{1},\,{\bf e}_{2}\), is called an _orthonormal basis_, if the vectors \({\bf e}_{1}\) and \({\bf e}_{2}\) are two vectors of the unit lengths perpendicular to each other.
+
+Definition 31.3.: A basis in the space \(\mathbb{E}\) consisting of three non-coplanar vectors \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) is called an _orthonormal basis_ if the vectors \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) are three vectors of the unit lengths perpendicular to each other.
+
+In order to denote an orthonormal basis in each of the there cases listed above we use the abbreviation ONB. According to the definition 29.1 the orthonormal basis is not opposed to a skew-angular basis SAB, it is a special case of such a basis.
+
+Note that the unit lengths of the basis vectors of an orthonormal basis in the definitions 31.1, 31.2, and 31.2 mean that their lengths are not one centimeter, not one meter, not one kilometer, but the pure numeric unity. For this reason all geometric realizations of such vectors are conditionally geometric (see SS2). Like velocity vectors, acceleration vectors, and many other physical quantities, basis vectors of an orthonormal basis can be drawn only upon choosing some scaling factor. Such a factor in this particular case is needed for to transform the numeric unity into a unit of length.
+
+## 32 Gram matrix of an orthonormal basis
+
+Let \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) be some orthonormal basis in the space \({\mathbb{E}}\). According to the definition 31.3 the vectors \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) satisfy the following relationships:
+
+\[\begin{array}{ll}|{\bf e}_{1}|=1,&|{\bf e}_{2}|=1,&|{\bf e}_{3}|=1,\\ {\bf e}_{1}\perp{\bf e}_{2},&{\bf e}_{2}\perp{\bf e}_{3},&{\bf e}_{3}\perp{\bf e }_{1}.\end{array} \tag{32.1}\]
+
+Applying (32.1) and (29.6), we find the components of the Gram matrix for the orthonormal basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\):
+
+\[g_{ij}=\left\{\begin{array}{ll}1&{\rm for}\ \ i=j,\\ 0&{\rm for}\ \ i\neq j.\end{array}\right. \tag{32.2}\]
+
+From (32.2) we immediately derive the following theorem.
+
+**Theorem 32.1**: _The Gram matrix (29.7) of any orthonormal basis is a unit matrix:_
+
+\[G=\left\|\begin{array}{ccc}1&0&0\\ 0&1&0\\ 0&0&1\end{array}\right\|=1. \tag{32.3}\]Let's recall that the components of a unit matrix constitute a numeric array \(\delta\) which is called the Kronecker symbol (see Definition 23.1). Therefore, taking into account (23.3), the equality (32.2) can be written as:
+
+\[g_{ij}=\delta_{ij}. \tag{32.4}\]
+
+The Kronecker symbol in (32.4) inherits the lower position of indices from \(g_{ij}\). Therefore it is different from the Kronecker symbol in (23.4). Despite being absolutely identical, the components of the unit matrix in (32.3) and in (23.1) are of absolutely different nature. Having negotiated to use indices on upper and lower levels (see Definition 20.1), now we are able to reflect this difference in denoting these components.
+
+**SS 33. Calculation of the scalar product through the coordinates of vectors in an orthonormal basis.**
+
+According to the definition 29.1 the term _skew-angular basis_ is used as a synonym of an arbitrary basis. For this reason an orthonormal basis is a special case of a skew-angular basis and we can use the formula (29.8), taking into account (32.4):
+
+\[(\mathbf{a},\mathbf{b})=\sum_{i=1}^{3}\sum_{j=1}^{3}a^{i}\,b^{i}\,\delta_{ij}. \tag{33.1}\]
+
+In calculating the sum over \(j\) in (33.1), it is the inner sum here, the index \(j\) runs over three values and only for one of these three values, where \(j=i\), the Kronecker symbol \(\delta_{ij}\) is nonzero. For this reason wee can retain only one summand of the inner sum over \(j\) in (33.1), omitting other two summands:
+
+\[(\mathbf{a},\mathbf{b})=\sum_{i=1}^{3}a^{i}\,b^{i}\,\delta_{ii}. \tag{33.2}\]We know that \(\delta_{ii}=1\). Therefore the formula (33.2) turns to
+
+\[({\bf a},{\bf b})=\sum_{i=1}^{3}a^{i}\,b^{i}. \tag{33.3}\]
+
+Definition 33.1. The formula (33.3) is called the _formula for calculating the scalar product through the coordinates of vectors in an orthonormal basis_.
+
+Note that the sums in the formula (29.8) satisfy the index setting rule from the definition 24.8, while the sum in the formula (33.3) breaks this rule. In this formula the summation index has two entries and both of them are in the upper positions. This is a peculiarity of an orthonormal basis. It is more symmetric as compared to a general skew-angular basis and this symmetry hides some rules that reveal in a general non-symmetric bases.
+
+The formula (33.3) has the following matrix form:
+
+\[({\bf a},{\bf b})=\parallel a^{1}\quad a^{2}\quad a^{3}\parallel\cdot\left\| \begin{matrix}b^{1}\\ b^{2}\\ b^{3}\end{matrix}\right\|. \tag{33.4}\]
+
+Taking into account the notations (29.1) and taking into account the definition 29.4, the formula (33.4) can be abbreviated to
+
+\[({\bf a},{\bf b})={\bf a}^{\top}\!\cdot\!{\bf b}. \tag{33.5}\]
+
+The formula (33.4) can be derived from the formula (29.9), while the formula (33.5) can be derived from the formula (29.10).
+
+## 34 Right and left triples of vectors. The concept of orientation.
+
+Definition 34.1. An _ordered triple of vectors_ is a list of three vectors for which the order of listing vectors is fixed.
+
+**Definition 34.2**.: An ordered triple of non-coplanar vectors \(\mathbf{a}_{1}\), \(\mathbf{a}_{2}\), \(\mathbf{a}_{3}\) is called a _right triple_ if, when observing from the end of the third vector, the shortest rotation from the first vector toward the second vector is seen as a counterclockwise rotation.
+
+In the definition 34.2 we implicitly assume that the geometric realizations of the vectors \(\mathbf{a}_{1}\), \(\mathbf{a}_{2}\), \(\mathbf{a}_{3}\) with some common initial point are considered as it is shown in Fig. 34.1.
+
+**Definition 34.3**.: An ordered triple of non-coplanar vectors \(\mathbf{a}_{1}\), \(\mathbf{a}_{2}\), \(\mathbf{a}_{3}\) is called a _left triple_ if, when observing from the end of the third vector, the shortest rotation from the first vector toward the second vector is seen as a clockwise rotation.
+
+A given rotation about a given axis when observing from a given position could be either a clockwise rotation or a counterclockwise rotation. No other options are available. For this reason each ordered triple of non-coplanar vectors is either left or right. No other triples sorted by this criterion are available.
+
+**Definition 34.4**.: The property of ordered triples of non-coplanar vectors to be left or right is called their _orientation_.
+
+## 35 Vector product
+
+Let \(\mathbf{a}\) and \(\mathbf{b}\) be two non-collinear free vectors. Let's lay their geometric realizations \(\mathbf{a}=\overrightarrow{OA}\) and \(\mathbf{b}=\overrightarrow{OB}\) at some arbitrary point \(O\). In this case the vectors \(\mathbf{a}\) and \(\mathbf{b}\) define a plane \(AOB\) and lie on this plane. The angle \(\varphi\) between the vectors \(\mathbf{a}\) and \(\mathbf{b}\) is determined according to Fig. 26.1. Due to \(\mathbf{a}\nparallel\mathbf{b}\) this angle ranges in the interval \(0<\varphi<\pi\) and hence \(\sin\varphi\neq 0\).
+
+Let's draw a line through the point \(O\) perpendicular to the plane \(AOB\) and denote this line through \(c\). The line \(c\) isperpendicular to the vectors \({\bf a}=\overrightarrow{OA}\) and \({\bf b}=\overrightarrow{OB}\):
+
+\[\begin{array}{l}c\perp{\bf a},\\ c\perp{\bf b}.\end{array} \tag{35.1}\]
+
+It is clear that the conditions (35.1) fix a unique line \(c\) passing through the point \(O\) (see Theorems 1.1 and 1.3 in Chapter IV of the book [6]).
+
+There are two directions on the line \(c\). In Fig35.1 they are given by the vectors \({\bf c}\) and \(\tilde{\bf c}\). The vectors \({\bf a}\), \({\bf b}\), \({\bf c}\) constitute a right triple, while \({\bf a}\), \({\bf b}\), \(\tilde{\bf c}\) is a left triple. So, specifying the orientation chooses one of two possible directions on the line \(c\).
+
+Definition 35.1: The _vector product_ of two non-collinear vectors \({\bf a}\) and \({\bf b}\) is a vector \({\bf c}=[{\bf a},{\bf b}]\) which is determined by the following three conditions:
+
+1. \({\bf c}\perp{\bf a}\) and \({\bf c}\perp{\bf b}\);
+2. the vectors \({\bf a}\), \({\bf b}\), \({\bf c}\) form a right triple;
+3. \(|{\bf c}|=|{\bf a}|\,|{\bf b}|\,\sin\varphi\).
+
+In the case of collinear vectors \({\bf a}\) and \({\bf b}\) their vector product \([{\bf a},{\bf b}]\) is taken to be zero by definition.
+
+A comma is the multiplication sign in the writing the vector product, not by itself, but together with square brackets surrounding the whole expression. These brackets are natural delimiters for multiplicands: the first multiplicand is an expression between the opening bracket and the comma, while the second multiplicand is an expression between the comma and the closing bracket. Therefore in complicated expressions no auxiliary delimiters are required. For example, in the formula the sums \({\bf a}+{\bf b}\) and \({\bf c}+{\bf d}\) are calculated first, then the vector multiplication is performed.
+
+**A remark**. Often the vector product is written as \({\bf a}\times{\bf b}\). Even the special term <<cross product>> is used. However, to my mind, this notation is not good. It is misleading since the cross sign is sometimes used for denoting the product of numbers when a large formula is split into several lines.
+
+**A remark**. The physical nature of the vector product \([{\bf a},{\bf b}]\) often differs from the nature of its multiplicands \({\bf a}\) and \({\bf b}\). Even if the lengths of the vectors \({\bf a}\) and \({\bf b}\) are measured in length units, the length of their product \([{\bf a},{\bf b}]\) is measured in units of area.
+
+Exercise 35.1. Show that the vector product \({\bf c}=[{\bf a},{\bf b}]\) of two free vectors \({\bf a}\) and \({\bf b}\) is a free vector and, being a free vector, it does not depend on where the point \(O\) in Fig. 35.1 is placed.
+
+**SS 36. Orthogonal projection onto a plane.**
+
+Let \({\bf a}\neq{\bf 0}\) be some nonzero free vector. According to the theorem 27.1, each free vector \({\bf b}\) has the expansion
+
+\[{\bf b}={\bf b}_{{}_{\|}}+{\bf b}_{{}_{\bot}}\]
+
+relative to the vector \({\bf a}\), where the vector \({\bf b}_{{}_{\|}}\) is collinear to the vector \({\bf a}\), while the vector \({\bf b}_{{}_{\bot}}\) is perpendicular to the vector \({\bf a}\). Recall that through \(\pi_{\bf a}\) we denoted a mapping that associates each vector \({\bf b}\) with its component \({\bf b}_{{}_{\|}}\) in the expansion (36.1). Such a mapping was called the orthogonal projection onto the direction of the vector \({\bf a}\neq{\bf 0}\) (see Definition 27.3).
+
+Definition 36.1. The mapping \(\pi_{{}_{\bot}{\bf a}}\) that associates each free vector \({\bf b}\) with its perpendicular component \({\bf b}_{{}_{\bot}}\) in the expansion (36.1) is called the _orthogonal projection onto a plane perpendicular to the vector \({\bf a}\neq{\bf 0}\)_ or, more exactly, the _orthogonal projection onto the orthogonal complement of the vector \({\bf a}\neq{\bf 0}\)_.
+
+Definition 36.2. The _orthogonal complement_ of a free vector \({\bf a}\) is the collection of all free vectors \({\bf x}\) perpendicular to \({\bf a}\):
+
+\[\alpha=\{{\bf x}\colon{\bf x}\perp{\bf a}\}. \tag{36.2}\]
+
+The orthogonal complement (36.2) of a nonzero vector \({\bf a}\neq{\bf 0}\) can be visualized as a plane if we choose one of its geometric realizations \({\bf a}=\overline{OA}\). Indeed, let's lay various vectors perpendicular to \({\bf a}\) at the point \(O\). The ending points of such vectors fill the plane \(\alpha\) shown in Fig. 36.1.
+
+The properties of the orthogonal projections onto a line \(\pi_{\bf a}\) from the definition 27.1 and the orthogonal projections onto a plane \(\pi_{\perp{\bf a}}\) from the definition 36.1 are very similar. Indeed, we have the following theorem.
+
+Theorem 36.1: For any nonzero vector \({\bf a}\neq{\bf 0}\) the orthogonal projection \(\pi_{\perp{\bf a}}\) onto a plane perpendicular to the vector \({\bf a}\) is a linear mapping.
+
+Proof: In order to prove the theorem 36.1 we write the relationship (36.1) as follows:
+
+\[{\bf b}=\pi_{\bf a}({\bf b})+\pi_{\perp{\bf a}}({\bf b}). \tag{36.3}\]
+
+The relationship (36.3) is an identity, it is fulfilled for any vector \({\bf b}\). First we replace the vector \({\bf b}\) by \({\bf b}+{\bf c}\) in (36.3), then we replace \({\bf b}\) by \(\alpha\,{\bf b}\) in (36.3). As a result we get two relationships
+
+\[\pi_{\perp{\bf a}}({\bf b}+{\bf c})={\bf b}+{\bf c}-\pi_{\bf a}({ \bf b}+{\bf c}), \tag{36.4}\] \[\pi_{\perp{\bf a}}(\alpha\,{\bf b})=\alpha\,{\bf b}-\pi_{\bf a}( \alpha\,{\bf b}). \tag{36.5}\]
+
+Due to the theorem 27.3 the mapping \(\pi_{\bf a}\) is a linear mapping. For this reason the relationships (36.4) and (36.5) can be transformed into the following two relationships:
+
+\[\pi_{\perp\mathbf{a}}(\mathbf{b}+\mathbf{c})=\mathbf{b}-\pi_{\mathbf{a }}(\mathbf{b})+\mathbf{c}-\pi_{\mathbf{a}}(\mathbf{c}), \tag{36.6}\] \[\pi_{\perp\mathbf{a}}(\alpha\,\mathbf{b})=\alpha\,(\mathbf{b}-\pi _{\mathbf{a}}(\mathbf{b})). \tag{36.7}\]
+
+The rest is to apply the identity (36.3) to the relationships (36.6) and (36.7). As a result we get
+
+\[\pi_{\perp\mathbf{a}}(\mathbf{b}+\mathbf{c})=\pi_{\perp\mathbf{a }}(\mathbf{b})+\pi_{\perp\mathbf{a}}(\mathbf{c}), \tag{36.8}\] \[\pi_{\perp\mathbf{a}}(\alpha\,\mathbf{b})=\alpha\,\pi_{\perp \mathbf{a}}(\mathbf{b}). \tag{36.9}\]
+
+The relationships (36.8) and (36.9) are exactly the linearity conditions from the definition 27.4 written for the mapping \(\pi_{\perp\mathbf{a}}\). The theorem 36.1 is proved. \(\square\)
+
+## SS 37. Rotation about an axis
+
+Let \(\mathbf{a}\neq\mathbf{0}\) be some nonzero free vector and let \(\mathbf{b}\) be some arbitrary free vector. Let's lay the vector \(\mathbf{b}=\overrightarrow{BO}\) at some arbitrary point \(B\). Then we lay the vector \(\mathbf{a}=\overrightarrow{OA}\) at the terminal point of the vector \(\overrightarrow{BO}\). The vector \(\mathbf{a}=\overrightarrow{OA}\) is nonzero. For this reason it defines a line \(OA\). We take this line for the rotation axis. Let's denote through \(\theta_{\mathbf{a}}^{\varphi}\) the rotation of the space \(\mathbb{E}\) about the axis \(OA\) by the angle \(\varphi\) (see Fig. 37.1). The vector \(\mathbf{a}=\overrightarrow{OA}\) fixes one of two directions on the rotation axis. At the same time this vector fixes the positive direction of rotation about the axis \(OA\).
+
+Definition 37.1.: The rotation about an axis \(OA\) with with fixed direction \(\mathbf{a}=\overrightarrow{OA}\) on it is called a positive rotation if, being observed from the terminal point of the vector \(\overrightarrow{OA}\), i. e.
+
+when looking from the point \(A\) toward the point \(O\), it occurs in the counterclockwise direction.
+
+Taking into account the definition 37.1, we can consider the rotation angle \(\varphi\) as a signed quantity. If \(\varphi>0\), the rotation \(\theta_{\mathbf{a}}^{\varphi}\) occurs in the positive direction with respect to the vector \(\mathbf{a}\), if \(\varphi<0\), it occurs in the negative direction.
+
+Let's apply the rotation mapping \(\theta_{\mathbf{a}}^{\varphi}\) to the vectors \(\mathbf{a}=\overrightarrow{OA}\) and \(\mathbf{b}=\overrightarrow{BO}\) in Fig. 37.1. The points \(A\) and \(O\) are on the rotation axis. For this reason under the rotation \(\theta_{\mathbf{a}}^{\varphi}\) the points \(A\) and \(O\) stay at their places and the vector \(\mathbf{a}=\overrightarrow{OA}\) does not change. As for the vector \(\mathbf{b}=\overrightarrow{BO}\), it is mapped onto another vector \(\overrightarrow{BO}\). Now, applying parallel translations, we can replicate the vector \(\overrightarrow{BO}\) up to a free vector \(\tilde{\mathbf{b}}=\overrightarrow{\tilde{BO}}\) (see Definitions 4.1 and 4.2). The vector \(\tilde{\mathbf{b}}\) is said to be produced from the vector \(\mathbf{b}\) by applying the mapping \(\theta_{\mathbf{a}}^{\varphi}\) and is written as
+
+\[\tilde{\mathbf{b}}=\theta_{\mathbf{a}}^{\varphi}(\mathbf{b}). \tag{37.1}\]
+
+Lemma 37.1. The free vector \(\tilde{\mathbf{b}}=\theta_{\mathbf{a}}^{\varphi}(\mathbf{b})\) in (37.1) produced from a free vector \(\mathbf{b}\) by means of the rotation mapping \(\theta_{\mathbf{a}}^{\varphi}\) does not depend on the choice of a geometric realization of the vector \(\mathbf{a}\) defining the rotation axis and on a geometric realization of the vector \(\mathbf{b}\) itself.
+
+Definition 37.2. The mapping \(\theta_{\mathbf{a}}^{\varphi}\) acting upon free vectors of the space \(\mathbb{E}\) and taking them to other free vectors in \(\mathbb{E}\) is called the rotation by the angle \(\varphi\) about the vector \(a\).
+
+Exercise 37.1. Rotations and parallel translations belong to the class of mappings preserving lengths of segments and measures of angles. They take each segment to a congruent segment and each angle to a congruent angle (see [6]). Let \(p\) be some parallel translation, let \(p^{-1}\) be its inverse parallel translation, and let \(\theta\) be a rotation by some angle about some axis. Prove that the 
+
+[MISSING_PAGE_EMPTY:10706]
+
+realization for the vector \(\theta^{\varphi}_{\bf a}({\bf b}+{\bf c})\). Hence we have
+
+\[\theta^{\varphi}_{\bf a}({\bf b}+{\bf c})=\overrightarrow{\vec{B}O}=\overrightarrow {\vec{B}\vec{C}}+\overrightarrow{CO}=\theta^{\varphi}_{\bf a}({\bf b})+\theta^ {\varphi}_{\bf a}({\bf c}). \tag{37.3}\]
+
+The chain of equalities (37.3) proves the first linearity condition from the definition 27.4 as applied to \(\theta^{\varphi}_{\bf a}\).
+
+Let's proceed to proving the second linearity condition. It is more simple than the first one. Multiplying a vector \({\bf b}\) by a number \(\alpha\), we make the length of its geometric realizations \(|\alpha|\) times as greater. If \(\alpha>0\), geometric realizations of the vector \(\alpha\,{\bf b}\) are codirected to geometric realizations of \({\bf b}\). If \(\alpha<0\), they are opposite to geometric realizations of \({\bf b}\). And if \(\alpha=0\), geometric realizations of the vector \(\alpha\,{\bf b}\) do vanish. Let's apply the rotation by the angle \(\varphi\) about some geometric realization of the vector \({\bf a}\neq{\bf 0}\) some geometric realizations of the vectors \({\bf b}\) and \(\alpha\,{\bf b}\). Such a mapping preserves the lengths of vectors. Hence it preserves all the relations of their lengths. Moreover it maps straight lines to straight lines and preserves the order of points on that straight lines. Hence codirected vectors are mapped to codirected ones and opposite vectors to opposite ones respectively. As a result
+
+\[\theta^{\varphi}_{\bf a}(\alpha\,{\bf b})=\alpha\,\theta^{\varphi}_{\bf a}({\bf b }). \tag{37.4}\]
+
+The relationship (37.4) completes the proof of the linearity for the mapping \(\theta^{\varphi}_{\bf a}\) as applied to free vectors. \(\Box\)
+
+## 38 The relation of the vector product with projections and rotations
+
+Let's consider two non-collinear vectors \({\bf a}\,\nparallel{\bf b}\) and their vector product \({\bf c}=[{\bf a},{\bf b}]\). The length of the vector \({\bf c}\) is determined by the lengths of \({\bf a}\) and \({\bf b}\) and by the angle \(\varphi\) between them:
+
+\[|{\bf c}|=|{\bf a}|\,|{\bf b}|\,\sin\varphi. \tag{38.1}\]The vector \({\bf c}\) lies on the plane \(\alpha\) perpendicular to the vector \({\bf b}\) (see Fig. 38.1). Let's denote through \({\bf a}_{\perp}\) the orthogonal projection of the vector \({\bf a}\) onto the plane \(\alpha\), i e. we set
+
+\[{\bf a}_{\perp}=\pi_{\perp{\bf b}}({\bf a}).\]
+
+The length of the above vector (38.2) is determined by the formula \(|{\bf a}_{\perp}|=|{\bf a}|\,\sin\varphi\). Comparing this formula with (38.1) and taking into account Fig. 38.1, we conclude that in order to superpose the vector \({\bf a}_{\perp}\) with the vector \({\bf c}\) one should first rotate it counterclockwise by the right angle about the vector \({\bf b}\) and then multiply by the negative number \(-|{\bf b}|\). This yields the formula
+
+\[[{\bf a},{\bf b}]=-|{\bf b}|\cdot\theta_{\bf b}^{\pi/2}\bigl{(}\pi_{\perp{\bf b }}({\bf a})\bigr{)}.\]
+
+The formula (38.3) sets the relation of the vector product with the two mappings \(\pi_{\perp{\bf b}}\) and \(\theta_{\bf b}^{\pi/2}\). One of them is the projection onto the orthogonal complement of the vector \({\bf b}\), while the other is the rotation by the angle \(\pi/2\) about the vector \({\bf b}\). The formula (38.3) is applicable provided the vector \({\bf b}\) is nonzero:
+
+\[{\bf b}\neq{\bf 0},\]
+
+while the condition \({\bf a}\not\parallel{\bf b}\) can be broken. If \({\bf a}\parallel{\bf b}\) both sides of the formula (38.4) vanish, but the formula itself remains valid.
+
+**SS 39. Properties of the vector product.**
+
+Theorem 39.1. The vector product of vectors possesses the following four properties fulfilled for any three vectors \({\bf a}\), \({\bf b}\), \({\bf c}\) and for any number \(\alpha\):
+
+1. \([\mathbf{a},\mathbf{b}]=-[\mathbf{b},\mathbf{a}]\);
+2. \([\mathbf{a}+\mathbf{b},\mathbf{c}]=[\mathbf{a},\mathbf{c}]+[\mathbf{b},\mathbf{c}]\);
+3. \([\alpha\,\mathbf{a},\mathbf{c}]=\alpha\,[\mathbf{a},\mathbf{c}]\);
+4. \([\mathbf{a},\mathbf{b}]=0\) if and only if the vectors \(\mathbf{a}\) and \(\mathbf{b}\) are collinear, i. e. if \(\mathbf{a}\parallel\mathbf{b}\).
+
+Definition 39.1. The property 1) in the theorem 39.1 is called _anticommutativity_; the properties 2) and 3) are called the properties of _linearity with respect to the first multiplicand_; the property 4) is called the _vanishing condition_.
+
+Proof of the theorem 39.1. The property of anticommutativity 1) is derived immediately from the definition 35.1. Let \(\mathbf{a}\nparallel\mathbf{b}\). Exchanging the vectors \(\mathbf{a}\) and \(\mathbf{b}\), we do not violate the first and the third conditions for the triple of vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\) in the definition 35.1, provided they are initially fulfilled. As for the direction of rotation in Fig. 35.1, it changes for the opposite one. Therefore, if the triple \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\) is right, the triple \(\mathbf{b}\), \(\mathbf{a}\), \(\mathbf{c}\) is left. In order to get a right triple the vectors \(\mathbf{b}\) and \(\mathbf{a}\) should be complemented with the vector \(-\mathbf{c}\). This yield the equality
+
+\[[\mathbf{a},\mathbf{b}]=-[\mathbf{b},\mathbf{a}] \tag{39.1}\]
+
+for the case \(\mathbf{a}\nparallel\mathbf{b}\). If \(\mathbf{a}\parallel\mathbf{b}\), both sides of the equality (39.1) do vanish. So the equality remains valid in this case too.
+
+Let \(\mathbf{c}\neq\mathbf{0}\). The properties of linearity 1) and 2) for this case are derived with the use of the formula (38.3) and the theorems 36.1 and 37.1. Let's write the formula (38.3) as
+
+\[[\mathbf{a},\mathbf{c}]=-|\mathbf{c}|\cdot\theta_{\mathbf{c}}^{\pi/2}\bigl{(} \pi_{\perp\mathbf{c}}(\mathbf{a})\bigr{)}. \tag{39.2}\]
+
+Then we change the vector \(\mathbf{a}\) in (39.2) for the sum of vectors \(\mathbf{a}+\mathbf{b}\) and apply the theorems 36.1 and 37.1. This yields
+
+\[[\mathbf{a}+\mathbf{b},\mathbf{c}]=-|\mathbf{c}|\cdot\theta_{\mathbf{c}}^{\pi/ 2}\bigl{(}\pi_{\perp\mathbf{c}}(\mathbf{a}+\mathbf{b})\bigr{)}=-|\mathbf{c}|\cdot\]\[\cdot\theta_{\mathbf{c}}^{\pi/2}\bigl{(}\pi_{\perp\mathbf{c}}(\mathbf{a})+\pi_{ \perp\mathbf{c}}(\mathbf{b})\bigr{)}=-|\mathbf{c}|\cdot\theta_{\mathbf{c}}^{\pi/ 2}\bigl{(}\pi_{\perp\mathbf{c}}(\mathbf{a})\bigr{)}-\]
+
+Now we change the vector \(\mathbf{a}\) in (39.2) for the product \(\alpha\,\mathbf{a}\) and then apply the theorems 36.1 and 37.1 again:
+
+\[[\alpha\,\mathbf{a},\mathbf{c}]=-|\mathbf{c}|\cdot\theta_{\mathbf{c}}^{\pi/2} \bigl{(}\pi_{\perp\mathbf{c}}(\alpha\,\mathbf{a})\bigr{)}=-|\mathbf{c}|\cdot \theta_{\mathbf{c}}^{\pi/2}\bigl{(}\alpha\,\pi_{\perp\mathbf{c}}(\mathbf{a}) \bigr{)}=\]
+
+The calculations which are performed above prove the equalities 2) and 3) in the theorem 39.1 for the case \(\mathbf{c}\neq\mathbf{0}\). If \(\mathbf{c}=\mathbf{0}\), both sides of these equalities do vanish and they appear to be trivially fulfilled.
+
+Let's proceed to proving the fourth item in the theorem 39.1. For \(\mathbf{a}\parallel\mathbf{b}\) the vector product \([\mathbf{a},\mathbf{b}]\) vanishes by the definition 35.1. Let \(\mathbf{a}\nparallel\mathbf{b}\). In this case both vectors \(\mathbf{a}\) and \(\mathbf{b}\) are nonzero, while the angle \(\varphi\) between them differs from \(0\) and \(\pi\). For this reason \(\sin\varphi\neq 0\). Summarizing these restrictions and applying the item 3) of the definition 35.1, we get
+
+\[|[\mathbf{a},\mathbf{b}]|=|\mathbf{a}|\,|\mathbf{b}|\,\sin\varphi\neq 0,\]
+
+i. e. for \(\mathbf{a}\nparallel\mathbf{b}\) the vector product \([\mathbf{a},\mathbf{b}]\) cannot vanish. The proof of the theorem 39.1 is over. \(\square\)
+
+Theorem 39.2. Apart from the properties 1)-4), the vector product possesses the following two properties which are fulfilled for any vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\) and for any number \(\alpha\):
+
+* \([\mathbf{c},\mathbf{a}+\mathbf{b}]=[\mathbf{c},\mathbf{a}]+[\mathbf{a},\mathbf{b }]\);
+* \([\mathbf{c},\alpha\,\mathbf{a}]=\alpha\,[\mathbf{c},\mathbf{a}]\).
+
+Definition 39.2. The properties 5) and 6) in the theorem 39.2 are called the properties of _linearity with respect to the second multiplicand_.
+
+The properties 5) and 6) are easily derived from the properties 2) and 3) by applying the property 1). Indeed, we have
+
+\[[{\bf c},{\bf a}+{\bf b}]=-[{\bf a}+{\bf b},{\bf c}]=-[{\bf a},{\bf c }]-[{\bf b},{\bf c}]=[{\bf c},{\bf a}]+[{\bf c},{\bf b}],\] \[[{\bf c},\alpha\,{\bf a}]=-[\alpha\,{\bf a},{\bf c}]=-\alpha\,[{ \bf a},{\bf c}]=\alpha\,[{\bf c},{\bf a}].\]
+
+These calculations prove the theorem 39.2.
+
+**SS 40. Structural constants of the vector product.**
+
+Let \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) be some arbitrary basis in the space \({\mathbb{E}}\). Let's take two vectors \({\bf e}_{i}\) and \({\bf e}_{j}\) of this basis and consider their vector product \([{\bf e}_{i},{\bf e}_{j}]\). The vector \([{\bf e}_{i},{\bf e}_{j}]\) can be expanded in the basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\). Such an expansion is usually written as follows:
+
+\[[{\bf e}_{i},{\bf e}_{j}]=C^{1}_{ij}\,{\bf e}_{1}+C^{2}_{ij}\,{\bf e}_{2}+C^{3 }_{ij}\,{\bf e}_{3}. \tag{40.1}\]
+
+The expansion (40.1) contains three coefficients \(C^{1}_{ij}\), \(C^{2}_{ij}\) and \(C^{3}_{ij}\). However, the indices \(i\) and \(j\) in it run independently over three values 1, 2, 3. For this reason, actually, the formula (40.1) represent nine expansions, the total number of coefficients in it is equal to twenty seven.
+
+The formula (40.1) can be abbreviated in the following way:
+
+\[[{\bf e}_{i},{\bf e}_{j}]=\sum_{k=1}^{3}C^{k}_{ij}\,{\bf e}_{k}. \tag{40.2}\]
+
+Let's apply the theorem 19.1 on the uniqueness of the expansion of a vector in a basis to the expansions of \([{\bf e}_{i},{\bf e}_{j}]\) in (40.1) or in (40.2). As a result we can formulate the following theorem.
+
+**Theorem 40.1.** Each basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) in the space \({\mathbb{E}}\) is associated with a collection of twenty seven constants \(C^{k}_{ij}\) which are determined uniquely by this basis through the expansions (40.2).
+
+**Definition 40.1.** The constants \(C^{k}_{ij}\), which are uniquely de termined by a basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) through the expansions (40.2), are called the _structural constants of the vector product_ in this basis.
+
+The structural constants of the vector product are similar to the components of the Gram matrix for a basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) (see Definition 29.2). But they are more numerous and form a three index array with two lower indices and one upper index. For this reason they cannot be placed into a matrix.
+
+**SS 41. Calculation of the vector product through the coordinates of vectors in a skew-angular basis.**
+
+Let \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) be some skew-angular basis. According to the definition 29.1 the term _skew-angular basis_ in this book is used as a synonym of an arbitrary basis. Let's choose some arbitrary vectors \({\bf a}\) and \({\bf b}\) in the space \({\mathbb{E}}\) and consider their expansions
+
+\[{\bf a}=\sum_{i=1}^{3}a^{i}\,{\bf e}_{i},\qquad\qquad\qquad{\bf b}=\sum_{j=1} ^{3}b^{j}\,{\bf e}_{j} \tag{41.1}\]
+
+in the basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\). Substituting (41.1) into the vector product \([{\bf a},{\bf b}]\), we get the following formula:
+
+\[[{\bf a},{\bf b}]=\bigg{[}\sum_{i=1}^{3}a^{i}\,{\bf e}_{i},\,\sum_{j=1}^{3}b^{ j}\,{\bf e}_{j}\bigg{]}. \tag{41.2}\]
+
+In order to transform the formula (41.2) we apply the properties 2) and 5) of the vector product (see Theorems 39.1 and 39.2). Due to these properties we can bring the summation signs over \(i\) and \(j\) outside the brackets of the vector product:
+
+\[[{\bf a},{\bf b}]=\sum_{i=1}^{3}\sum_{j=1}^{3}[a^{i}\,{\bf e}_{i},b^{j}\,{\bf e }_{j}]. \tag{41.3}\]
+
+Now let's apply the properties 3) and 6) from the theorems 39.1 and 39.2. Due to these properties we can bring the numericfactors \(a^{i}\) and \(b^{j}\) outside the brackets of the vector product (41.3):
+
+\[[{\bf a},{\bf b}]=\sum_{i=1}^{3}\sum_{j=1}^{3}a^{i}\,b^{j}\,[{\bf e}_{i},{\bf e}_ {j}]. \tag{41.4}\]
+
+The vector products \([{\bf e}_{i},{\bf e}_{j}]\) in the formula (41.4) can be replaced by their expansions (40.2). Upon substituting (40.2) into (41.4) the formula (41.4) is written as follows:
+
+\[[{\bf a},{\bf b}]=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{j}\,C^{k} _{ij}\,{\bf e}_{k}. \tag{41.5}\]
+
+Definition 41.1. The formula (41.5) is called the _formula for calculating the vector product through the coordinates of vectors in a skew-angular basis_.
+
+## 42 Structural constants of the vector product in an orthonormal basis
+
+Let's recall that an orthonormal basis (ONB) in the space \(\mathbb{E}\) is a basis composed by three unit vectors perpendicular to each other (see Definition 31.3). By their orientation, triples of non-coplanar vectors in the space \(\mathbb{E}\) are subdivided into right and left triples (see Definition 34.4). Therefore all bases in the space \(\mathbb{E}\) are subdivided into right bases and left bases, which applies to orthonormal bases as well.
+
+Let's consider some right orthonormal basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\). It is shown in Fig. 42.1. Using the definition 35.1, one can calculate various pairwise vector products of the vectors composing this basis. Since the geometry of a right ONB is rather simple, we can perform these calculations up to an explicit result and compose the multiplication table for \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\):
+
+\[\begin{array}{llll}[\mathbf{e}_{1},\mathbf{e}_{1}]=\mathbf{0},&[\mathbf{e}_{1 },\mathbf{e}_{2}]=\mathbf{e}_{3},&[\mathbf{e}_{1},\mathbf{e}_{3}]=-\mathbf{e}_ {2},\\ [\mathbf{e}_{2},\mathbf{e}_{1}]=-\mathbf{e}_{3},&[\mathbf{e}_{2},\mathbf{e}_{2 }]=\mathbf{0},&[\mathbf{e}_{2},\mathbf{e}_{3}]=\mathbf{e}_{1},\\ [\mathbf{e}_{3},\mathbf{e}_{1}]=\mathbf{e}_{2},&[\mathbf{e}_{3},\mathbf{e}_{2 }]=-\mathbf{e}_{1},&[\mathbf{e}_{3},\mathbf{e}_{3}]=\mathbf{0}.\end{array} \tag{42.1}\]
+
+Let's choose the first of the relationships (42.1) and write its right hand side in the form of an expansion in the basis \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\):
+
+\[[\mathbf{e}_{1},\mathbf{e}_{1}]=0\,\mathbf{e}_{1}+0\,\mathbf{e}_{2}+0\, \mathbf{e}_{3}. \tag{42.2}\]
+
+Let's compare the expansion (42.2) with the expansion (40.1) written for the case \(i=1\) and \(j=1\):
+
+\[[\mathbf{e}_{1},\mathbf{e}_{1}]=C^{1}_{11}\,\mathbf{e}_{1}+C^{2}_{11}\, \mathbf{e}_{2}+C^{3}_{11}\,\mathbf{e}_{3}. \tag{42.3}\]
+
+Due to the uniqueness of the expansion of a vector in a basis (see Theorem 19.1) from (42.2) and (42.3) we derive
+
+\[C^{1}_{11}=0,\qquad\qquad C^{2}_{11}=0,\qquad\qquad C^{3}_{11}=0. \tag{42.4}\]
+
+Now let's choose the second relationship (42.1) and write its right hand side in the form of an expansion in the basis \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\):
+
+\[[\mathbf{e}_{1},\mathbf{e}_{2}]=0\,\mathbf{e}_{1}+0\,\mathbf{e}_{2}+1\, \mathbf{e}_{3}. \tag{42.5}\]
+
+Comparing (42.5) with the expansion (40.1) written for the case \(i=1\) and \(j=2\), we get the values of the following constants:
+
+\[C^{1}_{12}=0,\qquad\qquad C^{2}_{12}=0,\qquad\qquad C^{3}_{12}=1. \tag{42.6}\]
+
+Repeating this procedure for all relationships (42.1), we can get the complete set of relationships similar to (42.4) and (42.6).
+
+Then we can organize them into a single list:
+
+\[\begin{array}{llll}C^{1}_{11}=0,&C^{2}_{11}=0,&C^{3}_{11}=0,\\ C^{1}_{12}=0,&C^{2}_{12}=0,&C^{3}_{12}=1,\\ C^{1}_{13}=0,&C^{2}_{13}=-1,&C^{3}_{13}=0,\\ C^{1}_{21}=0,&C^{2}_{21}=0,&C^{3}_{21}=-1,\\ C^{1}_{22}=0,&C^{2}_{22}=0,&C^{3}_{22}=0,\\ C^{1}_{23}=1,&C^{2}_{23}=0,&C^{3}_{23}=0,\\ C^{1}_{31}=0,&C^{2}_{31}=1,&C^{3}_{31}=0,\\ C^{1}_{32}=-1,&C^{2}_{32}=0,&C^{3}_{32}=1,\\ C^{1}_{33}=0,&C^{2}_{33}=0,&C^{3}_{33}=0.\end{array} \tag{42.7}\]
+
+The formulas (42.7) determine all of the 27 structural constants of the vector product in a right orthonormal basis. Let's write this result as a theorem.
+
+Theorem 42.1: For any right orthonormal basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) in the space \(\mathbb{E}\) the structural constants of the vector product are determined by the formulas (42.7).
+
+Theorem 42.2: For any left orthonormal basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) in the space \(\mathbb{E}\) the structural constants of the vector product are derived from (42.7) by changing signs \(\ll+\gg\) for \(\ll-\gg\) and vise versa.
+
+Exercise 42.1: Draw a left orthonormal basis and, applying the definition 35.1 to the pairwise vector products of the basis vectors, derive the relationships analogous to (42.1). Then prove the theorem 42.2.
+
+## 43 Levi-Civita symbol
+
+Let's examine the formulas (42.7) for the structural constants of the vector product in a right orthonormal basis. One can easily observe the following pattern in them:
+
+\[C^{k}_{ij}=0\]
+
+ if there are coinciding values
+
+ of the indices
+
+\[i,j,k\]
+
+. (43.1)
+
+The condition (43.1) describes all of the cases where the structural constants in (42.7) do vanish. The cases where \(C^{k}_{ij}=1\) are described by the condition
+
+\[C^{k}_{ij}=1\]
+
+ if the indices
+
+\[i,j,k\]
+
+ take the values
+
+\[(1,2,3)\]
+
+,
+
+\[(2,3,1)\]
+
+, or
+
+\[(3,1,2)\]
+
+. (43.2)
+
+Finally, the cases where \(C^{k}_{ij}=-1\) are described by the condition
+
+\[C^{k}_{ij}=-1\]
+
+ if the indices
+
+\[i,j,k\]
+
+ take the values
+
+\[(1,3,2)\]
+
+,
+
+\[(3,2,1)\]
+
+, or
+
+\[(2,1,3)\]
+
+. (43.3)
+
+The triples of numbers in (43.2) and (43.3) constitute the complete set of various permutations of the numbers 1, 2, 3:
+
+\[\begin{array}{ll}(1,2,3),&(2,3,1),&(3,1,2),\\ (1,3,2),&(3,2,1),&(2,1,3).\end{array} \tag{43.4}\]
+
+The first three permutations in (43.4) are called _even permutations_. They are produced from the right order of the numbers 1, 2, 3 by applying an even number of pairwise transpositions to them. Indeed, we have
+
+\[\begin{array}{ll}(1,2,3);&\\ (1,2,3)\stackrel{{ 1}}{{\longrightarrow}}(2,1,3)\stackrel{{ 2}}{{\longrightarrow}}(2,3,1);&\\ (1,2,3)\stackrel{{ 1}}{{\longrightarrow}}(1,3,2)\stackrel{{ 2}}{{\longrightarrow}}(3,1,2).&\end{array}\]
+
+The rest three permutations in (43.4) are called _odd permutations_. In the case of these three permutations we have
+
+\[(1,2,3)\stackrel{{ 1}}{{\longrightarrow}}(1,3,2);\]\[(1,2,3)\stackrel{{ 1}}{{\longrightarrow}}(3,2,1);\] \[(1,2,3)\stackrel{{ 1}}{{\longrightarrow}}(2,1,3).\]
+
+Definition 43.1. The permutations (43.4) constitute a set, which is usually denoted through \(S_{3}\). If \(\sigma\in S_{3}\), then \((-1)^{\sigma}\) means the parity of the permutation \(\sigma\):
+
+\[(-1)^{\sigma}=\left\{\begin{array}{rl}1&\mbox{if the permutation $\sigma$ is even;}\\ -1&\mbox{if the permutation $\sigma$ is odd.}\end{array}\right.\]
+
+Zeros, unities, and minus unities from (43.1), (43.2), and (43.3) are usually united into a single numeric array:
+
+\[\varepsilon^{ijk}=\varepsilon_{ijk}=\left\{\begin{array}{rl}0&\mbox{if there are coinciding values}\\ &\mbox{of the indices $i,j,k$;}\\ 1&\mbox{if the values of the indices $i,j,k$}\\ &\mbox{form an even permutation of}\\ &\mbox{the numbers $1,2,3$;}\\ -1&\mbox{if the values of the indices $i,j,k$}\\ &\mbox{form an odd permutation of the}\\ &\mbox{numbers $1,2,3$.}\end{array}\right. \tag{43.5}\]
+
+Definition 43.2. The numeric array \(\varepsilon\) determined by the formula (43.5) is called the Levi-Civita symbol.
+
+When writing the components of the Levi-Civita symbol either three upper indices or three lower indices are used. Thus we emphasize the equity of all these three indices. Placing indices on different levels in the Levi-Civita symbol is not welcome. Summarizing what was said above, the formulas (43.1), (43.2), and (43.3) are written as follows:
+
+\[C^{k}_{ij}=\varepsilon_{ijk}. \tag{43.6}\]
+
+Theorem 43.1. For any right orthonormal basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) the structural constants of the vector product in such a basis are determined by the equality (43.6).
+
+In the case of a left orthonormal basis we have the theorem 42.2. It yields the equality
+
+\[C^{k}_{ij}=-\varepsilon_{ijk}. \tag{43.7}\]
+
+Theorem 43.2. For any left orthonormal basis \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\) the structural constants of the vector product in such a basis are determined by the equality (43.7).
+
+Note that the equalities (43.6) and (43.7) violate the index setting rule given in the definition 24.9. The matter is that the structural constants of the vector product \(C^{k}_{ij}\) are the components of a geometric object. The places of their indices are determined by the index setting convention, which is known as Einstein's tensorial notation (see Definition 20.1). As for the Levi-Civita symbol, it is an array of purely algebraic origin.
+
+The most important property of the Levi-Civita symbol is its _complete skew symmetry_ or _complete antisymmetry_. It is expressed by the following equalities:
+
+\[\begin{array}{llll}\varepsilon_{ijk}=-\varepsilon_{jik},&\varepsilon_{ijk}=- \varepsilon_{ikj},&\varepsilon_{ijk}=-\varepsilon_{kji},\\ \varepsilon^{ijk}=-\varepsilon^{jik},&\varepsilon^{ijk}=-\varepsilon^{ikj},& \varepsilon^{ijk}=-\varepsilon^{kji}.\end{array} \tag{43.8}\]
+
+The equalities (43.8) mean, that under the transposition of any two indices the quantity \(\varepsilon_{ijk}=\varepsilon^{ijk}\) changes its sign. These equalities are easily derived from (43.5).
+
+**SS 44. Calculation of the vector product through the coordinates of vectors in an orthonormal basis.**
+
+Let's recall that the term _skew-angular basis_ in this book is used as a synonym of an arbitrary basis (see Definition 29.1). Let \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\) be a right orthonormal basis. It can be treated as a 
+
+[MISSING_PAGE_FAIL:103]
+
+Here \(a^{1}\), \(a^{2}\), \(a^{3}\) and \(b^{1}\), \(b^{2}\), \(b^{3}\) are the coordinates of the vectors \({\bf a}\) and \({\bf b}\) in the basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\). They fill the second and the third rows in the determinant (44.5).
+
+Definition 44.1. The formulas (44.1) and (44.5) are called the _formulas for calculating the vector product through the coordinates of vectors in a right orthonormal basis_.
+
+Let's proceed to the case of a left orthonormal basis. In this case the structural constants of the vector product are given by the formula (43.7). Substituting (43.7) into (41.5), we get
+
+\[[{\bf a},{\bf b}]=-\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{j}\, \varepsilon_{ijk}\,{\bf e}_{k}.\]
+
+Then from (44.6) we derive the formula
+
+\[[{\bf a},{\bf b}]=-\left|\matrix{{\bf e}_{1}&{\bf e}_{2}&{\bf e}_{3}\cr a^{1}& a^{2}&a^{3}\cr b^{1}&b^{2}&b^{3}\cr}\right|.\]
+
+Definition 44.2. The formulas (44.6) and (44.7) are called the _formulas for calculating the vector product through the coordinates of vectors in a left orthonormal basis_.
+
+**SS 45. Mixed product.**
+
+Definition 45.1. The _mixed product_ of three free vectors \({\bf a}\), \({\bf b}\), and \({\bf c}\) is a number obtained as the scalar product of the vector \({\bf a}\) by the vector product of \({\bf b}\) and \({\bf c}\):
+
+\[({\bf a},{\bf b},{\bf c})=({\bf a},[{\bf b},{\bf c}]).\]
+
+As we see in the formula (45.1), the mixed product has three multiplicands. They are separated from each other by commas. Commas are the multiplication signs in writing the mixed product, not by themselves, but together with the round brackets surrounding the whole expression.
+
+Commas and brackets in writing the mixed product are natural delimiters for multiplicands: the first multiplicand is an expression between the opening bracket and the first comma, the second multiplicand is an expression placed between two commas, and the third multiplicand is an expression between the second comma and the closing bracket. Therefore in complicated expressions no auxiliary delimiters are required. Foe example, in
+
+\[({\bf a}+{\bf b},{\bf c}+{\bf d},{\bf e}+{\bf f})\]
+
+the sums \({\bf a}+{\bf b}\), \({\bf c}+{\bf d}\), and \({\bf e}+{\bf f}\) are calculated first, then the mixed product itself is calculated.
+
+**SS 46. Calculation of the mixed product through the coordinates of vectors in an orthonormal basis.**
+
+The formula (45.1) reduces the calculation of the mixed product to successive calculations of the vectorial and scalar products. In the case of the vectorial and scalar products we already have rather efficient formulas for calculating them through the coordinates of vectors in an orthonormal basis.
+
+Let \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) be a right orthonormal basis and let \({\bf a}\), \({\bf b}\), and \({\bf c}\) be free vectors given by their coordinates in this basis:
+
+\[{\bf a}=\left\|\matrix{a^{1}\cr a^{2}\cr a^{3}\cr}\right\|,\hskip 28.452756pt{ \bf b}=\left\|\matrix{b^{1}\cr b^{2}\cr b^{3}\cr}\right\|,\hskip 28.452756pt{ \bf c}=\left\|\matrix{c^{1}\cr c^{2}\cr c^{3}\cr}\right\|.\]
+
+Let's denote \({\bf d}=[{\bf b},{\bf c}]\). Then the formula (45.1) is written as
+
+\[({\bf a},{\bf b},{\bf c})=({\bf a},{\bf d}).\]
+
+In order to calculate the vector \({\bf d}=[{\bf b},{\bf c}]\) we apply the formula (44.1) which now is written as follows:
+
+\[{\bf d}=\sum_{k=1}^{3}\biggl{(}\,\sum_{i=1}^{3}\sum_{j=1}^{3}b^{i}\,c^{j}\, \varepsilon_{ijk}\biggr{)}\,{\bf e}_{k}. \tag{46.3}\]
+
+The formula (46.3) is an expansion of the vector \({\bf d}\) in the basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\). Hence the coefficients in this expansion should coincide with the coordinates of the vector \({\bf d}\):
+
+\[d^{k}=\sum_{i=1}^{3}\sum_{j=1}^{3}b^{i}\,c^{j}\,\varepsilon_{ijk}. \tag{46.4}\]
+
+The next step consists in using the coordinates of the vector \({\bf d}\) from (46.4) for calculating the scalar product in the right hand side of the formula (46.2). The formula (33.3) now is written as
+
+\[({\bf a},{\bf d})=\sum_{k=1}^{3}a^{k}\,d^{k}. \tag{46.5}\]
+
+Let's substitute (46.4) into (46.5) and take into account (46.2). As a result we get the formula
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}a^{k}\biggl{(}\,\sum_{i=1}^{3}\sum_{j= 1}^{3}b^{i}\,c^{j}\,\varepsilon_{ijk}\biggr{)}. \tag{46.6}\]
+
+Expanding the right hand side of the formula (46.6) and changing the order of summations in it, we bring it to
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}b^{i}\,c^{ j}\,\varepsilon_{ijk}\,a^{k}. \tag{46.7}\]
+
+Note that the right hand side of the formula (46.7) differs from that of the formula (44.1) by changing \(a^{i}\) for \(b^{i}\), changing \(b^{j}\) for \(c^{j}\), and changing \({\bf e}_{k}\) for \(a^{k}\). For this reason the formula (46.7) can be brought to the following form analogous to (44.5):
+
+\[({\bf a},{\bf b},{\bf c})=\left|\matrix{a^{1}&a^{2}&a^{3}\cr b^{1}&b^{2}&b^{3} \cr c^{1}&c^{2}&c^{3}\cr}\right|. \tag{46.8}\]
+
+Another way for transforming the formula (46.7) is the use of the complete antisymmetry of the Levi-Civita symbol (43.8). Applying this property, we derive the identity \(\varepsilon_{ijk}=\varepsilon_{kij}\). Due to this identity, upon changing the order of multiplicands and redesignating the summation indices in the right hand side of the formula (46.7), we can bring this formula to the following form:
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{j }\,c^{k}\,\varepsilon_{ijk}. \tag{46.9}\]
+
+Definition 46.1. The formulas (46.8) and (46.9) are called the _formulas for calculating the mixed product through the coordinates of vectors in a right orthonormal basis_.
+
+The coordinates of the vectors \({\bf a}\), \({\bf b}\), and \({\bf c}\) used in the formulas (46.8) and (46.9) are taken from (46.1).
+
+Let's proceed to the case of a left orthonormal basis. Analogs of the formulas (46.8) and (46.9) for this case are obtained by changing the sign in the formulas (46.8) and (46.9):
+
+\[({\bf a},{\bf b},{\bf c})=-\left|\matrix{a^{1}&a^{2}&a^{3}\cr b^{1}&b^{2}&b^{3 }\cr c^{1}&c^{2}&c^{3}\cr}\right|. \tag{46.10}\]
+
+\[({\bf a},{\bf b},{\bf c})=-\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^ {j}\,c^{k}\,\varepsilon_{ijk}. \tag{46.11}\]Definition 46.2. The formulas (46.10) and (46.11) are called the _formulas for calculating the mixed product through the coordinates of vectors in a left orthonormal basis_.
+
+The formulas (46.10) and (46.11) can be derived using the theorem 42.2 or comparing the formulas (43.6) and (43.7).
+
+## SS 47. Properties of the mixed product
+
+Theorem 47.1. The mixed product possesses the following four properties which are fulfilled for any four vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\), \(\mathbf{d}\) and for any number \(\alpha\):
+
+1. \((\mathbf{a},\mathbf{b},\mathbf{c})=-(\mathbf{a},\mathbf{c},\mathbf{b})\), \((\mathbf{a},\mathbf{b},\mathbf{c})=-(\mathbf{c},\mathbf{b},\mathbf{a})\), \((\mathbf{a},\mathbf{b},\mathbf{c})=-(\mathbf{b},\mathbf{a},\mathbf{c})\);
+2. \((\mathbf{a}+\mathbf{b},\mathbf{c},\mathbf{d})=(\mathbf{a},\mathbf{c},\mathbf{ d})+(\mathbf{b},\mathbf{c},\mathbf{d})\);
+3. \((\alpha\,\mathbf{a},\mathbf{c},\mathbf{d})=\alpha\,(\mathbf{a},\mathbf{c}, \mathbf{d})\);
+4. \((\mathbf{a},\mathbf{b},\mathbf{c})=0\) if and only if the vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\) are coplanar.
+
+Definition 47.1. The property 1) expressed by three equalities in the theorem 47.1 is called the property of _complete skew symmetry_ or _complete antisymmetry_, the properties 2) and 3) are called the properties of _linearity with respect to the first multiplicand_, the property 4) is called the _vanishing condition_.
+
+Proof of the theorem 47.1. The first of the three equalities composing the property of complete antisymmetry 1) follows from the formula (45.1) and the theorems 39.1 and 28.1:
+
+\[(\mathbf{a},\mathbf{b},\mathbf{c})=(\mathbf{a},[\mathbf{b},\mathbf{c}])=( \mathbf{a},-[\mathbf{c},\mathbf{b}])=-(\mathbf{a},[\mathbf{c},\mathbf{b}])=-( \mathbf{a},\mathbf{c},\mathbf{b}).\]
+
+The other two equalities entering the property 1) cannot be derived in this way. Therefore we need to use the formula (46.8). Transposition of two vectors in the left hand side of this formula corresponds to the transposition of two rows in the determinant in the right hand side of this formula. It is well known that the transposition of any two rows in a determinant changes its sign. This observation proves all of the three equalities composing the property of complete antisymmetry for the mixed product.
+
+The properties of linearity 2) and 3) of the mixed product in the theorem 47.1 are derived from the corresponding properties of the scalar and vectorial products due to the formula (45.1):
+
+\[(\mathbf{a}+\mathbf{b},\mathbf{c},\mathbf{d})=(\mathbf{a}+\mathbf{b },[\mathbf{c},\mathbf{d}])=(\mathbf{a},[\mathbf{c},\mathbf{d}])+\] \[\qquad\qquad\qquad\qquad+\,(\mathbf{b},[\mathbf{c},\mathbf{d}])=( \mathbf{a},\mathbf{c},\mathbf{d})+(\mathbf{b},\mathbf{c},\mathbf{d}),\] \[(\alpha\,\mathbf{a},\mathbf{c},\mathbf{d})=(\alpha\,\mathbf{a},[ \mathbf{c},\mathbf{d}])=\alpha\,(\mathbf{a},[\mathbf{c},\mathbf{d}])=\alpha\,( \mathbf{a},\mathbf{c},\mathbf{d}).\]
+
+Let's proceed to proving the fourth property of the mixed product in the theorem 47.1. Assume that the vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\) are coplanar. In this case they are parallel to some plane \(\alpha\) in the space \(\mathbb{E}\) and one can choose their geometric realizations lying on this plane \(\alpha\). If \(\mathbf{b}\nparallel\mathbf{c}\), then the vector product \(\mathbf{d}=[\mathbf{b},\mathbf{c}]\) is nonzero and perpendicular to the plane \(\alpha\). As for the vector \(\mathbf{a}\), it is parallel to this plane. Hence \(\mathbf{d}\perp\mathbf{a}\), which yields the equalities \((\mathbf{a},\mathbf{b},\mathbf{c})=(\mathbf{a},[\mathbf{b},\mathbf{c}])=( \mathbf{a},\mathbf{d})=0\).
+
+If \(\mathbf{b}\parallel\mathbf{c}\), then the vector product \([\mathbf{b},\mathbf{c}]\) is equal to zero and the equality \((\mathbf{a},\mathbf{b},\mathbf{c})=0\) is derived from \([\mathbf{b},\mathbf{c}]=0\) with use of the initial formula (45.1) for the scalar product.
+
+Now, conversely, assume that \((\mathbf{a},\mathbf{b},\mathbf{c})=0\). If \(\mathbf{b}\parallel\mathbf{c}\), then the vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\) determine not more than two directions in the space \(\mathbb{E}\). For any two lines in this space always there is a plane to which these lines are parallel. In this case the vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\) are coplanar regardless to the equality \((\mathbf{a},\mathbf{b},\mathbf{c})=0\).
+
+If \(\mathbf{b}\nparallel\mathbf{c}\), then \(\mathbf{d}=[\mathbf{b},\mathbf{c}]\neq\mathbf{0}\). Choosing geometric realizations of the vectors \(\mathbf{b}\) and \(\mathbf{c}\) with some common initial point \(O\), we easily build a plane \(\alpha\) comprising both of these geometric realizations. The vector \(\mathbf{d}\neq\mathbf{0}\) in perpendicular to this plane \(\alpha\). Then from \((\mathbf{a},\mathbf{b},\mathbf{c})=(\mathbf{a},[\mathbf{b},\mathbf{c}])=( \mathbf{a},\mathbf{d})=0\) we derive \(\mathbf{a}\perp\mathbf{d}\), which yields \(\mathbf{a}\parallel\alpha\). The vectors \(\mathbf{b}\) and \(\mathbf{c}\) are also parallel to the plane \(\alpha\) since their geometric realizations lie on this plane.
+
+Hence all of the three vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\) are parallel to the plane \(\alpha\), which means that they are coplanar. The theorem 47.1 is completely proved. \(\square\)
+
+Theorem 47.2.: Apart from the properties 1)-4), the mixed product possesses the following four properties which are fulfilled for any four vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\), \(\mathbf{d}\) and for any number \(\alpha\):
+
+* \((\mathbf{c},\mathbf{a}+\mathbf{b},\mathbf{d})=(\mathbf{c},\mathbf{a},\mathbf{d })+(\mathbf{c},\mathbf{b},\mathbf{d})\);
+* \((\mathbf{c},\alpha\,\mathbf{a},\mathbf{d})=\alpha\,(\mathbf{c},\mathbf{a}, \mathbf{d})\);
+* \((\mathbf{c},\mathbf{d},\mathbf{a}+\mathbf{b})=(\mathbf{c},\mathbf{d},\mathbf{a })+(\mathbf{c},\mathbf{d},\mathbf{b})\);
+* \((\mathbf{c},\mathbf{d},\alpha\,\mathbf{a})=\alpha\,(\mathbf{c},\mathbf{d}, \mathbf{a})\).
+
+Definition 47.2.: The properties 5) and 6) in the theorem 47.2 are called the properties of _linearity with respect to the second multiplicand_, the properties 7) and 8) are called the properties of _linearity with respect to the third multiplicand_.
+
+The property 5) is derived from the property 2) in the theorem 47.1 in the following way:
+
+\[(\mathbf{c},\mathbf{a}+\mathbf{b},\mathbf{d})=-(\mathbf{a}+ \mathbf{b},\mathbf{c},\mathbf{d})=-((\mathbf{a},\mathbf{c},\mathbf{d})+( \mathbf{b},\mathbf{c},\mathbf{d}))=\] \[=-(\mathbf{a},\mathbf{c},\mathbf{d})-(\mathbf{b},\mathbf{c}, \mathbf{d})=(\mathbf{c},\mathbf{a},\mathbf{d})+(\mathbf{c},\mathbf{b}, \mathbf{d}).\]
+
+The property 1) from this theorem is also used in the above calculations. As for the properties 6), 7), and 8) in the theorem 47.2, they are also easily derived from the properties 2) and 3) with the use of the property 1). Indeed, we have
+
+\[(\mathbf{c},\alpha\,\mathbf{a},\mathbf{d})=-(\alpha\,\mathbf{a}, \mathbf{c},\mathbf{d})=-\alpha\,(\mathbf{a},\mathbf{c},\mathbf{d})=\alpha\,( \mathbf{c},\mathbf{a},\mathbf{d}),\] \[(\mathbf{c},\mathbf{d},\mathbf{a}+\mathbf{b})=-(\mathbf{a}+ \mathbf{b},\mathbf{d},\mathbf{c})=-((\mathbf{a},\mathbf{d},\mathbf{c})+( \mathbf{b},\mathbf{d},\mathbf{c}))=\] \[=-(\mathbf{a},\mathbf{d},\mathbf{c})-(\mathbf{b},\mathbf{d}, \mathbf{c})=(\mathbf{c},\mathbf{d},\mathbf{a})+(\mathbf{c},\mathbf{d}, \mathbf{b}),\] \[(\mathbf{c},\mathbf{d},\alpha\,\mathbf{a})=-(\alpha\,\mathbf{a}, \mathbf{d},\mathbf{c})=-\alpha\,(\mathbf{a},\mathbf{d},\mathbf{c})=\alpha\,( \mathbf{c},\mathbf{d},\mathbf{a}).\]
+
+The calculations performed prove the theorem 47.2.
+
+## SS 48. The concept of the oriented volume
+
+Let \({\bf a},{\bf b},{\bf c}\) be a right triple of non-coplanar vectors in the space \({\mathbb{E}}\). Let's consider their mixed product \(({\bf a},{\bf b},{\bf c})\). Due to the item 4) from the theorem 47.1 the non-coplanarity of the vectors \({\bf a},{\bf b},{\bf c}\) means \(({\bf a},{\bf b},{\bf c})\neq 0\), which in turn due to (45.1) implies \([{\bf b},{\bf c}]\neq{\bf 0}\).
+
+Due to the item 4) from the theorem 39.1 the non-vanishing condition \([{\bf b},{\bf c}]\neq{\bf 0}\) means \({\bf b}\nparallel{\bf c}\). Let's build the geometric realizations of the non-collinear vectors \({\bf b}\) and \({\bf c}\) at some common initial point \(O\) and denote them \({\bf b}=\overrightarrow{OB}\) and \({\bf c}=\overrightarrow{OC}\). Then we build the geometric realization of the vector \({\bf a}\) at the same initial point \(O\) and denote it through \({\bf a}=\overrightarrow{OA}\). Let's complement the vectors \(\overrightarrow{OA}\), \(\overrightarrow{OB}\), and \(\overrightarrow{OC}\) up to a skew-angular parallelepiped as shown in Fig. 48.1.
+
+Let's denote \({\bf d}=[{\bf b},{\bf c}]\). The vector \({\bf d}\) is perpendicular to the base plane of the parallelepiped, its length is calculated by the formula \(|{\bf d}|=|{\bf b}|\,|{\bf c}|\,\sin\alpha\). It is easy to see that the length of \({\bf d}\) coincides with the base area of our parallelepiped, i. e. with the area of the parallelogram built on the vectors \({\bf b}\) and \({\bf c}\):
+
+\[S=|{\bf d}|=|{\bf b}|\,|{\bf c}|\,\sin\alpha. \tag{48.1}\]
+
+Theorem 48.1. For any two vectors the length of their vector product coincides with the area of the parallelogram built on these two vectors.
+
+The fact formulated in the theorem 48.1 is known as the _geometric interpretation of the vector product_.
+
+Now let's return to Fig. 48.1. Applying the formula (45.1), for the mixed product \((\mathbf{a},\mathbf{b},\mathbf{c})\) we derive
+
+\[(\mathbf{a},\mathbf{b},\mathbf{c})=(\mathbf{a},[\mathbf{b},\mathbf{c}])=( \mathbf{a},\mathbf{d})=|\mathbf{a}|\,|\mathbf{d}|\,\cos\varphi. \tag{48.2}\]
+
+Note that \(|\mathbf{a}|\,\cos\varphi\) is the length of the segment \([OF]\), which coincides with the length of \([AH]\). The segment \([AH]\) is parallel to the segment \([OF]\) and to the vector \(\mathbf{d}\), which is perpendicular to the base plane of the skew-angular parallelepiped shown in Fig. 48.1. Hence the segment \([AH]\) represents the height of this parallelepiped ad we have the formula
+
+\[h=|AH|=|\mathbf{a}|\,\cos\varphi. \tag{48.3}\]
+
+Now from (48.1), (48.3), and (48.2) we derive
+
+\[(\mathbf{a},\mathbf{b},\mathbf{c})=S\,h=V, \tag{48.4}\]
+
+i. e. the mixed product \((\mathbf{a},\mathbf{b},\mathbf{c})\) in our case coincides with the volume of the skew-angular parallelepiped built on the vectors \(\mathbf{a}\), \(\mathbf{b}\), and \(\mathbf{c}\).
+
+In the general case the value of the mixed product of three non-coplanar vectors \(\mathbf{a}\), \(\mathbf{b}\), \(\mathbf{c}\) can be either positive or negative, while the volume of a parallelepiped is always positive. Therefore in the general case the formula (48.4) should be written as
+
+\[(\mathbf{a},\mathbf{b},\mathbf{c})=\left\{\begin{array}{rl}V,&\mbox{if $ \mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$ is a right triple}\\ &\mbox{of vectors;}\\ -V,&\mbox{if $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$ is a left triple}\\ &\mbox{of vectors.}\end{array}\right. \tag{48.5}\]
+
+Definition 48.1. The oriented volume of an ordered triple of non-coplanar vectors is a quantity which is equal to the volume of the parallelepiped built on these vectors in the case where these vectors form a right triple and which is equal to the volume of this parallelepiped taken with the minus sign in the case where these vectors form a left triple.
+
+The formula (48.5) can be written as a theorem.
+
+Theorem 48.2. The mixed product of any triple of non-coplanar vectors coincides with their oriented volume.
+
+Definition 48.2. If \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) is a basis in the space \(\mathbb{E}\), then the oriented volume of the triple of vectors \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) is called the oriented volume of this basis.
+
+**SS 49. Structural constants of the mixed product.**
+
+Let \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) be some basis in the space \(\mathbb{E}\). Let's consider various mixed products composed by the vectors of this basis:
+
+\[c_{ijk}=({\bf e}_{i},{\bf e}_{j},{\bf e}_{k}).\]
+
+Definition 49.1. For any basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) in the space \(\mathbb{E}\) the quantities \(c_{ijk}\) given by the formula (49.1) are called the _structural constants of the mixed product_ in this basis.
+
+The formula (49.1) is similar to the formula (29.6) for the components of the Gram matrix. However, the structural constants of the mixed product \(c_{ijk}\) in (49.1) constitute a three index array which cannot be laid into a matrix.
+
+An important property of the structural constants \(c_{ijk}\) is their _complete skew symmetry_ or _complete antisymmetry_. This property is expressed by the following equalities:
+
+\[c_{ijk}=-c_{jik},\hskip 28.452756ptc_{ijk}=-c_{ikj},\hskip 28.452756ptc_{ijk }=-c_{kji},\]
+
+The relationships (49.2) mean that under the transposition of any two indices the quantity \(c_{ijk}\) changes its sign. These relationships are easily derived from (43.5) by applying the item 1) from the theorem 47.1 to the right hand side of (49.1).
+
+The following relationships are an immediate consequence of the property of complete antisymmetry of the structural constants of the mixed product \(c_{ijk}\):
+
+\[c_{iik}=-c_{iik},\qquad\quad c_{ijj}=-c_{ijj},\qquad\quad c_{iji}=-c_{iji}, \tag{49.3}\]
+
+They are derived by substituting \(j=i\), \(k=j\), and \(k=i\) into (49.2). From the relationships (49.3) the vanishing condition for the structural constants \(c_{ijk}\) is derived:
+
+\[c_{ijk}=0,\begin{array}{l}\mbox{if there are coinciding values}\\ \mbox{of the indices $i,j,k$.}\end{array} \tag{49.4}\]
+
+Now assume that the values of the indices \(i\), \(j\), \(k\) do not coincide. In this case, applying the relationships (49.2), we derive
+
+\[\begin{array}{l}c_{ijk}=c_{123}\mbox{ if the indices $i,j,k$ take the values}\\ \mbox{$(1,2,3)$, $(2,3,1)$, or $(3,1,2)$;}\end{array} \tag{49.5}\]
+
+\[\begin{array}{l}c_{ijk}=-c_{123}\mbox{ if the indices $i,j,k$ take the values}\\ \mbox{$(1,3,2)$, $(3,2,1)$, or $(2,1,3)$.}\end{array} \tag{49.6}\]
+
+The next step consists in comparing the relationships (49.4), (49.5), and (49.6) with the formula (43.5) that determines the Levi-Civita symbol \(\varepsilon_{ijk}\). Such a comparison yields
+
+\[c_{ijk}=c_{123}\ \varepsilon_{ijk}. \tag{49.7}\]
+
+Note that \(c_{123}=({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\). This formula follows from (49.1). Therefore the formula (49.7) can be written as
+
+\[c_{ijk}=({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\ \varepsilon_{ijk}. \tag{49.8}\]
+
+Theorem 49.1. In an arbitrary basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) the structural constants of the mixed product are expressed by the formula (49.8) through the only one constant -- the oriented volume of the basis.
+
+**SS 50. Calculation of the mixed product through the coordinates of vectors in a skew-angular basis.**
+
+Let \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) be a skew-angular basis in the space \({\mathbb{E}}\). Let's recall that the term _skew-angular basis_ in this book is used as a synonym of an arbitrary basis (see Definition 29.1). Let \({\bf a}\), \({\bf b}\), and \({\bf c}\) be free vectors given by their coordinates in the basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\):
+
+\[{\bf a}=\left\|\matrix{a^{1}\cr a^{2}\cr a^{3}\cr}\right\|,\qquad\quad{\bf b}= \left\|\matrix{b^{1}\cr b^{2}\cr b^{3}\cr}\right\|,\qquad\quad{\bf c}=\left\| \matrix{c^{1}\cr c^{2}\cr c^{3}\cr}\right\|.\]
+
+The formulas (50.1) mean that we have the expansions
+
+\[{\bf a}=\sum_{i=1}^{3}a^{i}\,{\bf e}_{i},\qquad{\bf b}=\sum_{j=1}^{3}b^{j}\,{ \bf e}_{j},\qquad{\bf c}=\sum_{k=1}^{3}c^{k}\,{\bf e}_{k}.\]
+
+Let's substitute (50.2) into the mixed product \(({\bf a},{\bf b},{\bf c})\):
+
+\[({\bf a},{\bf b},{\bf c})=\bigg{(}\sum_{i=1}^{3}a^{i}\,{\bf e}_{i},\,\sum_{j=1} ^{3}b^{j}\,{\bf e}_{j},\sum_{k=1}^{3}c^{k}\,{\bf e}_{k}\bigg{)}.\]
+
+In order to transform the formula (50.3) we apply the properties of the mixed product 2), 5), and 7) from the theorems 47.1 and 47.2. Due to these properties we can bring the summation signs over \(i\), \(j\), and \(k\) outside the brackets of the mixed product:
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}(a^{i}\,{ \bf e}_{i},b^{j}\,{\bf e}_{j},c^{k}\,{\bf e}_{k}).\]
+
+Now we apply the properties 3), 6), 8) from the theorems 47.1 and 47.2. Due to these properties we can bring the numeric factors \(a^{i}\), \(b^{j}\), \(c^{k}\) outside the brackets of the mixed product (50.4):
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{ j}\,c^{k}\,({\bf e}_{i},{\bf e}_{j},{\bf e}_{k}).\]The quantities \(({\bf e}_{i},{\bf e}_{j},{\bf e}_{k})\) are structural constants of the mixed product in the basis \({\bf e}_{1}\), \({\bf e}_{2}\), \({\bf e}_{3}\) (see (49.1)). Therefore the formula (50.5) can be written as follows:
+
+\[({\bf a},{\bf b},{\bf c})=\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{j }\,c^{k}\,c_{ijk}. \tag{50.6}\]
+
+Let's substitute (49.8) into (50.6) and take into account that the oriented volume \(({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\) does not depend on the summation indices \(i\), \(j\), and \(k\). Therefore the oriented volume \(({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\) can be brought outside the sums as a common factor:
+
+\[({\bf a},{\bf b},{\bf c})=({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\sum_{i=1}^{3} \sum_{j=1}^{3}\sum_{k=1}^{3}a^{i}\,b^{j}\,c^{k}\,\varepsilon_{ijk}. \tag{50.7}\]
+
+Note that the formula (50.7) differs from the formula (46.9) only by the extra factor \(({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\) in its right hand side. As for the formula (46.9), it is brought to the form (46.8) by applying the properties of the Levi-Civita symbol \(\varepsilon_{ijk}\) only. For this reason the formula (50.7) can be brought to the following form:
+
+\[({\bf a},{\bf b},{\bf c})=({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})\left|\matrix{a ^{1}&a^{2}&a^{3}\cr b^{1}&b^{2}&b^{3}\cr c^{1}&c^{2}&c^{3}\cr}\right|. \tag{50.8}\]
+
+Definition 50.1. The formulas (50.6), (50.7), and (50.8) are called the _formulas for calculating the mixed product through the coordinates of vectors in a skew-angular basis_.
+
+**SS 51. The relation of structural constants**
+
+**of the vectorial and mixed products.**
+
+The structural constants of the mixed product are determined by the formula (49.1). Let's apply the formula (45.1) in order to transform (49.1). As a result we get the formula
+
+\[c_{ijk}=(\mathbf{e}_{i},[\mathbf{e}_{j},\mathbf{e}_{k}]). \tag{51.1}\]
+
+Now we can apply the formula (40.2). Let's write it as follows:
+
+\[[\mathbf{e}_{j},\mathbf{e}_{k}]=\sum_{q=1}^{3}C_{jk}^{q}\,\mathbf{e}_{q}. \tag{51.2}\]
+
+Substituting (51.2) into (51.1) and taking into account the properties 5) and 6) from the theorem 28.2, we derive
+
+\[c_{ijk}=\sum_{q=1}^{3}C_{jk}^{q}\,(\mathbf{e}_{i},\mathbf{e}_{q}). \tag{51.3}\]
+
+Let's apply the formulas (29.6) and (30.1) to (51.3) and bring the formula (51.3) to the form
+
+\[c_{ijk}=\sum_{q=1}^{3}C_{jk}^{q}\,g_{qi}. \tag{51.4}\]
+
+The following formula is somewhat more beautiful:
+
+\[c_{ijk}=\sum_{q=1}^{3}C_{ij}^{q}\,g_{qk}. \tag{51.5}\]
+
+In order to derive the formula (51.5) we apply the identity \(c_{ijk}=c_{jki}\) to the left hand side of the formula (51.4). This identity is derived from (49.2). Then we perform the cyclic redesignation of indices \(i\to k\to j\to i\).
+
+The formula (51.5) is the first formula relating the structural constants of the vectorial and mixed products. It is important from the theoretical point of view, but this formula is of little use practically. Indeed, it expresses the structural constants of the mixed product through the structural constants of the vector product. But for the structural constants of the mixed product we already have the formula (49.8) which is rather efficient. As for the structural constants of the vector product, we have no formula yet, except the initial definition (40.2). For this reason we need to invert the formula (51.5) and express \(C^{q}_{ij}\) through \(c_{ijk}\). In order to reach this goal we need some auxiliary information on the Gram matrix.
+
+Theorem 51.1.: The Gram matrix \(G\) of any basis in the space \(\mathbb{E}\) is non-degenerate, i. e. its determinant is nonzero: \(\det G\neq 0\).
+
+Theorem 51.2.: For any basis \(\mathbf{e}_{1},\,\mathbf{e}_{2},\,\mathbf{e}_{3}\) in the space \(\mathbb{E}\) the determinant of the Gram matrix \(G\) is equal to the square of the oriented volume of this basis:
+
+\[\det G=(\mathbf{e}_{1},\mathbf{e}_{2},\mathbf{e}_{3})^{2}. \tag{51.6}\]
+
+The theorem 51.1 follows from the theorem 51.2. Indeed, a basis is a triple of non-coplanar vectors. From the non-coplanarity of the vectors \(\mathbf{e}_{1},\,\mathbf{e}_{2},\,\mathbf{e}_{3}\) due to item 4) of the theorem 47.1 we get \((\mathbf{e}_{1},\mathbf{e}_{2},\mathbf{e}_{3})\neq 0\). Then the formula (51.6) yields
+
+\[\det G>0, \tag{51.7}\]
+
+while the theorem 51.1 follows from the inequality (51.7).
+
+I will not prove the theorem 51.2 right now at this place. This theorem is proved below in SS 56.
+
+Let's proceed to deriving consequences from the theorem 51.1. It is known that each non-degenerate matrix has an inverse matrix (see [7]). Let's denote through \(G^{-1}\) the matrix inverse to the Gram matrix \(G\). In writing the components of the matrix \(G^{-1}\) the following convention is used.
+
+Definition 51.1.: For denoting the components of the matrix \(G^{-1}\) inverse to the Gram matrix \(G\) the same symbol \(g\) as for the components of the matrix \(G\) itself is used, but the components of the _inverse Gram matrix_ are enumerated with two upper indices:
+
+\[G^{-1}=\left\|\begin{matrix}g^{11}&g^{12}&g^{13}\\ g^{21}&g^{22}&g^{23}\\ g^{31}&g^{32}&g^{33}\end{matrix}\right\| \tag{51.8}\]
+
+The matrices \(G\) and \(G^{-1}\) are inverse to each other. Their product in any order is equal to the unit matrix:
+
+\[G\cdot G^{-1}=1,\hskip 56.905512ptG^{-1}\cdot G=1. \tag{51.9}\]
+
+From the regular course of algebra we know that each of the equalities (51.9) fixes the matrix \(G^{-1}\) uniquely once the matrix \(G\) is given (see. [7]). Now we apply the matrix transposition operation to both sides of the matrix equalities (51.9):
+
+\[(G\cdot G^{-1})^{\top}=1^{\top}=1. \tag{51.10}\]
+
+Then we use the identity \((A\cdot B)^{\top}=B^{\top}\cdot A^{\top}\) from the exercise 29.2 in order to transform the formula (51.10) and take into account the symmetry of the matrix \(G\) (see Theorem 30.1):
+
+\[(G^{-1})^{\top}\cdot G^{\top}=(G^{-1})^{\top}\cdot G=1. \tag{51.11}\]
+
+The rest is to compare the equality (51.11) with the second matrix equality (51.9). This yields
+
+\[(G^{-1})^{\top}=G^{-1} \tag{51.12}\]
+
+The formula (51.12) can be written as a theorem.
+
+Theorem 51.3. For any basis \(\mathbf{e}_{1},\,\mathbf{e}_{2},\,\mathbf{e}_{3}\) in the space \(\mathbb{E}\) the matrix \(G^{-1}\) inverse to the Gram matrix of this basis is symmetric.
+
+In terms of the matrix components of the matrix (51.7) the equality (51.12) is written as an equality similar to (30.1):
+
+\[g^{ij}=g^{ji}. \tag{51.13}\]
+
+The second equality (51.9) is written as the following relationships for the components of the matrices (51.8) and (29.7):
+
+\[\sum_{k=1}^{3}g^{sk}\,g_{kq}=\delta^{s}_{q}. \tag{51.14}\]
+
+Here \(\delta^{s}_{q}\) is the Kronecker symbol defined by the formula (23.3). Using the symmetry identities (51.13) and (30.1), we write the relationship (51.14) in the following form:
+
+\[\sum_{k=1}^{3}g_{qk}\,g^{ks}=\delta^{s}_{q}. \tag{51.15}\]
+
+Now let's multiply both ides of the equality (51.5) by \(g^{ks}\) and then perform summation over \(k\) in both sides of this equality:
+
+\[\sum_{k=1}^{3}c_{ijk}\,g^{ks}=\sum_{k=1}^{3}\sum_{q=1}^{3}C^{q}_{ij}\,g_{qk}\,g ^{ks}. \tag{51.16}\]
+
+If we take into account the identity (51.15), then we can bring the formula (51.16) to the following form:
+
+\[\sum_{k=1}^{3}c_{ijk}\,g^{ks}=\sum_{q=1}^{3}C^{q}_{ij}\,\delta^{s}_{q}. \tag{51.17}\]
+
+When summing over \(q\) in the right hand side of the equality (51.17) the index \(q\) runs over three values \(1,\,2,\,3\). Then the Kronecker symbol \(\delta^{s}_{q}\) takes the values \(0\) and \(1\), the value \(1\) is taken only once when \(q=s\). This means that only one of three summands in the right hand side of (51.17) is nonzero. This nonzero summand is equal to \(C^{s}_{ij}\). Hence the formula (51.17) can be written in the following form:
+
+\[\sum_{k=1}^{3}c_{ijk}\,g^{ks}=C^{s}_{ij}. \tag{51.18}\]
+
+Let's change the symbol \(k\) for \(q\) and the symbol \(s\) for \(k\) in (51.18). Then we transpose left and right hand sides of this formula:
+
+\[C^{k}_{ij}=\sum_{q=1}^{3}c_{ijq}\,g^{qk}. \tag{51.19}\]
+
+The formula (51.19) is the second formula relating the structural constants of the vectorial and mixed products. On the base of the relationships (51.5) and (51.19) we formulate a theorem.
+
+Theorem 51.4. For any basis \({\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\) in the space \(\mathbb{E}\) the structural constants of the vectorial and mixed products in this basis are related to each other in a one-to-one manner by means of the formulas (51.5) and (51.19).
+
+**SS 52. Effectivization of the formulas for calculating vectorial and mixed products.**
+
+Let's consider the formula (29.8) for calculating the scalar product in a skew-angular basis. Apart from the coordinates of vectors, this formula uses the components of the Gram matrix (29.7). In order to get the components of this matrix one should calculate the mutual scalar products of the basis vectors (see formula (29.6)), for this purpose one should measure their lengths and the angles between them (see Definition 26.1). No other geometric constructions are required. For this reason the formula (29.8) is recognized to be effective.
+
+Now let's consider the formula (41.5) for calculating the vector product in a skew-angular basis. This formula uses the structural constants of the vector product which are defined by means of the formula (40.2). According to this formula, in order to calculate the structural constants one should calculate the vector products \([\mathbf{e}_{i},\mathbf{e}_{j}]\) in its left hand side. For this purpose one should construct the normal vectors (perpendiculars) to the planes given by various pairs of basis vectors \(\mathbf{e}_{i}\), \(\mathbf{e}_{j}\). (see Definition 35.1). Upon calculating the vector products \([\mathbf{e}_{i},\mathbf{e}_{j}]\) one should expand them in the basis \(\mathbf{e}_{1},\,\mathbf{e}_{2},\,\mathbf{e}_{3}\), which require some auxiliary geometric constructions (see formula (18.4) and Fig. 18.1). For this reason the efficiency of the formula (41.5) is much less than the efficiency of the formula (29.8).
+
+And finally we consider the formula (50.7) for calculating the mixed product in a skew-angular basis. In order to apply this formula one should know the value of the mixed product of the three basis vectors \((\mathbf{e}_{1},\mathbf{e}_{2},\mathbf{e}_{3})\). It is called the oriented volume of a basis (see Definition 48.2). Due to the theorem 48.2 and the definition 48.1 for this purpose one should calculate the volume of the skew-angular parallelepiped built on the basis vectors \(\mathbf{e}_{1}\), \(\mathbf{e}_{2}\), \(\mathbf{e}_{3}\). In order to calculate the volume of this parallelepiped one should know its base area and its height. The area of its base is effectively calculated by the lengths of two basis vectors and the angle between them (see formula (48.1)). As for the height of the parallelepiped, in order to find it one should drop a perpendicular from one of its vertices to its base plane. Since we need such an auxiliary geometric construction, the formula (50.7) is less effective as compared to the formula (29.8) in the case of the scalar product.
+
+In order to make the formulas (41.5) and (50.7) effective we use the formula (51.6). It leads to the following relationship:
+
+\[(\mathbf{e}_{1},\mathbf{e}_{2},\mathbf{e}_{3})=\pm\sqrt{\det G}. \tag{52.1}\]
+
+The sign in (52.1) is determined by the orientation of a basis:\[({\bf e}_{1},{\bf e}_{2},{\bf e}_{3})=\left\{\begin{array}{cl}\sqrt{\det G}&\mbox {if the basis }\,{\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\\ &\mbox{is right;}\\ -\sqrt{\det G}&\mbox{if the basis }\,{\bf e}_{1},\,{\bf e}_{2},\,{\bf e}_{3}\\ &\mbox{is left.}\end{array}\right. \tag{52.2}\]
+
+Let's substitute the expression (52.1) into the formula for the mixed product (50.7). As a result we get
+
+\[({\bf a},{\bf b},{\bf c})=\pm\sqrt{\det G}\,\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k =1}^{3}a^{i}\,b^{j}\,c^{k}\,\varepsilon_{ijk}. \tag{52.3}\]
+
+Similarly, substituting (52.1) into the formula (50.8), we get
+
+\[({\bf a},{\bf b},{\bf c})=\pm\sqrt{\det G}\,\left|\matrix{a^{1}&a^{2}&a^{3}\cr b ^{1}&b^{2}&b^{3}\cr c^{1}&c^{2}&c^{3}\cr}\right|. \tag{52.4}\]
+
+Definition 52.1. The formulas (52.3) and (52.4) are called the effectivized formulas for calculating the mixed product through the coordinates of vectors in a skew-angular basis.
+
+In the case of the formula (41.5), in order to make it effective we need the formulas (49.8) and (51.19). Substituting the expression (52.1) into these formulas, we obtain
+
+\[c_{ijk}=\pm\sqrt{\det G}\,\,\varepsilon_{ijk}, \tag{52.5}\]
+
+\[C^{k}_{ij}=\pm\sqrt{\det G}\,\sum_{q=1}^{3}\varepsilon_{ijq}\,g^{qk}. \tag{52.6}\]
+
+Definition 52.2. The formulas (52.5) and (52.6) are called the effectivized formulas for calculating the structural constants of the mixed and vectorial products.
+
+Now let's substitute the formula (52.6) into (41.5). This leads to the following formula for the vector product:\[[{\bf a},{\bf b}]=\pm\sqrt{\det G}\,\sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}\sum_ {q=1}^{3}a^{i}\,b^{j}\,\varepsilon_{ijq}\,g^{qk}\,{\bf e}_{k}. \tag{52.7}\]
+
+Definition 52.3. The formula (52.7) is called the effectivized formula for calculating the vector product through the coordinates of vectors in a skew-angular basis.
+
+SS **53. Orientation of the space.**
+
+Let's consider the effectivized formulas (52.1), (52.3), (52.4), (52.5), (52.6), and (52.7) from SS 52. Almost all information on a basis in these formulas is given by the Gram matrix \(G\). The Gram matrix arising along with the choice of a basis reflects an important property of the space \(\mathbb{E}\) -- its metric.
+
+Definition 53.1. The _metric_ of the space \(\mathbb{E}\) is its structure (its feature) that consists in possibility to measure the lengths of segments and the numeric values of angles in it.
+
+The only non-efficiency remaining in the effectivized formulas (52.1), (52.3), (52.4), (52.5), (52.6), and (52.7) is the choice of sign in them. As was said above, the sign in these formulas is determined by the orientation of a basis (see formula (52.2)). There is absolutely no possibility to determine the orientation of a basis through the information comprised in its Gram matrix. The matter is that the mathematical space \(\mathbb{E}\) described by Euclid's axioms (see [6]), comprises the possibility to distinguish a pair of bases with different orientations from a pair of bases with coinciding orientations. However, it does not contain any reasons for to prefer bases with one of two possible orientations.
+
+The concept of right triple of vectors (see Definition 34.2) and the possibility to distinguish right triples of vectors from left ones is due to the presence of people, it is due to their ability to observe vectors and compare their rotation with the rotation of clock hands. Is there a _fundamental asymmetry between left and right_ not depending on the presence of people and on other non-fundamental circumstances? Is the space _fundamentally oriented_?This is a question on the nature of the physical space \(\mathbb{E}\). Some research in the field of elementary particle physics says that such an asymmetry does exist. As for me, as the author of this book I cannot definitely assert that this problem is finally resolved.

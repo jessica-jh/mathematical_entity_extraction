@@ -1,0 +1,15 @@
+# Models and Checkpoints
+outputs/
+*.safetensors
+*.bin
+
+# Large Data & Raw Predictions
+data/*.json
+data/*.jsonl
+submissions/*.jsonl
+
+# Python caches
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/

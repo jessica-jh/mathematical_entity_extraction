@@ -1,0 +1,3 @@
+(mmd) Complex Manifolds - Differential Analysis on Complex Manifolds - Wells.mmd
+(mmd) Number Theory - Number Theory - An Introduction to Mathematics - Coppel.mmd
+(mmd) A Term of Commutative Algebra - Altman.mmd
