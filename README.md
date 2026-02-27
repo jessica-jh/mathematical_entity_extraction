@@ -1,4 +1,4 @@
-# NLP 244: Assignment 2 — Mathematical Entity Extraction
+# NLP - Mathematical Entity Extraction
 
 (Last update: Feb 24, 2026; Writer: Jihye (Jessica) Kim; email: jkim829@ucsc.edu)
 
