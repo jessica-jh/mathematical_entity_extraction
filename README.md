@@ -1,4 +1,4 @@
-# Fine-tuned Model for Mathematical Entity Extraction
+# MMEE: A Fine-tuned Model for Mathematical Entity Extraction
 
 (Last update: Feb 24, 2026; Writer: Jihye (Jessica) Kim; email: jkim829@ucsc.edu)
 
