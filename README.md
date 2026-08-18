@@ -1,4 +1,4 @@
-# NLP - Mathematical Entity Extraction
+# Mathematical Entity Extraction
 
 (Last update: Feb 24, 2026; Writer: Jihye (Jessica) Kim; email: jkim829@ucsc.edu)
 
@@ -221,40 +221,6 @@ Optionally, for validation-set FP/FN examples:
 ```bash
 python src/error_analysis.py   # uses val_predictions.csv + val.json
 ```
-
----
-
-## Submission: How Each Requirement Is Addressed
-
-This section maps each of the **4 required submission items** to where they are fulfilled in this repository and in the report.
-
-### 1. All source code & instructions
-
-- **Source code:** All scripts are under `src/` (see **Project Structure** above).
-- **Instructions:** This README is the runbook. In particular:
-  - **(a) Training:** See **How to Run → (a) Training**. Run `python src/preprocess.py` then `python src/2_train_lora.py`. Best model/hyperparameters are those used in `2_train_lora.py` (LoRA on Qwen2.5-Math-7B-Instruct; details in the report).
-  - **(b) Inference on a specific MMD file:** See **How to Run → (b) Inference**. For a single file: use the same pipeline as validation/test—put the file’s text in a structure keyed by `fileid` (e.g. in `file_contents.json` or a small loader), then run `2_val_inference.py`-style inference and the corresponding postprocess script to get a CSV with `(fileid, start, end, tag)`. For **unannotated** MMDs in `data/unannotated_mmds/`, run `python src/4_unannotated_inference.py` then `python src/4_unannotated_postprocess.py`; raw output is in `submissions/unannotated_analysis_predictions.jsonl`, final in `submissions/unannotated_predictions.json` and `unannotated_predictions.csv`.
-
-### 2. Validation / Test set predictions
-
-- **Validation:** `submissions/val_predictions.csv` (trained model). Optionally `submissions/baseline_val_predictions_bio.csv` and `submissions/baseline_val_predictions.csv` for baselines.
-- **Test:** `submissions/test_predictions.csv` (Kaggle/submission format).
-- Both are CSV with columns `fileid`, `start`, `end`, `tag`. Produced by running the inference + postprocess steps in **How to Run**.
-
-### 3. Unannotated MMD inference results
-
-- **File:** `submissions/unannotated_predictions.json` (required submission format); optionally `unannotated_predictions.csv`. Raw output: `submissions/unannotated_analysis_predictions.jsonl`.
-- **How produced:** Run `python src/4_unannotated_inference.py` (→ `unannotated_analysis_predictions.jsonl`), then `python src/4_unannotated_postprocess.py` (→ `unannotated_predictions.json`, `unannotated_predictions.csv`). The raw jsonl is used for **Part 3 error analysis** (`4_unannotated_review.py`); the postprocess output is the final submission.
-
-### 4. Report
-
-The report (submitted separately) contains:
-
-- **(a) Reproducibility:** Detailed description of the model, training procedure (data, hyperparameters, LoRA setup), and data processing (preprocess, inference, postprocess). Enough for someone to reproduce results using this codebase and this README.
-- **(b) Token-level F1:** Validation token-level F1 for the baseline(s) and for the experimental (trained) model; the best model and its score are clearly highlighted.
-- **(c) Error analysis (Part 3):** Analysis of model behavior on the unannotated MMD outputs (and optionally on validation), with answers to: (1) what kind of mistakes the model makes (with examples), (2) why it makes them, (3) how you would improve the model, (4) whether your solution introduces new problems. The error analysis was conducted via `python src/4_unannotated_review.py`; the generated **`submissions/unannotated_manual_review.txt`** is the reference used when writing this section of the report.
-
-Optionally, `python src/error_analysis.py` (run on validation predictions) can be used to gather FP/FN examples; the main narrative and answers to the four questions are in the report document.
 
 ---
 
