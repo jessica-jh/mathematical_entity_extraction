@@ -1,10 +1,12 @@
 import os
 import json
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-UNANNOTATED_DIR = "/home/jkim829/hw2/data/unannotated_mmds"
-PREDICTIONS_PATH = "/home/jkim829/hw2/submissions/unannotated_analysis_predictions.jsonl"
-REPORT_PATH = "/home/jkim829/hw2/submissions/unannotated_manual_review.txt"
+
+UNANNOTATED_DIR = os.path.join(PROJECT_ROOT, "data", "unannotated_mmds")
+PREDICTIONS_PATH = os.path.join(PROJECT_ROOT, "submissions", "unannotated_analysis_predictions.jsonl")
+REPORT_PATH = os.path.join(PROJECT_ROOT, "submissions", "unannotated_manual_review.txt")
 
 def main():
     print("Generating Manual Review Report for Unannotated files!")

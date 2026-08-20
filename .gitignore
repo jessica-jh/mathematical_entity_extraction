@@ -13,3 +13,9 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 venv/
+
+# unsloth build cache (regenerated automatically at import time)
+unsloth_compiled_cache/
+
+# OS
+.DS_Store

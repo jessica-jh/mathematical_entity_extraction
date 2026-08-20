@@ -1,19 +1,15 @@
 import os
 import json
 import ast
+import glob
 from tqdm import tqdm
 from unsloth import FastLanguageModel
 
-# Best model after 15 Epochs
-MODEL_PATH = "/home/jkim829/hw2/outputs/checkpoints/math_lora_model/final_lora_model" 
-DATA_DIR = "/home/jkim829/hw2/data"
-CONTENTS_PATH = os.path.join(DATA_DIR, "file_contents.json")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Test data path (txt file)
-TEST_TXT_PATH = os.path.join(DATA_DIR, "test.txt") 
-
-# Test output file
-RAW_OUTPUT_PATH = "/home/jkim829/hw2/submissions/test_raw_predictions_re.jsonl"
+MODEL_PATH = os.path.join(PROJECT_ROOT, "outputs", "checkpoints", "math_lora_model", "final_lora_model") 
+UNANNOTATED_DIR = os.path.join(PROJECT_ROOT, "data", "unannotated_mmds")
+OUTPUT_PATH = os.path.join(PROJECT_ROOT, "submissions", "unannotated_analysis_predictions.jsonl")
 
 alpaca_prompt = """### Instruction:
 Extract all mathematical entities (definition, theorem, proof, example, name, reference) from the input. 
@@ -68,7 +64,7 @@ def robust_parse(json_str):
         except: return None
 
 def main():
-    print(f"Loading FINE-TUNED model for Test Data Inference")
+    print(f"🚀 Loading model for Unannotated Error Analysis")
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name=MODEL_PATH, 
         max_seq_length=2048, 
@@ -76,25 +72,18 @@ def main():
     )
     FastLanguageModel.for_inference(model)
     
-    with open(CONTENTS_PATH, 'r', encoding='utf-8') as f:
-        contents = json.load(f)
-        
-    # Reading fileids from txt file
-    print(f"Reading Test file IDs from {TEST_TXT_PATH}")
-    with open(TEST_TXT_PATH, 'r', encoding='utf-8') as f:
-        test_fileids = [line.strip() for line in f if line.strip()]
+    file_paths = glob.glob(os.path.join(UNANNOTATED_DIR, "*"))
     
-    with open(RAW_OUTPUT_PATH, 'w', encoding='utf-8') as out_f:
-        for fileid in test_fileids:
-            if fileid not in contents:
-                print(f"⚠️ Warning: {fileid} not found in file_contents.json")
-                continue
-                
-            text = contents[fileid]
-            print(f"\n📄 Generating Predictions for: {fileid}")
+    with open(OUTPUT_PATH, 'w', encoding='utf-8') as out_f:
+        for file_path in file_paths:
+            filename = os.path.basename(file_path)
+            print(f"\n📄 Analyzing: {filename}")
             
-            CHUNK_SIZE = 2500
-            STRIDE = 1250    
+            with open(file_path, 'r', encoding='utf-8') as f:
+                text = f.read()
+            
+            CHUNK_SIZE = 1500
+            STRIDE = 800       
             
             for start_idx in tqdm(range(0, len(text), STRIDE)):
                 chunk = text[start_idx:start_idx + CHUNK_SIZE]
@@ -114,18 +103,16 @@ def main():
                 
                 for obj_str in found_objects:
                     ent = robust_parse(obj_str) 
-                    
                     if ent and 'tag' in ent and 'text' in ent:
                         raw_record = {
-                            "fileid": fileid,
-                            "chunk_start": start_idx, 
+                            "filename": filename,
                             "tag": str(ent.get("tag", "")).strip(),
                             "text": str(ent.get("text", "")).strip()
                         }
                         out_f.write(json.dumps(raw_record, ensure_ascii=False) + '\n')
                         out_f.flush()
 
-    print(f"Test predictions saved to {RAW_OUTPUT_PATH}")
+    print(f"\nAnalysis complete! Check {OUTPUT_PATH}")
 
 if __name__ == "__main__":
     main()

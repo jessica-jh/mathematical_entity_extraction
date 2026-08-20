@@ -3,10 +3,12 @@ import os
 import pandas as pd
 import re
 
-DATA_DIR = "/home/jkim829/hw2/data"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 CONTENTS_PATH = os.path.join(DATA_DIR, "file_contents.json")
-RAW_OUTPUT_PATH = "/home/jkim829/hw2/submissions/baseline_raw_predictions.jsonl"
-FINAL_CSV_PATH = "/home/jkim829/hw2/submissions/baseline_val_predictions.csv"
+RAW_OUTPUT_PATH = os.path.join(PROJECT_ROOT, "submissions", "baseline_raw_predictions.jsonl")
+FINAL_CSV_PATH = os.path.join(PROJECT_ROOT, "submissions", "baseline_val_predictions.csv")
 
 def find_ignoring_whitespace(window_text, extracted_text):
     text_no_space = re.sub(r'\s+', '', window_text)

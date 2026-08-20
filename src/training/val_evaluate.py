@@ -2,10 +2,12 @@ import pandas as pd
 import json
 import os
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # Define paths
-DATA_DIR = "/home/jkim829/hw2/data"
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 VAL_JSON_PATH = os.path.join(DATA_DIR, "val.json")
-PRED_CSV_PATH = "/home/jkim829/hw2/submissions/val_predictions.csv"
+PRED_CSV_PATH = os.path.join(PROJECT_ROOT, "submissions", "val_predictions.csv")
 
 def main():
     # Load ground truth and predictions

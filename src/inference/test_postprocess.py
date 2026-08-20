@@ -3,10 +3,12 @@ import os
 import pandas as pd
 import re
 
-DATA_DIR = "/home/jkim829/hw2/data"
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 CONTENTS_PATH = os.path.join(DATA_DIR, "file_contents.json")
-RAW_OUTPUT_PATH = "/home/jkim829/hw2/submissions/test_raw_predictions.jsonl"
-FINAL_CSV_PATH = "/home/jkim829/hw2/submissions/test_predictions.csv" # same with test_predictions_final_re.csv
+RAW_OUTPUT_PATH = os.path.join(PROJECT_ROOT, "submissions", "test_raw_predictions.jsonl")
+FINAL_CSV_PATH = os.path.join(PROJECT_ROOT, "submissions", "test_predictions.csv") # same with test_predictions_final_re.csv
 
 VALID_TAGS = {"definition", "theorem", "proof", "example", "name", "reference"}
 BLOCK_TAGS = {"definition", "theorem", "proof", "example"}

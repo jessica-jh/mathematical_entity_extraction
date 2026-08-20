@@ -4,6 +4,8 @@ import os
 from collections import defaultdict
 import pandas as pd
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 TAGS = ["definition", "theorem", "proof", "example", "name", "reference"]
 
@@ -113,8 +115,8 @@ def evaluate_interval_based(gt_map, pr_map):
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate BIO baseline predictions (token/character-level).")
-    parser.add_argument("--val_json", default="/home/jkim829/hw2/data/val.json")
-    parser.add_argument("--pred_csv", default="/home/jkim829/hw2/submissions/baseline_val_predictions_bio.csv")
+    parser.add_argument("--val_json", default=os.path.join(PROJECT_ROOT, "data", "val.json"))
+    parser.add_argument("--pred_csv", default=os.path.join(PROJECT_ROOT, "submissions", "baseline_val_predictions_bio.csv"))
     parser.add_argument("--save_json", default="", help="Optional path to save metrics as JSON.")
     args = parser.parse_args()
 

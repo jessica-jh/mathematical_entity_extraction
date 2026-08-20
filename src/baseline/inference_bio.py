@@ -6,15 +6,17 @@ import pandas as pd
 from tqdm import tqdm
 from unsloth import FastLanguageModel
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # Base model
 MODEL_NAME = "unsloth/Qwen2.5-Math-7B-Instruct"
 
-DATA_DIR = "/home/jkim829/hw2/data"
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 VAL_JSON_PATH = os.path.join(DATA_DIR, "val.json")
 CONTENTS_PATH = os.path.join(DATA_DIR, "file_contents.json")
 
 # Output file for BIO baseline predictions (raw per-chunk)
-RAW_OUTPUT_PATH = "/home/jkim829/hw2/submissions/baseline_bio_raw_predictions.jsonl"
+RAW_OUTPUT_PATH = os.path.join(PROJECT_ROOT, "submissions", "baseline_bio_raw_predictions.jsonl")
 
 TAGS = ["definition", "theorem", "proof", "example", "name", "reference"]
 

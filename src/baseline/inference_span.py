@@ -5,14 +5,16 @@ import ast
 from tqdm import tqdm
 from unsloth import FastLanguageModel
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # Calling baseline model (Qwen2.5-Math-7B-Instruct)
 MODEL_NAME = "unsloth/Qwen2.5-Math-7B-Instruct" 
-DATA_DIR = "/home/jkim829/hw2/data"
+DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 VAL_JSON_PATH = os.path.join(DATA_DIR, "val.json")
 CONTENTS_PATH = os.path.join(DATA_DIR, "file_contents.json")
 
 # Output file for baseline predictions
-RAW_OUTPUT_PATH = "/home/jkim829/hw2/submissions/baseline_raw_predictions.jsonl"
+RAW_OUTPUT_PATH = os.path.join(PROJECT_ROOT, "submissions", "baseline_raw_predictions.jsonl")
 
 # Few-shot prompt based on the assignment guidelines
 few_shot_prompt = """### Instruction:
@@ -105,7 +107,7 @@ def main():
     with open(RAW_OUTPUT_PATH, 'w', encoding='utf-8') as out_f:
         for fileid in val_fileids:
             text = contents[fileid]
-            print(f"\Generating Baseline for: {fileid}")
+            print(f"Generating Baseline for: {fileid}")
             
             CHUNK_SIZE = 1500  
             STRIDE = 750       
