@@ -174,6 +174,3 @@ python src/inference/unannotated_review.py       # -> submissions/unannotated_ma
 
 `Qwen2.5-Math-7B-Instruct` · LoRA (PEFT) · [Unsloth](https://github.com/unslothai/unsloth)
 · 4-bit quantization (`bitsandbytes`) · `transformers` / `trl` · `pandas`
-
----
-*Originally built for a graduate NLP course assignment; restructured here as a standalone project.*
