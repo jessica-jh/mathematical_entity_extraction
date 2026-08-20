@@ -1,4 +1,4 @@
-# MMEE — Mathematical Entity Extraction
+# MMEE: Mathematical Entity Extraction
 
 Fine-tuning an LLM to find and label definitions, theorems, and proofs inside raw math text.
 
@@ -18,13 +18,13 @@ examples, names, or references, and label them.
 Why bother? If you can tag a math document this way, you can do things like search for "every
 theorem about compact groups" across a library, or pull out clean (statement, proof) pairs to
 train a math model on, instead of feeding it messy prose. Standard NER tools don't really work
-here — they're not trained on math writing, and the spans you're looking for aren't single
+here. They're not trained on math writing, and the spans you're looking for aren't single
 words. A "proof" can run for several paragraphs and be full of LaTeX and references to earlier
 results.
 
 The main question I wanted to answer: does a math-specialized model actually need to be
 fine-tuned for this, or can you get by with a good prompt? Short answer: fine-tuning matters a
-lot here — see [Results](#results) below.
+lot here. See [Results](#results) below.
 
 ## Results
 
@@ -43,7 +43,7 @@ LoRA fine-tune             █████████████████�
 |---|---|:---:|:---:|:---:|---|
 | 1 | Few-shot prompting, BIO-style output | 0.000 | 0.000 | 0.000 | The model couldn't reliably output valid token spans in this format. |
 | 2 | Few-shot prompting, JSON span output | 0.174 | 0.001 | 0.002 | Better format, but it barely found any real spans. |
-| 3 | LoRA fine-tune on Qwen2.5-Math-7B-Instruct | 0.451 | 0.418 | **0.434** | Big jump. The base model just hadn't seen this task before — fine-tuning on a few hundred labeled examples was enough to fix that. |
+| 3 | LoRA fine-tune on Qwen2.5-Math-7B-Instruct | 0.451 | 0.418 | **0.434** | Big jump. The base model just hadn't seen this task before, and fine-tuning on a few hundred labeled examples was enough to fix that. |
 
 (F1 here is token-level: for every character position, is it correctly labeled? This is
 computed across all six tags on the validation set.)
@@ -63,7 +63,7 @@ The fine-tuned model isn't equally good at every tag:
 (`reference` doesn't appear at all in the validation set, so there's no score for it.)
 
 The four long-form tags (`definition`, `proof`, `theorem`, `example`) all land around
-0.40–0.48 F1. `name` is much worse, at 0.17. That makes sense — a name is often just one or
+0.40–0.48 F1. `name` is much worse, at 0.17. That makes sense: a name is often just one or
 two words with little surrounding context to go on, so the model has a harder time knowing
 exactly where it starts and ends, and even a small mistake in the boundary hurts the score a
 lot more on a short span than a long one.
@@ -123,7 +123,7 @@ same way no matter where you clone it.
 pip install -r requirements.txt
 ```
 
-You'll need Python 3.10+ and a CUDA GPU — fine-tuning and inference both use 4-bit
+You'll need Python 3.10+ and a CUDA GPU. Fine-tuning and inference both use 4-bit
 quantization via `bitsandbytes` and [Unsloth](https://github.com/unslothai/unsloth).
 
 ## Running it
@@ -158,7 +158,7 @@ python src/inference/unannotated_review.py       # -> submissions/unannotated_ma
 
 - **It misses a lot.** Recall is 0.42, so more than half of the true entity text isn't caught.
   The most common miss is a long theorem or proof that runs across a paragraph or equation
-  break — the model tends to stop early.
+  break. The model tends to stop early.
 - **Chunking cuts things off.** Documents are split into overlapping chunks before being fed
   to the model, so an entity that happens to sit on a chunk boundary can get cut in half or
   counted twice.
@@ -167,7 +167,7 @@ python src/inference/unannotated_review.py       # -> submissions/unannotated_ma
   books rather than math writing in general.
 - **A bug in the review tool.** `unannotated_review.py` prints the tag as a number instead of
   its name (e.g. `6` instead of `theorem`). That's a bug in the reporting script, not in the
-  model's predictions — but it made manually checking the output more annoying than it needed
+  model's predictions, but it made manually checking the output more annoying than it needed
   to be.
 
 ## Built with
