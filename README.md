@@ -1,39 +1,37 @@
 # MMEE — Mathematical Entity Extraction
 
-Fine-tuning an LLM to extract structured entities from raw mathematical text.
+Fine-tuning an LLM to find and label definitions, theorems, and proofs inside raw math text.
 
-## Overview
+## What this is
 
-Math textbooks read as a wall of undifferentiated text once you strip the PDF formatting —
-`\textbf{Theorem}` and `\begin{proof}` markup is gone, and what's left is just paragraphs.
-But a human reader still knows, sentence by sentence, "this is the claim, this is the proof,
-this is a worked example." That structure is exactly what's missing from raw OCR/markdown
-dumps of math sources, and it's exactly what you'd need before you could do anything more
-interesting downstream: build a searchable index of "every theorem about compact groups,"
-feed clean (statement, proof) pairs to a math-reasoning model instead of noisy prose, or
-generate a study guide that separates definitions from examples automatically.
-
-Off-the-shelf NER doesn't help here — general-purpose taggers aren't trained on math prose,
-and the entities aren't neat single tokens; a "proof" span can run for three paragraphs and
-be interleaved with LaTeX, references to earlier theorems, and worked examples. This project
-treats it as a **span-extraction problem over raw document text**: given a chunk of a math
-document, output character-offset spans labeled as one of six entity types — **definition,
-theorem, proof, example, name, reference**.
-
-The core question this project explores: **can a math-specialized 7B model, fine-tuned on a
-small labeled set, beat prompting a base model for structured span extraction?** (Spoiler:
-few-shot prompting collapses almost completely on this task — see [Results](#results).)
+Math textbooks have a clear structure when you read them: this paragraph is a definition,
+this one states a theorem, this one proves it. But once you strip away formatting (for
+example, when a PDF is converted to plain text or markdown), that structure disappears and
+you're just left with paragraphs. This project tries to recover it automatically: given raw
+text from a math document, find the spans of text that are definitions, theorems, proofs,
+examples, names, or references, and label them.
 
 ```
 {"fileid": "algebra_lang.mmd", "start": 1024, "end": 1310, "tag": "theorem"}
 ```
 
+Why bother? If you can tag a math document this way, you can do things like search for "every
+theorem about compact groups" across a library, or pull out clean (statement, proof) pairs to
+train a math model on, instead of feeding it messy prose. Standard NER tools don't really work
+here — they're not trained on math writing, and the spans you're looking for aren't single
+words. A "proof" can run for several paragraphs and be full of LaTeX and references to earlier
+results.
+
+The main question I wanted to answer: does a math-specialized model actually need to be
+fine-tuned for this, or can you get by with a good prompt? Short answer: fine-tuning matters a
+lot here — see [Results](#results) below.
+
 ## Results
 
-Three stages were evaluated in order, each fixing what broke the previous one:
+I tried this three ways, in order:
 
 ```
-Token-level F1 (validation set)
+Token-level F1 on the validation set
 
 BIO baseline (few-shot)    ▏ 0.000
 Span baseline (few-shot)   ▏ 0.002
@@ -41,18 +39,18 @@ LoRA fine-tune             █████████████████�
                             0.0        0.1        0.2        0.3        0.4
 ```
 
-| Stage | Approach | Precision | Recall | F1 | What happened |
+| Stage | Approach | Precision | Recall | F1 | Notes |
 |---|---|:---:|:---:|:---:|---|
-| 1 | Few-shot, **BIO** output format | 0.000 | 0.000 | 0.000 | Model couldn't reliably emit valid token-index spans in the requested format — near-total format failure. |
-| 2 | Few-shot, **span (JSON)** output format | 0.174 | 0.001 | 0.002 | Switching to direct `{tag, start, end}` JSON let the model produce *some* valid output, but it found almost none of the true spans. |
-| 3 | **LoRA fine-tune** on Qwen2.5-Math-7B-Instruct | 0.451 | 0.418 | **0.434** | Task-specific supervision, not a better prompt, is what the base model was missing — F1 jumps ~200x over the best baseline. |
+| 1 | Few-shot prompting, BIO-style output | 0.000 | 0.000 | 0.000 | The model couldn't reliably output valid token spans in this format. |
+| 2 | Few-shot prompting, JSON span output | 0.174 | 0.001 | 0.002 | Better format, but it barely found any real spans. |
+| 3 | LoRA fine-tune on Qwen2.5-Math-7B-Instruct | 0.451 | 0.418 | **0.434** | Big jump. The base model just hadn't seen this task before — fine-tuning on a few hundred labeled examples was enough to fix that. |
 
-*All numbers are token-level P/R/F1 on the held-out validation set.*
+(F1 here is token-level: for every character position, is it correctly labeled? This is
+computed across all six tags on the validation set.)
 
-### Per-entity breakdown (fine-tuned model)
+### Breaking it down by entity type
 
-Performance isn't uniform across entity types — structurally distinctive entities are much
-easier than short, ambiguous ones:
+The fine-tuned model isn't equally good at every tag:
 
 | Tag | Precision | Recall | F1 | Support (chars) |
 |---|:---:|:---:|:---:|:---:|
@@ -62,63 +60,62 @@ easier than short, ambiguous ones:
 | example | 0.430 | 0.385 | 0.406 | 1,294 |
 | name | 0.169 | 0.164 | 0.166 | 421 |
 
-*`reference` is omitted — 0 occurrences in the validation set, so it's not measurable here.*
+(`reference` doesn't appear at all in the validation set, so there's no score for it.)
 
-`definition`, `theorem`, `proof`, and `example` — the long, structurally distinctive spans —
-land in a fairly tight 0.41–0.48 F1 band. `name` (short spans like a mathematician's name or
-a single symbol) lags well behind at 0.17: short spans give the model far less surrounding
-context to key off of, and are easy to miss or mis-bound by a few characters, which sinks
-character-level F1 disproportionately.
+The four long-form tags (`definition`, `proof`, `theorem`, `example`) all land around
+0.40–0.48 F1. `name` is much worse, at 0.17. That makes sense — a name is often just one or
+two words with little surrounding context to go on, so the model has a harder time knowing
+exactly where it starts and ends, and even a small mistake in the boundary hurts the score a
+lot more on a short span than a long one.
 
-## Approach
+## How it works
 
-1. **Baseline (no fine-tuning).** Two few-shot prompting strategies against the base model
-   were compared:
-   - *BIO*: whitespace-tokenize the input, ask the model to output token-index spans per tag.
-   - *Span extraction*: ask the model to directly emit `{tag, start, end}` JSON objects over
-     raw character offsets.
-   Both were evaluated to see which output format a base (non-fine-tuned) model could follow
-   more reliably — span extraction won, but both were far from usable.
+1. **Baseline, no fine-tuning.** I tried two ways of prompting the base model:
+   - *BIO*: split the text into tokens and ask the model for token-index spans per tag.
+   - *Span extraction*: ask the model to directly output `{tag, start, end}` JSON.
 
-2. **Fine-tuning.** [`Qwen2.5-Math-7B-Instruct`](https://huggingface.co/Qwen/Qwen2.5-Math-7B-Instruct)
-   (a math-specialized base model) was fine-tuned with **LoRA** (rank 16, all attention +
-   MLP projection matrices) via [Unsloth](https://github.com/unslothai/unsloth), in 4-bit,
-   on an instruction-formatted version of the training annotations: given a text chunk, emit
-   a JSON list of `{tag, text}` entity spans.
+   Span extraction worked better (the model could follow that format more reliably), but
+   neither approach found real spans consistently.
 
-3. **Inference & postprocessing.** Raw model output (JSON strings) is parsed, and predicted
-   `text` snippets are matched back to character offsets (`start`/`end`) in the source
-   document to produce the final span format.
+2. **Fine-tuning.** I used [`Qwen2.5-Math-7B-Instruct`](https://huggingface.co/Qwen/Qwen2.5-Math-7B-Instruct),
+   a math-specialized 7B model, and fine-tuned it with LoRA (rank 16, on the attention and
+   MLP projection layers) using [Unsloth](https://github.com/unslothai/unsloth) in 4-bit. The
+   training data is formatted as: given a chunk of text, output a JSON list of
+   `{tag, text}` entities.
 
-4. **Error analysis.** The fine-tuned model was run on unannotated documents outside the
-   training/validation set, and predictions were paired with surrounding context for manual
-   review (see [Limitations](#limitations-known-issues) below for what that surfaced).
+3. **Turning predictions back into spans.** The model outputs the *text* of each entity, not
+   its character position. A postprocessing step finds that text back in the source document
+   to recover `start`/`end` offsets.
 
-## Project Structure
+4. **Error analysis.** I also ran the fine-tuned model on documents it had never seen
+   (no labels at all), and manually reviewed a sample of its predictions against the source
+   text. What that turned up is in [Limitations](#limitations) below.
+
+## Project layout
 
 ```
 ├── data/
-│   ├── train.json, val.json        # character-span annotations (fileid, start, end, tag)
+│   ├── train.json, val.json        # labeled spans: (fileid, start, end, tag)
 │   ├── file_contents.json          # full source text, keyed by fileid
 │   └── unannotated_mmds/           # unlabeled documents used for error analysis
 ├── src/
-│   ├── baseline/                   # Part 1: few-shot prompting (BIO + span variants)
+│   ├── baseline/                   # few-shot prompting, BIO and span variants
 │   │   ├── inference_bio.py / postprocess_bio.py / evaluate_bio.py
 │   │   └── inference_span.py / postprocess_span.py / evaluate_span.py
-│   ├── training/                   # Part 2: LoRA fine-tuning + validation
+│   ├── training/                   # LoRA fine-tuning + validation
 │   │   ├── preprocess.py           # train.json + file_contents.json -> train.jsonl
 │   │   ├── train_lora.py           # LoRA fine-tune on Qwen2.5-Math-7B-Instruct
 │   │   ├── val_inference.py / val_postprocess.py / val_evaluate.py
-│   ├── inference/                  # test set + unannotated document inference
+│   ├── inference/                  # inference on the test set and unlabeled documents
 │   │   ├── test_inference.py / test_postprocess.py
 │   │   └── unannotated_inference.py / unannotated_postprocess.py / unannotated_review.py
 │   └── analysis/
-│       └── error_analysis.py       # false positive / false negative inspection
-└── submissions/                    # generated predictions (csv/jsonl) — see below
+│       └── error_analysis.py       # inspect false positives / false negatives
+└── submissions/                    # generated predictions (csv/jsonl)
 ```
 
-All scripts resolve paths relative to the project root (via `PROJECT_ROOT` computed from
-`__file__`), so the pipeline runs unmodified from any clone location.
+Every script figures out the project root from its own file path, so the pipeline runs the
+same way no matter where you clone it.
 
 ## Setup
 
@@ -126,51 +123,54 @@ All scripts resolve paths relative to the project root (via `PROJECT_ROOT` compu
 pip install -r requirements.txt
 ```
 
-Requires Python 3.10+ and a CUDA GPU (fine-tuning and inference use 4-bit quantization via
-`bitsandbytes` + [Unsloth](https://github.com/unslothai/unsloth)).
+You'll need Python 3.10+ and a CUDA GPU — fine-tuning and inference both use 4-bit
+quantization via `bitsandbytes` and [Unsloth](https://github.com/unslothai/unsloth).
 
-## Running the Pipeline
+## Running it
 
-All commands are run from the project root.
+All commands assume you're in the project root.
 
-**1. Baseline (few-shot, no fine-tuning)**
+**Baseline (no fine-tuning):**
 ```bash
 python src/baseline/inference_span.py     # -> submissions/baseline_raw_predictions.jsonl
 python src/baseline/postprocess_span.py   # -> submissions/baseline_val_predictions.csv
-python src/baseline/evaluate_span.py      # token-level F1 on validation
+python src/baseline/evaluate_span.py      # prints token-level F1 on validation
 ```
 
-**2. Fine-tuning**
+**Fine-tuning:**
 ```bash
 python src/training/preprocess.py    # -> data/train.jsonl
 python src/training/train_lora.py    # -> outputs/checkpoints/math_lora_model/final_lora_model
 
 python src/training/val_inference.py    # -> submissions/val_raw_predictions.jsonl
 python src/training/val_postprocess.py  # -> submissions/val_predictions.csv
-python src/training/val_evaluate.py     # token-level F1 on validation
+python src/training/val_evaluate.py     # prints token-level F1 on validation
 ```
 
-**3. Inference on new/unlabeled documents**
+**Running on new, unlabeled documents:**
 ```bash
 python src/inference/unannotated_inference.py    # -> submissions/unannotated_analysis_predictions.jsonl
 python src/inference/unannotated_postprocess.py  # -> submissions/unannotated_predictions.json
-python src/inference/unannotated_review.py       # -> submissions/unannotated_manual_review.txt (for error analysis)
+python src/inference/unannotated_review.py       # -> submissions/unannotated_manual_review.txt
 ```
 
-## Limitations & Known Issues
+## Limitations
 
-- **Recall ceiling.** Even the fine-tuned model misses ~58% of true entity tokens (F1 0.43,
-  recall 0.42) — long theorem/proof spans that run across paragraph or equation breaks are
-  the most common miss.
-- **Chunking loses context.** Documents are processed in overlapping character chunks;
-  entities that span a chunk boundary can be truncated or duplicated.
-- **Small training set.** Fine-tuning used a few hundred annotated spans across a handful of
-  source documents — the model likely overfits to the surface style of those specific texts.
-- **Manual review tooling** (`unannotated_review.py`) currently surfaces the *tag index*
-  rather than the *tag name* in its report — a labeling bug in the review formatter, not in
-  the model's predictions, but it made manual QA slower than it should have been.
+- **It misses a lot.** Recall is 0.42, so more than half of the true entity text isn't caught.
+  The most common miss is a long theorem or proof that runs across a paragraph or equation
+  break — the model tends to stop early.
+- **Chunking cuts things off.** Documents are split into overlapping chunks before being fed
+  to the model, so an entity that happens to sit on a chunk boundary can get cut in half or
+  counted twice.
+- **Not much training data.** Fine-tuning used a few hundred labeled spans from a handful of
+  textbooks, so the model has probably picked up some habits specific to those particular
+  books rather than math writing in general.
+- **A bug in the review tool.** `unannotated_review.py` prints the tag as a number instead of
+  its name (e.g. `6` instead of `theorem`). That's a bug in the reporting script, not in the
+  model's predictions — but it made manually checking the output more annoying than it needed
+  to be.
 
-## Tech Stack
+## Built with
 
 `Qwen2.5-Math-7B-Instruct` · LoRA (PEFT) · [Unsloth](https://github.com/unslothai/unsloth)
 · 4-bit quantization (`bitsandbytes`) · `transformers` / `trl` · `pandas`
